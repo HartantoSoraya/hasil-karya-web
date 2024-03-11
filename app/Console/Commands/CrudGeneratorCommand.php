@@ -33,6 +33,8 @@ class CrudGeneratorCommand extends Command
         $this->createTest();
         $this->createFactory();
         $this->createViews();
+        $this->addRoutes();
+        $this->addSidebarMenu();
 
         $this->comment('Playground created successfully. Happy coding hugo! 🚀');
     }
@@ -203,13 +205,12 @@ class CrudGeneratorCommand extends Command
         file_put_contents($controllerPath, $controllerContent);
     }
 
-
     protected function modifyMigration()
     {
         $name = $this->argument('name');
         $name = Str::snake($name);
         $name = Str::plural($name);
-        $migration = database_path('migrations/' . date('Y_m_d_His') . '_create_' . $name . '_table.php');
+        $migration = database_path('migrations/'.date('Y_m_d_His').'_create_'.$name.'_table.php');
 
         $migrationContent = "<?php\n\n";
         $migrationContent .= "use Illuminate\Database\Migrations\Migration;\n";
@@ -259,7 +260,7 @@ class CrudGeneratorCommand extends Command
 
     protected function createTest()
     {
-        $name = $this->argument('name') . 'Controller';
+        $name = $this->argument('name').'Controller';
         $test = base_path("tests/Feature/{$name}Test.php");
         $testContent =
             <<<'EOT'
@@ -282,7 +283,7 @@ class CrudGeneratorCommand extends Command
                 //
             }
             EOT;
-        $testContent = str_replace('@name', $name . 'Test', $testContent);
+        $testContent = str_replace('@name', $name.'Test', $testContent);
 
         file_put_contents($test, $testContent);
     }
@@ -321,34 +322,34 @@ class CrudGeneratorCommand extends Command
 
         $viewsPath = resource_path("views/pages/admin/{$name}");
 
-        if (!file_exists($viewsPath)) {
+        if (! file_exists($viewsPath)) {
             mkdir($viewsPath, 0755, true);
         }
 
-        $indexViewPath = $viewsPath . '/index.blade.php';
+        $indexViewPath = $viewsPath.'/index.blade.php';
         $indexViewContent = $this->generateIndexViewContent($name);
         file_put_contents($indexViewPath, $indexViewContent);
 
-        $createViewPath = $viewsPath . '/create.blade.php';
+        $createViewPath = $viewsPath.'/create.blade.php';
         $createViewContent = $this->generateCreateViewContent($name);
         file_put_contents($createViewPath, $createViewContent);
 
-        $editViewPath = $viewsPath . '/edit.blade.php';
+        $editViewPath = $viewsPath.'/edit.blade.php';
         $editViewContent = $this->generateEditViewContent($name);
         file_put_contents($editViewPath, $editViewContent);
 
-        $showViewPath = $viewsPath . '/show.blade.php';
+        $showViewPath = $viewsPath.'/show.blade.php';
         $showViewContent = $this->generateShowViewContent($name);
         file_put_contents($showViewPath, $showViewContent);
     }
 
     protected function generateInterfaceContent($name)
     {
-        return "<?php\n\nnamespace App\Interfaces;\n\ninterface {$name}RepositoryInterface\n{\n" .
-            "    public function getAll{$name}();\n" .
-            "    public function get{$name}ById(string \$id);\n" .
-            "    public function create{$name}(array \$data);\n" .
-            "    public function update{$name}(array \$data, string \$id);\n" .
+        return "<?php\n\nnamespace App\Interfaces;\n\ninterface {$name}RepositoryInterface\n{\n".
+            "    public function getAll{$name}();\n".
+            "    public function get{$name}ById(string \$id);\n".
+            "    public function create{$name}(array \$data);\n".
+            "    public function update{$name}(array \$data, string \$id);\n".
             "    public function delete{$name}(string \$id);\n}\n";
     }
 
@@ -549,5 +550,33 @@ class CrudGeneratorCommand extends Command
         </div>
     </div>
 </x-layouts.admin>";
+    }
+
+    protected function addRoutes()
+    {
+        $name = $this->argument('name');
+        $name = Str::kebab($name);
+        $routes = base_path('routes/admin.php');
+
+        $routeContent = "\nRoute::resource('{$name}', App\Http\Controllers\Web\Admin\\{$name}Controller::class);";
+
+        file_put_contents($routes, $routeContent, FILE_APPEND);
+    }
+
+    protected function addSidebarMenu()
+    {
+        $name = $this->argument('name');
+        $name = Str::kebab($name);
+
+        $sidebar = resource_path('views/components/ui/admin-sidebar.blade.php');
+
+        $sidebarContent = "\n<li class=\"nav-item {{ request()->is('admin/{$name}') ? ' active' : '' }}\">\n";
+        $sidebarContent .= "    <a href=\"{{ route('admin.{$name}.index') }}\" class=\"nav-link\">\n";
+        $sidebarContent .= "        <i class=\"link-icon\" data-feather=\"list\"></i>\n";
+        $sidebarContent .= "        <span class=\"link-title\">{$name}</span>\n";
+        $sidebarContent .= "    </a>\n";
+        $sidebarContent .= "</li>\n";
+
+        file_put_contents($sidebar, $sidebarContent, FILE_APPEND);
     }
 }

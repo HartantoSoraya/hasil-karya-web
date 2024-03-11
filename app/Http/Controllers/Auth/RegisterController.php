@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
 use App\Interfaces\AuthRepositoryInterface;
-use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert as Swal;
 
 class RegisterController extends Controller

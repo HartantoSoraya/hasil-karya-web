@@ -7,17 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Example extends Model
+class BlogTag extends Model
 {
     use HasFactory, SoftDeletes, UUID;
 
     protected $fillable = [
         'name',
-        'description',
-        'status',
-    ];
-
-    protected $casts = [
-        'status' => 'string',
+        'slug',
     ];
 }

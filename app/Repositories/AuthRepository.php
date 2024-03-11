@@ -19,7 +19,7 @@ class AuthRepository implements AuthRepositoryInterface
         if ($data['role'] == 'student') {
             $user->assignRole('student');
 
-            $username = strstr($data['email'], '@', true) . Student::count();
+            $username = strstr($data['email'], '@', true).Student::count();
 
             $user->student()->create([
                 'name' => $data['name'],

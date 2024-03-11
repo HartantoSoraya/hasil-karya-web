@@ -3,8 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
-class ExampleFactory extends Factory
+class BlogTagFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,7 +15,8 @@ class ExampleFactory extends Factory
     public function definition(): array
     {
         return [
-            // Define your default state here
+            'name' => $this->faker->word,
+            'slug' => Str::slug($this->faker->word).'-'.Str::random(5),
         ];
     }
 }

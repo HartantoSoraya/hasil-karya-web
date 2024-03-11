@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class AccountSeeder extends Seeder
@@ -16,7 +15,7 @@ class AccountSeeder extends Seeder
         $appname = config('app.name');
 
         User::create([
-            'email' => 'admin@' . str_replace(' ', '', strtolower($appname)) . '.com',
+            'email' => 'admin@'.str_replace(' ', '', strtolower($appname)).'.com',
             'password' => bcrypt('password'),
         ])->assignRole('admin');
     }

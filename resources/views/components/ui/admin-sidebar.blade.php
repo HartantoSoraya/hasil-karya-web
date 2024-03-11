@@ -22,6 +22,12 @@
                     <span class="link-title">Example</span>
                 </a>
             </li>
+            <li class="nav-item {{ request()->is('admin/blog-tag') ? ' active' : '' }}">
+                <a href="{{ route('admin.blog-tag.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="list"></i>
+                    <span class="link-title">Blog Tag</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

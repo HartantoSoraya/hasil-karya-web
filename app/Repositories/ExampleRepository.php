@@ -10,7 +10,7 @@ class ExampleRepository implements ExampleRepositoryInterface
 {
     public function getAllExample()
     {
-      return Example::all();
+        return Example::all();
     }
 
     public function getExampleById(string $id)
