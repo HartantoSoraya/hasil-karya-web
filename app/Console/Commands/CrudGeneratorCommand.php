@@ -384,49 +384,6 @@ class CrudGeneratorCommand extends Command
 
     protected function generateRepositoryContent($name)
     {
-        $pluralName = Str::plural($name);
-        $varName = Str::lower($pluralName);
-
-        $repositoryContent = "<?php\n\nnamespace App\Repositories;\n\nuse App\Interfaces\\{$name}RepositoryInterface;\n";
-        $repositoryContent .= "use App\Models\\{$name};\n";
-        $repositoryContent .= "use Illuminate\Support\Facades\DB;\n\n";
-        $repositoryContent .= "class {$name}Repository implements {$name}RepositoryInterface\n{\n";
-        $repositoryContent .= "    public function getAll{$name}()\n    {\n";
-        $repositoryContent .= "        return {$name}::all();\n    }\n\n";
-        $repositoryContent .= "    public function get{$name}ById(string \$id)\n    {\n";
-        $repositoryContent .= "        return {$name}::findOrFail(\$id);\n    }\n\n";
-        $repositoryContent .= "    public function create{$name}(array \$data)\n    {\n";
-        $repositoryContent .= "        DB::beginTransaction();\n";
-        $repositoryContent .= "        try {\n";
-        $repositoryContent .= "           \${$varName} = {$name}::create(\$data);\n";
-        $repositoryContent .= "            DB::commit();\n";
-        $repositoryContent .= "            return \${$varName};\n";
-        $repositoryContent .= "        } catch (\Exception \$e) {\n";
-        $repositoryContent .= "            DB::rollBack();\n";
-        $repositoryContent .= "            return \$e->getMessage();\n";
-        $repositoryContent .= "        }\n    }\n\n";
-        $repositoryContent .= "    public function update{$name}(array \$data, string \$id)\n    {\n";
-        $repositoryContent .= "        DB::beginTransaction();\n";
-        $repositoryContent .= "        try {\n";
-        $repositoryContent .= "           \${$varName} = {$name}::findOrFail(\$id);\n";
-        $repositoryContent .= "           \${$varName}->update(\$data);\n";
-        $repositoryContent .= "            DB::commit();\n";
-        $repositoryContent .= "            return \${$varName};\n";
-        $repositoryContent .= "        } catch (\Exception \$e) {\n";
-        $repositoryContent .= "            DB::rollBack();\n";
-        $repositoryContent .= "            return \$e->getMessage();\n";
-        $repositoryContent .= "        }\n    }\n\n";
-        $repositoryContent .= "    public function delete{$name}(string \$id)\n    {\n";
-        $repositoryContent .= "        DB::beginTransaction();\n";
-        $repositoryContent .= "        try {\n";
-        $repositoryContent .= "            {$name}::findOrFail(\$id)->delete();\n";
-        $repositoryContent .= "            DB::commit();\n";
-        $repositoryContent .= "            return true;\n";
-        $repositoryContent .= "        } catch (\Exception \$e) {\n";
-        $repositoryContent .= "            DB::rollBack();\n";
-        $repositoryContent .= "            return \$e->getMessage();\n";
-        $repositoryContent .= "        }\n    }\n}\n";
-
         $repositoryContent =
             <<<'EOT'
             <?php
@@ -439,7 +396,7 @@ class CrudGeneratorCommand extends Command
             
             class __namePascalCase__Repository implements __namePascalCase__RepositoryInterface
             {
-                public function getAll__namePascalCase__()
+                public function getAll__nameCamelCasePlurals__()
                 {
                     return __namePascalCase__::all();
                 }
@@ -627,7 +584,7 @@ class CrudGeneratorCommand extends Command
                             <x-slot name="header">
                                 <h4 class="card-title">Tambah __nameTitleCase__</h4>
                             </x-slot>
-                            <form action="{{ route('admin.__nameKebabCase__.store') }}" method="POST">
+                            <form action="{{ route('admin.__nameKebabCase__.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <x-forms.input label="Nama" name="name" id="name" /> 
                                 <x-forms.input label="Slug" name="slug" id="slug" />    
@@ -682,7 +639,7 @@ class CrudGeneratorCommand extends Command
                             <x-slot name="header">
                                 <h6>Edit __nameTitleCase__</h6>
                             </x-slot>
-                            <form action="{{ route('admin.__nameKebabCase__.update', $__nameCamelCase__->id) }}" method="POST">
+                            <form action="{{ route('admin.__nameKebabCase__.update', $__nameCamelCase__->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <x-forms.input label="Nama" name="name" id="name" :value="$__nameCamelCase__->name" />
@@ -698,6 +655,18 @@ class CrudGeneratorCommand extends Command
                         </x-ui.base-card>
                     </div>
                 </div>
+
+            @push('custom-scripts')
+                <script>
+                    const name = document.querySelector('#name');
+                    const slug = document.querySelector('#slug');
+        
+                    name.addEventListener('keyup', function() {
+                        const nameValue = name.value;
+                        slug.value = nameValue.toLowerCase().split(' ').join('-');
+                    });
+                </script>
+            @endpush  
             </x-layouts.admin>
             EOT;
 

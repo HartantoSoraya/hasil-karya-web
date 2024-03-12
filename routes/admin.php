@@ -19,3 +19,16 @@ Route::resource('example', App\Http\Controllers\Web\Admin\ExampleController::cla
 Route::resource('blog-tag', App\Http\Controllers\Web\Admin\BlogTagController::class);
 
 Route::resource('blog-category', App\Http\Controllers\Web\Admin\BlogCategoryController::class);
+
+Route::resource('project-category', App\Http\Controllers\Web\Admin\ProjectCategoryController::class);
+
+Route::resource('contact', App\Http\Controllers\Web\Admin\ContactController::class);
+
+Route::resource('banner', App\Http\Controllers\Web\Admin\BannerController::class);
+
+Route::resource('frequently-asked-question', App\Http\Controllers\Web\Admin\FrequentlyAskedQuestionController::class);
+
+Route::resource('blog', App\Http\Controllers\Web\Admin\BlogController::class);
+
+Route::resource('service', App\Http\Controllers\Web\Admin\ServiceController::class);
+Route::resource('testimonial', App\Http\Controllers\Web\Admin\TestimonialController::class);
