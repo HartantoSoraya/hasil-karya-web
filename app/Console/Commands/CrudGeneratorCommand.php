@@ -140,67 +140,91 @@ class CrudGeneratorCommand extends Command
     {
         $name = $this->argument('name');
 
-        $names = Str::plural(Str::snake($name));
-
         $this->call('make:controller', ['name' => "Web/Admin/{$name}Controller", '--resource' => true]);
 
         $controllerPath = app_path("Http/Controllers/Web/Admin/{$name}Controller.php");
 
-        $controllerContent = "<?php\n\n";
-        $controllerContent .= "namespace App\Http\Controllers\Web\Admin;\n\n";
-        $controllerContent .= "use App\Http\Controllers\Controller;\n";
-        $controllerContent .= "use App\Http\Requests\\Store{$name}Request;\n";
-        $controllerContent .= "use App\Http\Requests\\Update{$name}Request;\n";
-        $controllerContent .= "use App\Interfaces\\{$name}RepositoryInterface;\n";
-        $controllerContent .= "use RealRashid\SweetAlert\Facades\Alert as Swal;\n";
-        $controllerContent .= "use Illuminate\Http\Request;\n";
-        $controllerContent .= "class {$name}Controller extends Controller\n";
-        $controllerContent .= "{\n";
-        $controllerContent .= "    protected \${$name}Repository;\n\n";
-        $controllerContent .= "    public function __construct({$name}RepositoryInterface \${$name}Repository)\n";
-        $controllerContent .= "    {\n";
-        $controllerContent .= "        \$this->{$name}Repository = \${$name}Repository;\n";
-        $controllerContent .= "    }\n\n";
-        $controllerContent .= "    public function index(Request \$request)\n";
-        $controllerContent .= "    {\n";
-        $controllerContent .= "         \${$names} = \$this->{$name}Repository->getAll{$name}();\n";
-        $controllerContent .= "         return view('pages.admin.{$name}.index', compact('{$names}'));\n";
-        $controllerContent .= "    }\n\n";
-        $controllerContent .= "    public function create()\n";
-        $controllerContent .= "    {\n";
-        $controllerContent .= "       return view('pages.admin.{$name}.create');\n";
-        $controllerContent .= "    }\n\n";
-        $controllerContent .= "    public function store(Store{$name}Request \$request)\n";
-        $controllerContent .= "    {\n";
-        $controllerContent .= "        \$data = \$request->validated();\n";
-        $controllerContent .= "        \$this->{$name}Repository->create{$name}(\$data);\n";
-        $controllerContent .= "        Swal::toast('{$name} created successfully!', 'success')->timerProgressBar();\n";
-        $controllerContent .= "        return redirect()->route('{$name}.index');\n";
-        $controllerContent .= "    }\n\n";
-        $controllerContent .= "    public function show(\$id)\n";
-        $controllerContent .= "    {\n";
-        $controllerContent .= "      \${$name} = \$this->{$name}Repository->get{$name}ById(\$id);\n";
-        $controllerContent .= "      return view('pages.admin.{$name}.show', compact('{$name}'));\n";
-        $controllerContent .= "    }\n\n";
-        $controllerContent .= "    public function edit(\$id)\n";
-        $controllerContent .= "    {\n";
-        $controllerContent .= "      \${$name} = \$this->{$name}Repository->get{$name}ById(\$id);\n";
-        $controllerContent .= "      return view('pages.admin.{$name}.edit', compact('{$name}'));\n";
-        $controllerContent .= "    }\n\n";
-        $controllerContent .= "    public function update(Update{$name}Request \$request, \$id)\n";
-        $controllerContent .= "    {\n";
-        $controllerContent .= "        \$data = \$request->validated();\n";
-        $controllerContent .= "        \$this->{$name}Repository->update{$name}(\$data, \$id);\n";
-        $controllerContent .= "        Swal::toast('{$name} updated successfully!', 'success')->timerProgressBar();\n";
-        $controllerContent .= "        return redirect()->route('{$name}.index');\n";
-        $controllerContent .= "    }\n\n";
-        $controllerContent .= "    public function destroy(\$id)\n";
-        $controllerContent .= "    {\n";
-        $controllerContent .= "      \$this->{$name}Repository->delete{$name}(\$id);\n";
-        $controllerContent .= "      Swal::toast('{$name} deleted successfully!', 'success')->timerProgressBar();\n";
-        $controllerContent .= "      return redirect()->route('{$name}.index');\n";
-        $controllerContent .= "    }\n";
-        $controllerContent .= "}\n";
+        $controllerContent =
+            <<<'EOT'
+            <?php
+
+            namespace App\Http\Controllers\Web\Admin;
+            
+            use App\Http\Controllers\Controller;
+            use App\Http\Requests\Store__namePascalCase__Request;
+            use App\Http\Requests\Update__namePascalCase__Request;
+            use App\Interfaces\__namePascalCase__RepositoryInterface;
+            use RealRashid\SweetAlert\Facades\Alert as Swal;
+            use Illuminate\Http\Request;
+            class __namePascalCase__Controller extends Controller
+            {
+                protected $__nameCamelCase__Repository;
+            
+                public function __construct(__namePascalCase__RepositoryInterface $__nameCamelCase__Repository)
+                {
+                    $this->__nameCamelCase__Repository = $__nameCamelCase__Repository;
+                }
+            
+                public function index(Request $request)
+                {
+                    $__nameCamelCasePlurals__ = $this->__nameCamelCase__Repository->getAll__namePascalCase__();
+                    
+                    return view('pages.admin.__nameKebabCase__.index', compact('__nameCamelCasePlurals__'));
+                }
+            
+                public function create()
+                {
+                    return view('pages.admin.__nameKebabCase__.create');
+                }
+            
+                public function store(Store__namePascalCase__Request $request)
+                {
+                    $data = $request->validated();
+                    $this->__nameCamelCase__Repository->create__namePascalCase__($data);
+                    Swal::toast('__nameProperCase__ created successfully!', 'success')->timerProgressBar();
+                    
+                    return redirect()->route('admin.__nameKebabCase__.index');
+                }
+            
+                public function show($id)
+                {
+                    $__nameCamelCase__ = $this->__nameCamelCase__Repository->get__namePascalCase__ById($id);
+                    
+                    return view('pages.admin.__nameKebabCase__.show', compact('__nameCamelCase__'));
+                }
+            
+                public function edit($id)
+                {
+                    $__nameCamelCase__ = $this->__nameCamelCase__Repository->get__namePascalCase__ById($id);
+                    
+                    return view('pages.admin.__nameKebabCase__.edit', compact('__nameCamelCase__'));
+                }
+            
+                public function update(Update__namePascalCase__Request $request, $id)
+                {
+                    $data = $request->validated();
+                    $this->__nameCamelCase__Repository->update__namePascalCase__($data, $id);
+                    Swal::toast('__nameProperCase__ updated successfully!', 'success')->timerProgressBar();
+                    
+                    return redirect()->route('admin.__nameKebabCase__.index');
+                }
+            
+                public function destroy($id)
+                {
+                    $this->__nameCamelCase__Repository->delete__namePascalCase__($id);
+                    Swal::toast('__nameProperCase__ deleted successfully!', 'success')->timerProgressBar();
+                    
+                    return redirect()->route('admin.__nameKebabCase__.index');
+                }
+            }
+            EOT;
+
+        $controllerContent = str_replace('__namePascalCase__', $name, $controllerContent);
+        $controllerContent = str_replace('__nameCamelCase__', Str::camel($name), $controllerContent);
+        $controllerContent = str_replace('__nameSnakeCase__', Str::snake($name), $controllerContent);
+        $controllerContent = str_replace('__nameProperCase__', ucfirst(strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/', ' ', $name))), $controllerContent);
+        $controllerContent = str_replace('__nameKebabCase__', Str::kebab($name), $controllerContent);
+        $controllerContent = str_replace('__nameCamelCasePlurals__', Str::camel(Str::plural($name)), $controllerContent);
 
         file_put_contents($controllerPath, $controllerContent);
     }
@@ -318,6 +342,7 @@ class CrudGeneratorCommand extends Command
     protected function createViews()
     {
         $name = $this->argument('name');
+        $normalName = $name;
         $name = Str::kebab($name);
 
         $viewsPath = resource_path("views/pages/admin/{$name}");
@@ -327,19 +352,19 @@ class CrudGeneratorCommand extends Command
         }
 
         $indexViewPath = $viewsPath.'/index.blade.php';
-        $indexViewContent = $this->generateIndexViewContent($name);
+        $indexViewContent = $this->generateIndexViewContent($normalName);
         file_put_contents($indexViewPath, $indexViewContent);
 
         $createViewPath = $viewsPath.'/create.blade.php';
-        $createViewContent = $this->generateCreateViewContent($name);
+        $createViewContent = $this->generateCreateViewContent($normalName);
         file_put_contents($createViewPath, $createViewContent);
 
         $editViewPath = $viewsPath.'/edit.blade.php';
-        $editViewContent = $this->generateEditViewContent($name);
+        $editViewContent = $this->generateEditViewContent($normalName);
         file_put_contents($editViewPath, $editViewContent);
 
         $showViewPath = $viewsPath.'/show.blade.php';
-        $showViewContent = $this->generateShowViewContent($name);
+        $showViewContent = $this->generateShowViewContent($normalName);
         file_put_contents($showViewPath, $showViewContent);
     }
 
@@ -347,9 +372,13 @@ class CrudGeneratorCommand extends Command
     {
         return "<?php\n\nnamespace App\Interfaces;\n\ninterface {$name}RepositoryInterface\n{\n".
             "    public function getAll{$name}();\n".
+            "\n".
             "    public function get{$name}ById(string \$id);\n".
+            "\n".
             "    public function create{$name}(array \$data);\n".
+            "\n".
             "    public function update{$name}(array \$data, string \$id);\n".
+            "\n".
             "    public function delete{$name}(string \$id);\n}\n";
     }
 
@@ -398,6 +427,90 @@ class CrudGeneratorCommand extends Command
         $repositoryContent .= "            return \$e->getMessage();\n";
         $repositoryContent .= "        }\n    }\n}\n";
 
+        $repositoryContent =
+            <<<'EOT'
+            <?php
+
+            namespace App\Repositories;
+            
+            use App\Interfaces\__namePascalCase__RepositoryInterface;
+            use App\Models\__namePascalCase__;
+            use Illuminate\Support\Facades\DB;
+            
+            class __namePascalCase__Repository implements __namePascalCase__RepositoryInterface
+            {
+                public function getAll__namePascalCase__()
+                {
+                    return __namePascalCase__::all();
+                }
+            
+                public function get__namePascalCase__ById(string $id)
+                {
+                    return __namePascalCase__::findOrFail($id);
+                }
+            
+                public function create__namePascalCase__(array $data)
+                {
+                    DB::beginTransaction();
+                    
+                    try {
+                        $__nameCamelCase__ = __namePascalCase__::create($data);
+            
+                        DB::commit();
+            
+                        return $__nameCamelCase__;
+                    } catch (\Exception $e) {
+                        DB::rollBack();
+            
+                        return $e->getMessage();
+                    }
+                }
+            
+                public function update__namePascalCase__(array $data, string $id)
+                {
+                    DB::beginTransaction();
+            
+                    try {
+                        $__nameCamelCase__ = __namePascalCase__::findOrFail($id);
+            
+                        $__nameCamelCase__->update($data);
+            
+                        DB::commit();
+            
+                        return $__nameCamelCase__;
+                    } catch (\Exception $e) {
+                        DB::rollBack();
+            
+                        return $e->getMessage();
+                    }
+                }
+            
+                public function delete__namePascalCase__(string $id)
+                {
+                    DB::beginTransaction();
+            
+                    try {
+                        __namePascalCase__::findOrFail($id)->delete();
+            
+                        DB::commit();
+            
+                        return true;
+                    } catch (\Exception $e) {
+                        DB::rollBack();
+            
+                        return $e->getMessage();
+                    }
+                }
+            }        
+            EOT;
+
+        $repositoryContent = str_replace('__namePascalCase__', $name, $repositoryContent);
+        $repositoryContent = str_replace('__nameCamelCase__', Str::camel($name), $repositoryContent);
+        $repositoryContent = str_replace('__nameSnakeCase__', Str::snake($name), $repositoryContent);
+        $repositoryContent = str_replace('__nameProperCase__', ucfirst(strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/', ' ', $name))), $repositoryContent);
+        $repositoryContent = str_replace('__nameKebabCase__', Str::kebab($name), $repositoryContent);
+        $repositoryContent = str_replace('__nameCamelCasePlurals__', Str::camel(Str::plural($name)), $repositoryContent);
+
         return $repositoryContent;
     }
 
@@ -416,149 +529,244 @@ class CrudGeneratorCommand extends Command
 
     protected function generateIndexViewContent($name)
     {
-        return "
-<x-layouts.admin title=\"{$name}\">
 
-    <x-ui.breadcumb-admin>
-        <li class=\"breadcrumb-item active\" aria-current=\"page\">{$name}</li>
-    </x-ui.breadcumb-admin>
+        $content =
+            <<<'EOT'
+            <x-layouts.admin title="__nameTitleCase__">
 
-    <div class=\"row\">
-        <div class=\"col-md-12 grid-margin stretch-card\">
-            <x-ui.base-card>
-                <x-slot name=\"header\">
-                    <x-ui.base-button color=\"primary\" type=\"button\" href=\"{{ route('admin.{$name}.create') }}\">
-                        Tambah {$name}
-                    </x-ui.base-button>
-                </x-slot>
-                <x-ui.datatables>
-                    <x-slot name=\"thead\">
-                        <tr>
-                            <th>No</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </x-slot>
-                    <x-slot name=\"tbody\">
-                        @foreach (\${$name}s as \${$name})
-                            <tr>
-                                <td>{{ \$loop->iteration }}</td>
-                                {{-- Add your columns here --}}
-                                <td>
-                                    <x-ui.base-button color=\"primary\" type=\"button\"
-                                        href=\"{{ route('admin.{$name}.show', \${$name}->id) }}\">
-                                        Detail
-                                    </x-ui.base-button>
+                <x-ui.breadcumb-admin>
+                    <li class="breadcrumb-item active" aria-current="page">__nameTitleCase__</li>
+                </x-ui.breadcumb-admin>
+            
+                <div class="row">
+                    <div class="col-md-12 grid-margin stretch-card">
+                        <x-ui.base-card>
+                            <x-slot name="header">
+                                <x-ui.base-button color="primary" type="button" href="{{ route('admin.__nameKebabCase__.create') }}">
+                                    Tambah __nameTitleCase__
+                                </x-ui.base-button>
+                            </x-slot>
+                            <x-ui.datatables>
+                                <x-slot name="thead">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </x-slot>
+                                <x-slot name="tbody">
+                                    @foreach ($__nameCamelCasePlurals__ as $__nameCamelCase__)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $__nameCamelCase__->name }}</td>
 
-                                    <x-ui.base-button color=\"warning\" type=\"button\"
-                                        href=\"{{ route('admin.{$name}.edit', \${$name}->id) }}\">
-                                        Edit
-                                    </x-ui.base-button>
+                                        <td>
+                                            <x-ui.base-button color="primary" type="button" href="{{ route('admin.__nameKebabCase__.show', $__nameCamelCase__->id) }}">
+                                                Detail
+                                            </x-ui.base-button>
+            
+                                            <x-ui.base-button color="warning" type="button" href="{{ route('admin.__nameKebabCase__.edit', $__nameCamelCase__->id) }}">
+                                                Edit
+                                            </x-ui.base-button>
+            
+                                            <form action="{{ route('admin.__nameKebabCase__.destroy', $__nameCamelCase__->id) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <x-ui.base-button color="danger" type="submit" onclick="return confirm('Yakin ingin menghapus?')">
+                                                    Hapus
+                                                </x-ui.base-button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </x-slot>
+                            </x-ui.datatables>
+                        </x-ui.base-card>
+                    </div>
+                </div>
+            </x-layouts.admin>                
+            EOT;
 
-                                    <form action=\"{{ route('admin.{$name}.destroy', \${$name}->id) }}\" method=\"POST\"
-                                        class=\"d-inline\">
-                                        @csrf
-                                        @method('DELETE')
-                                        <x-ui.base-button color=\"danger\" type=\"submit\" onclick=\"return confirm('Yakin ingin menghapus?')\">
-                                            Hapus
-                                        </x-ui.base-button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </x-slot>
-                </x-ui.datatables>
-            </x-ui.base-card>
-        </div>
-    </div>
-</x-layouts.admin>";
+        $content = str_replace('__namePascalCase__', $name, $content);
+        $content = str_replace('__nameCamelCase__', Str::camel($name), $content);
+        $content = str_replace('__nameSnakeCase__', Str::snake($name), $content);
+        $content = str_replace('__nameProperCase__', ucfirst(strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/', ' ', $name))), $content);
+        $content = str_replace('__nameTitleCase__', ucfirst(preg_replace('/(?<=\\w)(?=[A-Z])/', ' ', $name)), $content);
+        $content = str_replace('__nameKebabCase__', Str::kebab($name), $content);
+        $content = str_replace('__nameCamelCasePlurals__', Str::camel(Str::plural($name)), $content);
 
+        return $content;
     }
 
     protected function generateCreateViewContent($name)
     {
-        return "
-<x-layouts.admin title=\"Tambah {$name}\">
+        $content =
+            <<<'EOT'
+            <x-layouts.admin title="Tambah __nameTitleCase__">
 
-    <x-ui.breadcumb-admin>
-        <li class=\"breadcrumb-item\"><a href=\"{{ route('admin.{$name}.index') }}\">{$name}</a></li>
-        <li class=\"breadcrumb-item active\" aria-current=\"page\">Tambah {$name}</li>
-    </x-ui.breadcumb-admin>
+                <x-ui.breadcumb-admin>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.__nameKebabCase__.index') }}">__nameTitleCase__</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Tambah __nameTitleCase__</li>
+                </x-ui.breadcumb-admin>
+            
+                <div class="row">
+                    @if ($errors->any())
+                    <div class="col-md-12 grid-margin">
+                        <div class="alert alert-danger" role="alert">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    @endif
+            
+                    <div class="col-md-12 grid-margin stretch-card">
+                        <x-ui.base-card>
+                            <x-slot name="header">
+                                <h4 class="card-title">Tambah __nameTitleCase__</h4>
+                            </x-slot>
+                            <form action="{{ route('admin.__nameKebabCase__.store') }}" method="POST">
+                                @csrf
+                                <x-forms.input label="Nama" name="name" id="name" /> 
+                                <x-forms.input label="Slug" name="slug" id="slug" />    
+                                <x-ui.base-button color="primary" type="submit">Simpan</x-ui.base-button>
+                                <x-ui.base-button color="danger" href="{{ route('admin.__nameKebabCase__.index') }}">
+                                    Kembali
+                                </x-ui.base-button>
+                            </form>
+                        </x-ui.base-card>
+                    </div>
+                </div>
+            
+                @push('custom-scripts')
+                <script>
+                    const name = document.querySelector('#name');
+                    const slug = document.querySelector('#slug');
+            
+                    name.addEventListener('keyup', function() {
+                        const nameValue = name.value;
+                        slug.value = nameValue.toLowerCase().split(' ').join('-');
+                    });
+                </script>
+                @endpush
+            </x-layouts.admin>
+            EOT;
 
-    <div class=\"row\">
-        <div class=\"col-md-12 grid-margin stretch-card\">
-            <x-ui.base-card>
-                <x-slot name=\"header\">
-                    <h4 class=\"card-title\">Tambah {$name}</h4>
-                </x-slot>
-                <form action=\"{{ route('admin.{$name}.store') }}\" method=\"POST\">
-                    @csrf
-                  {{-- Add your form here --}}
-                    <x-ui.base-button color=\"primary\" type=\"submit\">Simpan</x-ui.base-button>
-                </form>
-            </x-ui.base-card>
-        </div>
-    </div>
-</x-layouts.admin>";
+        $content = str_replace('__namePascalCase__', $name, $content);
+        $content = str_replace('__nameCamelCase__', Str::camel($name), $content);
+        $content = str_replace('__nameSnakeCase__', Str::snake($name), $content);
+        $content = str_replace('__nameProperCase__', ucfirst(strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/', ' ', $name))), $content);
+        $content = str_replace('__nameTitleCase__', ucfirst(preg_replace('/(?<=\\w)(?=[A-Z])/', ' ', $name)), $content);
+        $content = str_replace('__nameKebabCase__', Str::kebab($name), $content);
+        $content = str_replace('__nameCamelCasePlurals__', Str::camel(Str::plural($name)), $content);
+
+        return $content;
     }
 
     protected function generateEditViewContent($name)
     {
-        return "
-<x-layouts.admin title=\"Edit {$name}\">
+        $content =
+            <<<'EOT'
+            <x-layouts.admin title="Edit __nameTitleCase__">
 
-    <x-ui.breadcumb-admin>
-        <li class=\"breadcrumb-item\"><a href=\"{{ route('admin.{$name}.index') }}\">{$name}</a></li>
-        <li class=\"breadcrumb-item active\" aria-current=\"page\">Edit {$name}</li>
-    </x-ui.breadcumb-admin>
+                <x-ui.breadcumb-admin>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.__nameKebabCase__.index') }}">__nameTitleCase__</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit __nameTitleCase__</li>
+                </x-ui.breadcumb-admin>
+            
+                <div class="row">
+                    <div class="col-md-12 grid-margin stretch-card">
+                        <x-ui.base-card>
+                            <x-slot name="header">
+                                <h6>Edit __nameTitleCase__</h6>
+                            </x-slot>
+                            <form action="{{ route('admin.__nameKebabCase__.update', $__nameCamelCase__->id) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <x-forms.input label="Nama" name="name" id="name" :value="$__nameCamelCase__->name" />
+                                <x-forms.input label="Slug" name="slug" id="slug" :value="$__nameCamelCase__->slug" />
+            
+                                <x-ui.base-button color="danger" href="{{ route('admin.__nameKebabCase__.index') }}">
+                                    Kembali
+                                </x-ui.base-button>
+                                <x-ui.base-button color="primary" type="submit">
+                                    Update __nameTitleCase__
+                                </x-ui.base-button>
+                            </form>
+                        </x-ui.base-card>
+                    </div>
+                </div>
+            </x-layouts.admin>
+            EOT;
 
-    <div class=\"row\">
-        <div class=\"col-md-12 grid-margin stretch-card\">
-            <x-ui.base-card>
-                <x-slot name=\"header\">
-                    <h4 class=\"card-title\">Edit {$name}</h4>
-                </x-slot>
-                <form action=\"{{ route('admin.{$name}.update', \${$name}->id) }}\" method=\"POST\">
-                    @csrf
-                    @method('PUT')
-                    {{-- Add your form here --}}
-                    <x-ui.base-button color=\"primary\" type=\"submit\">Simpan</x-ui.base-button>
-                </form>
-            </x-ui.base-card>
-        </div>
-    </div>
-</x-layouts.admin>";
+        $content = str_replace('__namePascalCase__', $name, $content);
+        $content = str_replace('__nameCamelCase__', Str::camel($name), $content);
+        $content = str_replace('__nameSnakeCase__', Str::snake($name), $content);
+        $content = str_replace('__nameProperCase__', ucfirst(strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/', ' ', $name))), $content);
+        $content = str_replace('__nameTitleCase__', ucfirst(preg_replace('/(?<=\\w)(?=[A-Z])/', ' ', $name)), $content);
+        $content = str_replace('__nameKebabCase__', Str::kebab($name), $content);
+        $content = str_replace('__nameCamelCasePlurals__', Str::camel(Str::plural($name)), $content);
+
+        return $content;
     }
 
     protected function generateShowViewContent($name)
     {
-        return "
-<x-layouts.admin title=\"Detail {$name}\">
+        $content =
+            <<<'EOT'
+            <x-layouts.admin title="Detail __nameTitleCase__">
 
-    <x-ui.breadcumb-admin>
-        <li class=\"breadcrumb-item\"><a href=\"{{ route('admin.{$name}.index') }}\">{$name}</a></li>
-        <li class=\"breadcrumb-item active\" aria-current=\"page\">Detail {$name}</li>
-    </x-ui.breadcumb-admin>
+                <x-ui.breadcumb-admin>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.__nameKebabCase__.index') }}">__nameTitleCase__</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Detail __nameTitleCase__</li>
+                </x-ui.breadcumb-admin>
+            
+                <div class="row">
+                    <div class="col-md-12 grid-margin stretch-card">
+                        <x-ui.base-card>
+                            <x-slot name="header">
+                                <h4 class="card-title">Detail __nameTitleCase__</h4>
+                            </x-slot>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Nama</th>
+                                    <td>{{ $__nameCamelCase__->name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Slug</th>
+                                    <td>{{ $__nameCamelCase__->slug }}</td>
+                                </tr>
+                                <x-slot name="footer">
+                                    <x-ui.base-button color="danger" href="{{ route('admin.__nameKebabCase__.index') }}">Kembali</x-ui.base-button>
+                                </x-slot>
+                            </table>
+                        </x-ui.base-card>
+                    </div>
+                </div>
+            </x-layouts.admin>
+            EOT;
 
-    <div class=\"row\">
-        <div class=\"col-md-12 grid-margin stretch-card\">
-            <x-ui.base-card>
-                <x-slot name=\"header\">
-                    <h4 class=\"card-title\">Detail {$name}</h4>
-                </x-slot>
-                {{-- Add your detail here --}}
-            </x-ui.base-card>
-        </div>
-    </div>
-</x-layouts.admin>";
+        $content = str_replace('__namePascalCase__', $name, $content);
+        $content = str_replace('__nameCamelCase__', Str::camel($name), $content);
+        $content = str_replace('__nameSnakeCase__', Str::snake($name), $content);
+        $content = str_replace('__nameProperCase__', ucfirst(strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/', ' ', $name))), $content);
+        $content = str_replace('__nameTitleCase__', ucfirst(preg_replace('/(?<=\\w)(?=[A-Z])/', ' ', $name)), $content);
+        $content = str_replace('__nameKebabCase__', Str::kebab($name), $content);
+        $content = str_replace('__nameCamelCasePlurals__', Str::camel(Str::plural($name)), $content);
+
+        return $content;
     }
 
     protected function addRoutes()
     {
         $name = $this->argument('name');
+
         $name = Str::kebab($name);
         $routes = base_path('routes/admin.php');
 
-        $routeContent = "\nRoute::resource('{$name}', App\Http\Controllers\Web\Admin\\{$name}Controller::class);";
+        $routeContent = "\nRoute::resource('{$name}', App\Http\Controllers\Web\Admin\\{$this->argument('name')}Controller::class);";
 
         file_put_contents($routes, $routeContent, FILE_APPEND);
     }
@@ -566,6 +774,7 @@ class CrudGeneratorCommand extends Command
     protected function addSidebarMenu()
     {
         $name = $this->argument('name');
+        $titleName = ucfirst(preg_replace('/(?<=\\w)(?=[A-Z])/', ' ', $name));
         $name = Str::kebab($name);
 
         $sidebar = resource_path('views/components/ui/admin-sidebar.blade.php');
@@ -573,7 +782,7 @@ class CrudGeneratorCommand extends Command
         $sidebarContent = "\n<li class=\"nav-item {{ request()->is('admin/{$name}') ? ' active' : '' }}\">\n";
         $sidebarContent .= "    <a href=\"{{ route('admin.{$name}.index') }}\" class=\"nav-link\">\n";
         $sidebarContent .= "        <i class=\"link-icon\" data-feather=\"list\"></i>\n";
-        $sidebarContent .= "        <span class=\"link-title\">{$name}</span>\n";
+        $sidebarContent .= "        <span class=\"link-title\">{$titleName}</span>\n";
         $sidebarContent .= "    </a>\n";
         $sidebarContent .= "</li>\n";
 

@@ -28,6 +28,12 @@
                     <span class="link-title">Blog Tag</span>
                 </a>
             </li>
+            <li class="nav-item {{ request()->is('admin/blog-category') ? ' active' : '' }}">
+                <a href="{{ route('admin.blog-category.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="list"></i>
+                    <span class="link-title">Blog Category</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

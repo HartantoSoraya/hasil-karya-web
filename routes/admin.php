@@ -17,3 +17,5 @@ Route::get('/dashboard', [App\Http\Controllers\Web\Admin\DashboardController::cl
 Route::resource('example', App\Http\Controllers\Web\Admin\ExampleController::class);
 
 Route::resource('blog-tag', App\Http\Controllers\Web\Admin\BlogTagController::class);
+
+Route::resource('blog-category', App\Http\Controllers\Web\Admin\BlogCategoryController::class);
