@@ -167,7 +167,7 @@ class CrudGeneratorCommand extends Command
             
                 public function index(Request $request)
                 {
-                    $__nameCamelCasePlurals__ = $this->__nameCamelCase__Repository->getAll__namePascalCase__();
+                    $__nameCamelCasePlurals__ = $this->__nameCamelCase__Repository->getAll__nameCamelCasePlurals__();
                     
                     return view('pages.admin.__nameKebabCase__.index', compact('__nameCamelCasePlurals__'));
                 }
@@ -370,16 +370,35 @@ class CrudGeneratorCommand extends Command
 
     protected function generateInterfaceContent($name)
     {
-        return "<?php\n\nnamespace App\Interfaces;\n\ninterface {$name}RepositoryInterface\n{\n".
-            "    public function getAll{$name}();\n".
-            "\n".
-            "    public function get{$name}ById(string \$id);\n".
-            "\n".
-            "    public function create{$name}(array \$data);\n".
-            "\n".
-            "    public function update{$name}(array \$data, string \$id);\n".
-            "\n".
-            "    public function delete{$name}(string \$id);\n}\n";
+        $repositoryContent =
+            <<<'EOT'
+            <?php
+
+            namespace App\Interfaces;
+            
+            interface __nameCamelCase__RepositoryInterface
+            {
+                public function getAll__namePascalCasePlurals__();
+            
+                public function get__nameCamelCase__ById(string $id);
+            
+                public function create__nameCamelCase__(array $data);
+            
+                public function update__nameCamelCase__(array $data, string $id);
+            
+                public function delete__nameCamelCase__(string $id);
+            }            
+            EOT;
+
+        $repositoryContent = str_replace('__namePascalCase__', $name, $repositoryContent);
+        $repositoryContent = str_replace('__namePascalCasePlurals__', Str::studly(Str::plural($name)), $repositoryContent);
+        $repositoryContent = str_replace('__nameCamelCase__', Str::camel($name), $repositoryContent);
+        $repositoryContent = str_replace('__nameSnakeCase__', Str::snake($name), $repositoryContent);
+        $repositoryContent = str_replace('__nameProperCase__', ucfirst(strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/', ' ', $name))), $repositoryContent);
+        $repositoryContent = str_replace('__nameKebabCase__', Str::kebab($name), $repositoryContent);
+        $repositoryContent = str_replace('__nameCamelCasePlurals__', Str::camel(Str::plural($name)), $repositoryContent);
+
+        return $repositoryContent;
     }
 
     protected function generateRepositoryContent($name)

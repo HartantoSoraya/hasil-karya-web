@@ -15,4 +15,9 @@ class ProjectCategory extends Model
         'name',
         'slug',
     ];
+
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class, 'project_category_pivot');
+    }
 }

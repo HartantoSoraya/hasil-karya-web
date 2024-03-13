@@ -29,6 +29,7 @@
                     <x-forms.input label="Nama" name="name" id="name" />                    
                     <x-forms.textarea label="Description" name="description" id="description" />
                     <x-forms.input label="Slug" name="slug" id="slug" />
+                    <x-forms.input label="Gambar Proyek" name="images[]" id="images" type="file" multiple />                    
                         
                     <x-ui.base-button color="primary" type="submit">Simpan</x-ui.base-button>
                     <x-ui.base-button color="danger" href="{{ route('admin.service.index') }}">

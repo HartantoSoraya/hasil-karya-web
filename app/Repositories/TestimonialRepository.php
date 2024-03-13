@@ -21,7 +21,7 @@ class TestimonialRepository implements TestimonialRepositoryInterface
     public function createTestimonial(array $data)
     {
         DB::beginTransaction();
-        
+
         try {
             $testimonial = Testimonial::create($data);
 
@@ -70,4 +70,4 @@ class TestimonialRepository implements TestimonialRepositoryInterface
             return $e->getMessage();
         }
     }
-}        
+}

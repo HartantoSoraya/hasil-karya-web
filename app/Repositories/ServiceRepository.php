@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Interfaces\ServiceRepositoryInterface;
 use App\Models\Service;
+use App\Models\ServiceImage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -22,7 +23,7 @@ class ServiceRepository implements ServiceRepositoryInterface
     public function createService(array $data)
     {
         DB::beginTransaction();
-        
+
         try {
             $service = new Service();
             $service->thumbnail = $data['thumbnail']->store('assets/services/thumbnails', 'public');
@@ -30,6 +31,15 @@ class ServiceRepository implements ServiceRepositoryInterface
             $service->description = $data['description'];
             $service->slug = $data['slug'];
             $service->save();
+
+            if (isset($data['images'])) {
+                foreach ($data['images'] as $image) {
+                    $serviceImage = new ServiceImage();
+                    $serviceImage->service_id = $service->id;
+                    $serviceImage->image = $image->store('assets/services/images', 'public');
+                    $serviceImage->save();
+                }
+            }
 
             DB::commit();
 
@@ -47,13 +57,24 @@ class ServiceRepository implements ServiceRepositoryInterface
 
         try {
             $service = Service::findOrFail($id);
-            if($data['thumbnail']) {
-                $service->thumbnail = $this->updateImage($service->thumbnail, $data['thumbnail']);
+            if ($data['thumbnail']) {
+                $service->thumbnail = $this->updateThumbnail($service->thumbnail, $data['thumbnail']);
             }
             $service->name = $data['name'];
             $service->description = $data['description'];
             $service->slug = $data['slug'];
             $service->save();
+
+            if (isset($data['images'])) {
+                $this->deleteImages($service->id);
+
+                foreach ($data['images'] as $image) {
+                    $serviceImage = new ServiceImage();
+                    $serviceImage->service_id = $service->id;
+                    $serviceImage->image = $image->store('assets/services/images', 'public');
+                    $serviceImage->save();
+                }
+            }
 
             DB::commit();
 
@@ -82,12 +103,22 @@ class ServiceRepository implements ServiceRepositoryInterface
         }
     }
 
-    public function updateImage(string $oldImage, $newImage)
+    public function updateThumbnail(string $oldImage, $newImage)
     {
-        if ($oldImage ) {
-           Storage::disk('public')->delete($oldImage);
+        if ($oldImage) {
+            Storage::disk('public')->delete($oldImage);
         }
 
         return $newImage->store('assets/services/thumbnails', 'public');
     }
-}        
+
+    public function deleteImages(string $ServiceId)
+    {
+        $serviceImages = ServiceImage::where('service_id', $ServiceId)->get();
+
+        foreach ($serviceImages as $image) {
+            Storage::disk('public')->delete($image->image);
+            ServiceImage::find($image->id)->delete();
+        }
+    }
+}

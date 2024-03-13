@@ -31,4 +31,7 @@ Route::resource('frequently-asked-question', App\Http\Controllers\Web\Admin\Freq
 Route::resource('blog', App\Http\Controllers\Web\Admin\BlogController::class);
 
 Route::resource('service', App\Http\Controllers\Web\Admin\ServiceController::class);
+
 Route::resource('testimonial', App\Http\Controllers\Web\Admin\TestimonialController::class);
+
+Route::resource('project', App\Http\Controllers\Web\Admin\ProjectController::class);

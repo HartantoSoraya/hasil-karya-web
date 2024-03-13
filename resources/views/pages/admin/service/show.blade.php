@@ -30,6 +30,14 @@
                         <th>Slug</th>
                         <td>{{ $service->slug }}</td>
                     </tr>
+                    <tr>
+                        <th>Gambar Layanan</th>
+                        <td class="d-flex flex-wrap">
+                            @foreach ($service->images as $image)
+                            <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $image->name }}" class="img-fluid m-2" style="width: 100px; height: 100px;">
+                            @endforeach
+                        </td>
+                    </tr>
                     <x-slot name="footer">
                         <x-ui.base-button color="danger" href="{{ route('admin.service.index') }}">Kembali</x-ui.base-button>
                     </x-slot>

@@ -17,6 +17,8 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
+                            <th>Judul</th>
+                            <th>Sub Judul</th>
                             <th>Aksi</th>
                         </tr>
                     </x-slot>
@@ -25,6 +27,8 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $testimonial->name }}</td>
+                            <td>{{ $testimonial->title }}</td>
+                            <td>{{ $testimonial->subtitle }}</td>
 
                             <td>
                                 <x-ui.base-button color="primary" type="button" href="{{ route('admin.testimonial.show', $testimonial->id) }}">

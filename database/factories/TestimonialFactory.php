@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class TestimonialFactory extends Factory
 {
@@ -15,7 +14,9 @@ class TestimonialFactory extends Factory
     public function definition(): array
     {
         return [
-            // Define your default state here
+            'name' => $this->faker->name,
+            'title' => $this->faker->sentence,
+            'subtitle' => $this->faker->sentence,
         ];
     }
 }

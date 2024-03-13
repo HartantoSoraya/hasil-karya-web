@@ -15,4 +15,9 @@ class BlogTag extends Model
         'name',
         'slug',
     ];
+
+    public function blogs()
+    {
+        return $this->belongsToMany(Blog::class, 'blog_tag_pivot');
+    }
 }

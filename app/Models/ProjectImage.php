@@ -12,6 +12,12 @@ class ProjectImage extends Model
     use HasFactory, SoftDeletes, UUID;
 
     protected $fillable = [
+        'project_id',
         'image',
     ];
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
 }

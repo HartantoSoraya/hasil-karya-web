@@ -25,7 +25,28 @@
                     <tr>
                         <th>Content</th>
                         <td>{{ $blog->content }}</td>
-                    </tr>                    
+                    </tr>
+                    <tr>
+                        <th>Slug</th>
+                        <td>{{ $blog->slug }}</td>
+                    </tr>
+                    <tr>
+                        <th>Kategori</th>
+                        <td>
+                            @foreach ($blog->categories as $category)
+                            <span class="badge bg-primary">{{ $category->name }}</span><br>
+                            @endforeach
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Tagar</th>
+                        <td>
+                            @foreach ($blog->tags as $tag)
+                            <span class="badge bg-primary">{{ $tag->name }}</span><br>
+                            @endforeach
+                        </td>
+                    </tr>
+                    
                     <x-slot name="footer">
                         <x-ui.base-button color="danger" href="{{ route('admin.blog.index') }}">Kembali</x-ui.base-button>
                     </x-slot>

@@ -15,7 +15,8 @@
                     @csrf
                     @method('PUT')
                     <x-forms.input label="Nama" name="name" id="name" :value="$testimonial->name" />
-                    <x-forms.input label="Slug" name="slug" id="slug" :value="$testimonial->slug" />
+                    <x-forms.input label="Judul" name="title" id="title" :value="$testimonial->title" />
+                    <x-forms.input label="Sub Judul" name="subtitle" id="subtitle" :value="$testimonial->subtitle" />
 
                     <x-ui.base-button color="danger" href="{{ route('admin.testimonial.index') }}">
                         Kembali
@@ -27,16 +28,4 @@
             </x-ui.base-card>
         </div>
     </div>
-
-@push('custom-scripts')
-    <script>
-        const name = document.querySelector('#name');
-        const slug = document.querySelector('#slug');
-
-        name.addEventListener('keyup', function() {
-            const nameValue = name.value;
-            slug.value = nameValue.toLowerCase().split(' ').join('-');
-        });
-    </script>
-@endpush  
 </x-layouts.admin>

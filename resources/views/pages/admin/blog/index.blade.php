@@ -17,6 +17,8 @@
                         <tr>
                             <th>No</th>
                             <th>Title</th>
+                            <th>Kategori</th>
+                            <th>Tagar</th>
                             <th>Thumbnail</th>
                             <th>Content</th>
                             <th>Aksi</th>
@@ -27,6 +29,16 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $blog->title }}</td>
+                            <td>                                
+                                @foreach ($blog->categories as $category)
+                                <span class="badge bg-primary">{{ $category->name }}</span><br>
+                                @endforeach
+                            </td>
+                            <td>
+                                @foreach ($blog->tags as $tag)
+                                <span class="badge bg-primary">{{ $tag->name }}</span><br>
+                                @endforeach
+                            </td>
                             <td>
                                 <img src="{{ asset('storage/' . $blog->thumbnail) }}" alt="{{ $blog->title }}" width="100">
                             </td>

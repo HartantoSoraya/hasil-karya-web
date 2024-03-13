@@ -13,9 +13,8 @@ class RepositoryServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register() {
-
-
+    public function register()
+    {
 
         $this->app->bind(AuthRepositoryInterface::class, AuthRepository::class);
         $this->app->bind(\App\Interfaces\ExampleRepositoryInterface::class, \App\Repositories\ExampleRepository::class);
@@ -28,11 +27,10 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Interfaces\BannerRepositoryInterface::class, \App\Repositories\BannerRepository::class);
         $this->app->bind(\App\Interfaces\FrequentlyAskedQuestionRepositoryInterface::class, \App\Repositories\FrequentlyAskedQuestionRepository::class);
         $this->app->bind(\App\Interfaces\BlogRepositoryInterface::class, \App\Repositories\BlogRepository::class);
-    $this->app->bind(\App\Interfaces\ServiceRepositoryInterface::class, \App\Repositories\ServiceRepository::class);
-    $this->app->bind(\App\Interfaces\TestimonialRepositoryInterface::class, \App\Repositories\TestimonialRepository::class);
+        $this->app->bind(\App\Interfaces\ServiceRepositoryInterface::class, \App\Repositories\ServiceRepository::class);
+        $this->app->bind(\App\Interfaces\TestimonialRepositoryInterface::class, \App\Repositories\TestimonialRepository::class);
+        $this->app->bind(\App\Interfaces\ProjectRepositoryInterface::class, \App\Repositories\ProjectRepository::class);
     }
-
-
 
     /**
      * Bootstrap services.

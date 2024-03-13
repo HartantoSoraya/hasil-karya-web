@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('service_images', function (Blueprint $table) {
             $table->uuid('id')->primary();
+
+            $table->uuid('service_id');
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
             $table->string('image');
+
             $table->softDeletes();
             $table->timestamps();
         });

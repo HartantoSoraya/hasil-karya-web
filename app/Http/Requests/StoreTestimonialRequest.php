@@ -14,19 +14,27 @@ class StoreTestimonialRequest extends FormRequest
     public function rules()
     {
         return [
-            // Add your validation rules here
+            'name' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'subtitle' => 'required|string|max:255',
         ];
     }
-  public function attributes()
+
+    public function attributes()
     {
         return [
-            // Add your attributes here
+            'name' => 'Nama',
+            'title' => 'Judul',
+            'subtitle' => 'Sub Judul',
         ];
     }
-  public function messages()
+
+    public function messages()
     {
         return [
-            // Add your messages here
+            'required' => ':attribute tidak boleh kosong',
+            'string' => ':attribute harus berupa string',
+            'max' => ':attribute maksimal :max karakter',
         ];
     }
 }

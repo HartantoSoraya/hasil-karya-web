@@ -17,9 +17,14 @@
                         <td>{{ $testimonial->name }}</td>
                     </tr>
                     <tr>
-                        <th>Slug</th>
-                        <td>{{ $testimonial->slug }}</td>
+                        <th>Judul</th>
+                        <td>{{ $testimonial->title }}</td>
                     </tr>
+                    <tr>
+                        <th>Sub Judul</th>
+                        <td>{{ $testimonial->subtitle }}</td>
+                    </tr>
+                    
                     <x-slot name="footer">
                         <x-ui.base-button color="danger" href="{{ route('admin.testimonial.index') }}">Kembali</x-ui.base-button>
                     </x-slot>

@@ -18,6 +18,10 @@ class StoreBlogRequest extends FormRequest
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'content' => 'required|string',
             'slug' => 'required|string|max:255|unique:blogs',
+            'categories' => 'nullable|array',
+            'categories.*' => 'required|exists:blog_categories,id',
+            'tags' => 'nullable|array',
+            'tags.*' => 'required|exists:blog_tags,id',
         ];
     }
 
@@ -26,6 +30,18 @@ class StoreBlogRequest extends FormRequest
         if (! isset($this->thumbnail)) {
             $this->merge([
                 'thumbnail' => null,
+            ]);
+        }
+
+        if (! isset($this->categories)) {
+            $this->merge([
+                'categories' => [],
+            ]);
+        }
+
+        if (! isset($this->tags)) {
+            $this->merge([
+                'tags' => [],
             ]);
         }
     }
@@ -37,6 +53,8 @@ class StoreBlogRequest extends FormRequest
             'thumbnail' => 'Gambar Thumbnail',
             'content' => 'Konten',
             'slug' => 'Slug',
+            'categories' => 'Kategori',
+            'tags' => 'Tagar',
         ];
     }
 

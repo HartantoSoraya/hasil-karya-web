@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
 use App\Interfaces\BlogRepositoryInterface;
+use App\Repositories\BlogCategoryRepository;
+use App\Repositories\BlogTagRepository;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert as Swal;
 
@@ -27,7 +29,13 @@ class BlogController extends Controller
 
     public function create()
     {
-        return view('pages.admin.blog.create');
+        $blogCategoryRepository = new BlogCategoryRepository();
+        $categories = $blogCategoryRepository->getAllBlogCategory();
+
+        $blogTagRepository = new BlogTagRepository();
+        $tags = $blogTagRepository->getAllBlogTag();
+
+        return view('pages.admin.blog.create', compact('categories', 'tags'));
     }
 
     public function store(StoreBlogRequest $request)
@@ -48,9 +56,15 @@ class BlogController extends Controller
 
     public function edit($id)
     {
+        $blogCategoryRepository = new BlogCategoryRepository();
+        $categories = $blogCategoryRepository->getAllBlogCategory();
+
+        $blogTagRepository = new BlogTagRepository();
+        $tags = $blogTagRepository->getAllBlogTag();
+
         $blog = $this->blogRepository->getBlogById($id);
 
-        return view('pages.admin.blog.edit', compact('blog'));
+        return view('pages.admin.blog.edit', compact('categories', 'tags', 'blog'));
     }
 
     public function update(UpdateBlogRequest $request, $id)

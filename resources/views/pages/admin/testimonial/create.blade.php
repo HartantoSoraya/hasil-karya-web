@@ -18,7 +18,7 @@
         </div>
         @endif
 
-        <div class="col-md-12 grid-margin stretch-card">
+    <div class="col-md-12 grid-margin stretch-card">
             <x-ui.base-card>
                 <x-slot name="header">
                     <h4 class="card-title">Tambah Testimonial</h4>
@@ -26,7 +26,9 @@
                 <form action="{{ route('admin.testimonial.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <x-forms.input label="Nama" name="name" id="name" /> 
-                    <x-forms.input label="Slug" name="slug" id="slug" />    
+                    <x-forms.input label="Judul" name="title" id="title" />
+                    <x-forms.input label="Sub Judul" name="subtitle" id="subtitle" />
+
                     <x-ui.base-button color="primary" type="submit">Simpan</x-ui.base-button>
                     <x-ui.base-button color="danger" href="{{ route('admin.testimonial.index') }}">
                         Kembali

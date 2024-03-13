@@ -17,7 +17,9 @@ class UpdateServiceRequest extends FormRequest
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'name' => 'required|string|max:255',
             'description' => 'required|string',
-            'slug' => 'required|string|max:255|unique:services,slug,' . $this->route('service') . ',id',
+            'slug' => 'required|string|max:255|unique:services,slug,'.$this->route('service').',id',
+            'images' => 'nullable|array',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 
@@ -30,7 +32,7 @@ class UpdateServiceRequest extends FormRequest
         }
     }
 
-  public function attributes()
+    public function attributes()
     {
         return [
             'thumbnail' => 'Gambar Thumbnail',
@@ -39,7 +41,8 @@ class UpdateServiceRequest extends FormRequest
             'slug' => 'Slug',
         ];
     }
-  public function messages()
+
+    public function messages()
     {
         return [
             'required' => ':attribute tidak boleh kosong',

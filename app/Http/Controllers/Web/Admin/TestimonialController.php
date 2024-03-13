@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTestimonialRequest;
 use App\Http\Requests\UpdateTestimonialRequest;
 use App\Interfaces\TestimonialRepositoryInterface;
-use RealRashid\SweetAlert\Facades\Alert as Swal;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert as Swal;
+
 class TestimonialController extends Controller
 {
     protected $testimonialRepository;
@@ -20,7 +21,7 @@ class TestimonialController extends Controller
     public function index(Request $request)
     {
         $testimonials = $this->testimonialRepository->getAllTestimonial();
-        
+
         return view('pages.admin.testimonial.index', compact('testimonials'));
     }
 
@@ -34,21 +35,21 @@ class TestimonialController extends Controller
         $data = $request->validated();
         $this->testimonialRepository->createTestimonial($data);
         Swal::toast('Testimonial created successfully!', 'success')->timerProgressBar();
-        
+
         return redirect()->route('admin.testimonial.index');
     }
 
     public function show($id)
     {
         $testimonial = $this->testimonialRepository->getTestimonialById($id);
-        
+
         return view('pages.admin.testimonial.show', compact('testimonial'));
     }
 
     public function edit($id)
     {
         $testimonial = $this->testimonialRepository->getTestimonialById($id);
-        
+
         return view('pages.admin.testimonial.edit', compact('testimonial'));
     }
 
@@ -57,7 +58,7 @@ class TestimonialController extends Controller
         $data = $request->validated();
         $this->testimonialRepository->updateTestimonial($data, $id);
         Swal::toast('Testimonial updated successfully!', 'success')->timerProgressBar();
-        
+
         return redirect()->route('admin.testimonial.index');
     }
 
@@ -65,7 +66,7 @@ class TestimonialController extends Controller
     {
         $this->testimonialRepository->deleteTestimonial($id);
         Swal::toast('Testimonial deleted successfully!', 'success')->timerProgressBar();
-        
+
         return redirect()->route('admin.testimonial.index');
     }
 }

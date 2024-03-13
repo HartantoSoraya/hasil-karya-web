@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            
+
             $table->string('thumbnail');
             $table->string('name');
-            $table->text('description');
             $table->string('slug')->unique();
+            $table->text('description');
+            $table->string('client');
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('projects');
     }
 };

@@ -9,25 +9,23 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('project_images', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+        Schema::create('project_category_pivot', function (Blueprint $table) {
+            $table->id();
 
             $table->uuid('project_id');
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
-            $table->string('image');
-
-            $table->softDeletes();
-            $table->timestamps();
+            $table->uuid('project_category_id');
+            $table->foreign('project_category_id')->references('id')->on('project_categories')->onDelete('cascade');
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('project_images');
+        Schema::dropIfExists('project_category_pivot');
     }
 };

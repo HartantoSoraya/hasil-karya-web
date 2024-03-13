@@ -11,12 +11,12 @@ class BlogRepository implements BlogRepositoryInterface
 {
     public function getAllBlog()
     {
-        return Blog::all();
+        return Blog::with('categories', 'tags')->latest()->get();
     }
 
     public function getBlogById(string $id)
     {
-        return Blog::findOrFail($id);
+        return Blog::with('categories', 'tags')->findOrFail($id);
     }
 
     public function createBlog(array $data)
@@ -30,6 +30,9 @@ class BlogRepository implements BlogRepositoryInterface
             $blog->content = $data['content'];
             $blog->slug = $data['slug'];
             $blog->save();
+
+            $blog->categories()->attach($data['categories']);
+            $blog->tags()->attach($data['tags']);
 
             DB::commit();
 
@@ -55,6 +58,9 @@ class BlogRepository implements BlogRepositoryInterface
             $blog->content = $data['content'];
             $blog->slug = $data['slug'];
             $blog->save();
+
+            $blog->categories()->sync($data['categories']);
+            $blog->tags()->sync($data['tags']);
 
             DB::commit();
 

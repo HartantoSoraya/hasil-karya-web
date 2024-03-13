@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
-class TestimonialControllerTest extends TestCase
+class ProjectControllerTest extends TestCase
 {
     public function setUp(): void
     {

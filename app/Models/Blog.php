@@ -17,4 +17,14 @@ class Blog extends Model
         'content',
         'slug',
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany(BlogCategory::class, 'blog_category_pivot');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(BlogTag::class, 'blog_tag_pivot');
+    }
 }

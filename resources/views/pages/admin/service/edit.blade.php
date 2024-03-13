@@ -18,6 +18,18 @@
                     <x-forms.input label="Nama" name="name" id="name" :value="$service->name" />
                     <x-forms.textarea label="Description" name="description" id="description" :value="$service->description"/>
                     <x-forms.input label="Slug" name="slug" id="slug" :value="$service->slug" />
+                    
+                    <div class="mb-3">
+                        <label for="selectedImages" class="form-label">Product Images</label>
+                        <div class="row">
+                            @foreach($service->images as $image)
+                            <div class="col-md-3">
+                                <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $image->name }}" class="img-fluid mb-2">
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <x-forms.input label="Gambar Layanan" name="images[]" id="images" type="file" multiple />
 
                     <x-ui.base-button color="danger" href="{{ route('admin.service.index') }}">
                         Kembali
