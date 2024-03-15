@@ -27,4 +27,16 @@
             </x-ui.base-card>
         </div>
     </div>
+
+    @push('custom-scripts')
+    <script>
+        const name = document.querySelector('#name');
+        const slug = document.querySelector('#slug');
+
+        name.addEventListener('keyup', function() {
+            const nameValue = name.value;
+            slug.value = nameValue.toLowerCase().split(' ').join('-');
+        });
+    </script>
+    @endpush
 </x-layouts.admin>

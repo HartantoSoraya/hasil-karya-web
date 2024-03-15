@@ -40,7 +40,7 @@
                     </tr>
                     <tr>
                         <th>Tanggal Selesai</th>
-                        <td>{{ $project->end_date->format('d-M-Y') }}</td>
+                        <td>{{ $project->end_date ? $project->end_date->format('d-M-Y') : '' }}</td>
                     </tr>
                     <tr>
                         <th>Gambar Proyek</th>

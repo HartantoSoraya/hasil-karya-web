@@ -26,6 +26,11 @@ class Project extends Model
         'end_date' => 'datetime',
     ];
 
+    public function getThumbnailUrlAttribute()
+    {
+        return asset('storage/'.$this->thumbnail);
+    }
+
     public function images()
     {
         return $this->hasMany(ProjectImage::class);

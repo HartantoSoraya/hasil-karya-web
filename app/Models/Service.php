@@ -18,6 +18,11 @@ class Service extends Model
         'slug',
     ];
 
+    public function getThumbnailUrlAttribute()
+    {
+        return asset('storage/'.$this->thumbnail);
+    }
+
     public function images()
     {
         return $this->hasMany(ServiceImage::class);

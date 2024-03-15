@@ -4,7 +4,7 @@ namespace App\Interfaces;
 
 interface projectRepositoryInterface
 {
-    public function getAllProjects();
+    public function getAllProjects(?string $categoryId = null);
 
     public function getprojectById(string $id);
 

@@ -20,7 +20,7 @@
                     <x-forms.input label="Slug" name="slug" id="slug" :value="$service->slug" />
                     
                     <div class="mb-3">
-                        <label for="selectedImages" class="form-label">Product Images</label>
+                        <label for="selectedImages" class="form-label">Selected Images</label>
                         <div class="row">
                             @foreach($service->images as $image)
                             <div class="col-md-3">

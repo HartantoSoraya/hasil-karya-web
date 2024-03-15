@@ -35,7 +35,7 @@
                     <x-forms.input label="Tanggal Selesai" name="end_date" id="end_date" type="date" value="{{ $project->end_date ? date('Y-m-d', strtotime($project->end_date)) : null }}" nullable />
 
                     <div class="mb-3">
-                        <label for="selectedImages" class="form-label">Product Images</label>
+                        <label for="selectedImages" class="form-label">Selected Images</label>
                         <div class="row">
                             @foreach($project->images as $image)
                             <div class="col-md-3">

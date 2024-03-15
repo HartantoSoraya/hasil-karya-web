@@ -10,9 +10,15 @@ use Illuminate\Support\Facades\Storage;
 
 class ProjectRepository implements ProjectRepositoryInterface
 {
-    public function getAllProjects()
+    public function getAllProjects($categoryId = null)
     {
-        return Project::with('categories', 'images')->latest()->get();
+        $projects = Project::with('categories', 'images');
+
+        if ($categoryId) {
+            $projects = $projects->where('category_id', $categoryId);
+        }
+
+        return $projects->latest()->get();
     }
 
     public function getProjectById(string $id)

@@ -10,7 +10,7 @@ class ProjectCategoryRepository implements ProjectCategoryRepositoryInterface
 {
     public function getAllProjectCategory()
     {
-        return ProjectCategory::all();
+        return ProjectCategory::orderBy('name', 'asc')->get();
     }
 
     public function getProjectCategoryById(string $id)
