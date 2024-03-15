@@ -12,7 +12,7 @@
                             <div class="content text-left">
                                 <h2 data-animation="animated fadeInUp">{{ $banner->title }}</h2>
                                 <p data-animation="animated fadeInDown">{{ $banner->subtitle }}</p>
-                                <a href="{{ $banner->url }}" class="banner-btn" data-animation="animated fadeInDown">{{ $banner->text_url }}</a>
+                                <a href="{{ $banner->url }}" class="banner-btn large" data-animation="animated fadeInDown">{{ $banner->text_url }}</a>
                             </div>
                         </div>
                     </div>
@@ -171,121 +171,42 @@
     <section class="faq-feature-wrapper testimonials-style-one faq-style-one sec-pad">
         <div class="container">
             <div class="row">
-                @foreach ($testimonials as $testimonial)
                 <div class="col-md-6">
                     <div class="sec-title">
-                        <h3>Frequemtly Asked Question</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, aperiam consequuntur dolore mollitia laborum officia</p>
+                        <h3>Frequently Asked Question</h3>
+                        <p>Kami memahami bahwa Anda mungkin memiliki beberapa pertanyaan terkait layanan kami. Berikut adalah beberapa pertanyaan yang sering diajukan oleh pelanggan kami beserta jawabannya. Jika Anda memiliki pertanyaan lain, jangan ragu untuk menghubungi kami.</p>
                     </div>
                     <div class="accrodion-grp" data-grp-name="faq-accrodion">
-                        <div class="accrodion active">
+                        @foreach ($faqs as $faq)
+                        <div class="accrodion {{ $loop->first ? 'active' : '' }}">
                             <div class="accrodion-title">
-                                <h4>Lorem ipsum dolor sit amet</h4>
+                                <h4>{{ $faq->question }}</h4>
                             </div>
                             <div class="accrodion-content">
                                 <div class="inner">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, inventore cumque veniam, praesentium velit incidunt rem quas a, quos eos ipsum, reprehenderit voluptatem.</p>
+                                    <p>{{ $faq->answer }}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="accrodion ">
-                            <div class="accrodion-title">
-                                <h4>Dolor sit amet, consectetuer adipiscing elit</h4>
-                            </div>
-                            <div class="accrodion-content">
-                                <div class="inner">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, inventore cumque veniam, praesentium velit incidunt rem quas a, quos eos ipsum, reprehenderit voluptatem.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accrodion">
-                            <div class="accrodion-title">
-                                <h4>Sed diam nonummy nibh euismod</h4>
-                            </div>
-                            <div class="accrodion-content">
-                                <div class="inner">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, inventore cumque veniam, praesentium velit incidunt rem quas a, quos eos ipsum, reprehenderit voluptatem.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accrodion">
-                            <div class="accrodion-title">
-                                <h4>Ipsum, reprehenderit voluptatem.</h4>
-                            </div>
-                            <div class="accrodion-content">
-                                <div class="inner">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, inventore cumque veniam, praesentium velit incidunt rem quas a, quos eos ipsum, reprehenderit voluptatem.</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-                @endforeach
-
                 <div class="col-md-6">
                     <div class="sec-title">
                         <h3>Clients’ Review</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, aperiam consequuntur dolore mollitia laborum officia</p>
+                        <p>Kami bangga dapat berbagi ulasan dari beberapa klien kami yang telah menggunakan layanan kami. Pendapat mereka sangat berarti bagi kami dan menjadi inspirasi untuk terus meningkatkan kualitas layanan kami.</p>
                     </div>
                     <div class="testimonials-carousel-style-two owl-theme owl-carousel">
+                        @foreach ($testimonials as $testimonial)
                         <div class="item">
                             <div class="single-testimonial-style-one">
                                 <div class="top-box">
                                     <i class="qoute-icon zxp-icon-right-quote"></i>
                                     <div class="icon-box">
-                                        <img src="img/testi-1-1.jpg" alt="Awesome Image" />
-                                    </div><!-- /.icon-box -->
+                                        <img src="{{ $testimonial->thumbnail_url }}" alt="Awesome Image" />
+                                    </div>
                                     <div class="text-box">
-                                        <h3>Outstanding Quality</h3>
-                                        <div class="stars">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div><!-- /.stars -->
-                                    </div><!-- /.text-box -->
-                                </div><!-- /.top-box -->
-                                <div class="content-box">
-                                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, <br /> con sectetur, adipisci velit, sed quia non num quam eius modi tem <br /> pora incid unt ut labore et dolore magnam.</p>
-                                    <h4>- Ida Leopard, Google</h4>
-                                </div><!-- /.content-box -->
-                            </div><!-- /.single-testimonial-style-one -->
-                        </div><!-- /.item -->
-                        <div class="item">
-                            <div class="single-testimonial-style-one">
-                                <div class="top-box">
-                                    <i class="qoute-icon zxp-icon-right-quote"></i>
-                                    <div class="icon-box">
-                                        <img src="img/testi-1-2.jpg" alt="Awesome Image" />
-                                    </div><!-- /.icon-box -->
-                                    <div class="text-box">
-                                        <h3>Professional Handling</h3>
-                                        <div class="stars">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div><!-- /.stars -->
-                                    </div><!-- /.text-box -->
-                                </div><!-- /.top-box -->
-                                <div class="content-box">
-                                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, <br /> con sectetur, adipisci velit, sed quia non num quam eius modi tem <br /> pora incid unt ut labore et dolore magnam.</p>
-                                    <h4>- Jackelyn Fernendez, Twitter</h4>
-                                </div><!-- /.content-box -->
-                            </div><!-- /.single-testimonial-style-one -->
-                        </div><!-- /.item -->
-
-                        <div class="item">
-                            <div class="single-testimonial-style-one">
-                                <div class="top-box">
-                                    <i class="qoute-icon zxp-icon-right-quote"></i>
-                                    <div class="icon-box">
-                                        <img src="img/testi-1-3.jpg" alt="Awesome Image" />
-                                    </div><!-- /.icon-box -->
-                                    <div class="text-box">
-                                        <h3>Outstanding Quality</h3>
+                                        <h3>{{ $testimonial->title }}</h3>
                                         <div class="stars">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
@@ -296,38 +217,81 @@
                                     </div>
                                 </div>
                                 <div class="content-box">
-                                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, <br /> con sectetur, adipisci velit, sed quia non num quam eius modi tem <br /> pora incid unt ut labore et dolore magnam.</p>
-                                    <h4>- Mitsuko Cristal, Baymax Co.</h4>
+                                    <p>{{ $testimonial->subtitle }}</p>
+                                    <h4>- {{ $testimonial->name }}</h4>
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="single-testimonial-style-one">
-                                <div class="top-box">
-                                    <i class="qoute-icon zxp-icon-right-quote"></i>
-                                    <div class="icon-box">
-                                        <img src="img/testi-1-4.jpg" alt="Awesome Image" />
-                                    </div>
-                                    <div class="text-box">
-                                        <h3>Professional Handling</h3>
-                                        <div class="stars">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="content-box">
-                                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, <br /> con sectetur, adipisci velit, sed quia non num quam eius modi tem <br /> pora incid unt ut labore et dolore magnam.</p>
-                                    <h4>- Millicent Ket, Google</h4>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="brand-carousel-wrapper">
+        <div class="container">
+            <div class="brand-carousel owl-carousel owl-theme">
+                <div class="item">
+                    <i class="brands-icon-audiojungle"></i>
+                </div>
+                <div class="item">
+                    <i class="brands-icon-codecanyon"></i>
+                </div>
+                <div class="item">
+                    <i class="brands-icon-envato"></i>
+                </div>
+                <div class="item">
+                    <i class="brands-icon-graphicriver"></i>
+                </div>
+                <div class="item">
+                    <i class="brands-icon-photodune"></i>
+                </div>
+                <div class="item">
+                    <i class="brands-icon-themeforest"></i>
+                </div>
+                <div class="item">
+                    <i class="brands-icon-videohive"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="blog-style-two sec-pad">
+        <div class="container">
+            <div class="sec-title">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h3>Berita Terbaru</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Dapatkan pembaruan terbaru seputar industri kontraktor, teknologi konstruksi, manajemen proyek, dan banyak lagi. Kami memberikan wawasan terbaru untuk membantu Anda tetap terhubung dengan tren dan inovasi terkini di dunia konstruksi.</p>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <a href="#" class="thm-btn">Berita Lainnya</a>
+                    </div><!-- /.col-md-3 -->
+                </div><!-- /.row -->
+            </div><!-- /.sec-title -->
+            <div class="row">
+                @foreach ($blogs as $blog)
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-blog-style-two">
+                        <div class="img-box">
+                            <img src="{{ $blog->thumbnail_url }}" alt="Awesome Image" />
+                            <a href="{{ $blog->slug }}" class="read-more">Read Post</a>
+                        </div>
+                        <div class="text-box">
+                            <div class="meta-info">
+                                <a href="#"><i class="fas fa-clock"></i> {{ $blog->created_at->format('M d') }}</a>
+                            </div>
+                            <a href="{{ $blog->slug }}">
+                                <h3>{{ $blog->title }}</h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section
 </x-layouts.app>

@@ -2,35 +2,48 @@
 
 namespace App\Http\Controllers\Web\App;
 
-use PHPUnit\Event\Code\Test;
 use App\Http\Controllers\Controller;
 use App\Interfaces\BannerRepositoryInterface;
+use App\Interfaces\BlogRepositoryInterface;
+use App\Interfaces\FrequentlyAskedQuestionRepositoryInterface;
+use App\Interfaces\ProjectCategoryRepositoryInterface;
 use App\Interfaces\ProjectRepositoryInterface;
 use App\Interfaces\ServiceRepositoryInterface;
 use App\Interfaces\TestimonialRepositoryInterface;
-use App\Interfaces\ProjectCategoryRepositoryInterface;
 
 class LandingController extends Controller
 {
     protected $bannerRepository;
+
     protected $serviceRepository;
+
     protected $projectCategoryRepository;
+
     protected $projectRepository;
+
+    protected $frequentlyAskedQuestionRepository;
+
     protected $testimonialRepository;
+
+    protected $blogRepository;
 
     public function __construct(
         BannerRepositoryInterface $bannerRepository,
         ServiceRepositoryInterface $serviceRepository,
         ProjectCategoryRepositoryInterface $projectCategoryRepository,
         ProjectRepositoryInterface $projectRepository,
-        TestimonialRepositoryInterface $testimonialRepository        
+        FrequentlyAskedQuestionRepositoryInterface $frequentlyAskedQuestionRepository,
+        TestimonialRepositoryInterface $testimonialRepository,
+        BlogRepositoryInterface $blogRepository
 
     ) {
         $this->bannerRepository = $bannerRepository;
         $this->serviceRepository = $serviceRepository;
         $this->projectCategoryRepository = $projectCategoryRepository;
         $this->projectRepository = $projectRepository;
+        $this->frequentlyAskedQuestionRepository = $frequentlyAskedQuestionRepository;
         $this->testimonialRepository = $testimonialRepository;
+        $this->blogRepository = $blogRepository;
     }
 
     public function index()
@@ -39,14 +52,18 @@ class LandingController extends Controller
         $services = $this->serviceRepository->getAllService();
         $projectCategories = $this->projectCategoryRepository->getAllProjectCategory();
         $projects = $this->projectRepository->getAllProjects();
-        $testimonials = $this->testimonialRepository->getAllTestimonial();        
+        $faqs = $this->frequentlyAskedQuestionRepository->getAllFrequentlyAskedQuestion();
+        $testimonials = $this->testimonialRepository->getAllTestimonial();
+        $blogs = $this->blogRepository->getAllBlog();
 
         return view('pages.app.landing', compact(
-            'banners', 
-            'services', 
-            'projectCategories', 
+            'banners',
+            'services',
+            'projectCategories',
             'projects',
-            'testimonials'
+            'faqs',
+            'testimonials',
+            'blogs'
         ));
     }
 }

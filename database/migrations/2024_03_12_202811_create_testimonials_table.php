@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('testimonials', function (Blueprint $table) {
             $table->uuid('id')->primary();
 
+            $table->string('thumbnail');
             $table->string('name');
             $table->string('title');
             $table->string('subtitle');

@@ -18,14 +18,15 @@
         </div>
         @endif
 
-    <div class="col-md-12 grid-margin stretch-card">
+        <div class="col-md-12 grid-margin stretch-card">
             <x-ui.base-card>
                 <x-slot name="header">
                     <h4 class="card-title">Tambah Testimonial</h4>
                 </x-slot>
                 <form action="{{ route('admin.testimonial.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <x-forms.input label="Nama" name="name" id="name" /> 
+                    <x-forms.input label="Thumbnail" name="thumbnail" id="thumbnail" type="file" />
+                    <x-forms.input label="Nama" name="name" id="name" />
                     <x-forms.input label="Judul" name="title" id="title" />
                     <x-forms.input label="Sub Judul" name="subtitle" id="subtitle" />
 

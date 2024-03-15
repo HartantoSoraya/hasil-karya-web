@@ -18,6 +18,11 @@ class Blog extends Model
         'slug',
     ];
 
+    public function getThumbnailUrlAttribute()
+    {
+        return asset('storage/'.$this->thumbnail);
+    }
+
     public function categories()
     {
         return $this->belongsToMany(BlogCategory::class, 'blog_category_pivot');

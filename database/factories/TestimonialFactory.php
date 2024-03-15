@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Http\UploadedFile;
 
 class TestimonialFactory extends Factory
 {
@@ -14,6 +15,7 @@ class TestimonialFactory extends Factory
     public function definition(): array
     {
         return [
+            'thumbnail' => UploadedFile::fake()->image('avatar.jpg'),
             'name' => $this->faker->name,
             'title' => $this->faker->sentence,
             'subtitle' => $this->faker->sentence,

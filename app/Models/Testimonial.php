@@ -12,8 +12,14 @@ class Testimonial extends Model
     use HasFactory, SoftDeletes, UUID;
 
     protected $fillable = [
+        'thumbnail',
         'name',
         'title',
         'subtitle',
     ];
+
+    public function getThumbnailUrlAttribute()
+    {
+        return asset('storage/'.$this->thumbnail);
+    }
 }

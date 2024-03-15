@@ -15,8 +15,7 @@
                     @csrf
                     @method('PUT')
        
-                    <img src="{{ asset($banner->image_url) }}" alt="{{ $banner->title }}" style="height: 100px;width: 100px;">
-                    <!-- <x-forms.input label="Gambar" name="image" id="image" type="file" :value="$banner->image" /> -->
+                    <img src="{{ asset($banner->image_url) }}" alt="{{ $banner->title }}" style="height: 100px;width: 100px;">                    
                     <x-forms.input label="Gambar" name="image" id="image" type="file" />
                     <x-forms.input label="Judul" name="title" id="title" :value="$banner->title" />
                     <x-forms.input label="Sub Judul" name="subtitle" id="subtitle" :value="$banner->subtitle" />

@@ -13,6 +13,11 @@
                 </x-slot>
                 <table class="table table-bordered">
                     <tr>
+                        <th>Gambar</th>
+                        <td>
+                            <img src="{{ asset($testimonial->thumbnail_url) }}" alt="{{ $testimonial->title }}" style="height: 100px;width: 100px;">
+                        </td>
+                    <tr>
                         <th>Nama</th>
                         <td>{{ $testimonial->name }}</td>
                     </tr>

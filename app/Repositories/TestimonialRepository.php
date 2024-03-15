@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Interfaces\TestimonialRepositoryInterface;
 use App\Models\Testimonial;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class TestimonialRepository implements TestimonialRepositoryInterface
 {
@@ -23,7 +24,12 @@ class TestimonialRepository implements TestimonialRepositoryInterface
         DB::beginTransaction();
 
         try {
-            $testimonial = Testimonial::create($data);
+            $testimonial = new Testimonial;
+            $testimonial->image = $data['image']->store('assets/testimonials', 'public');
+            $testimonial->name = $data['name'];
+            $testimonial->title = $data['title'];
+            $testimonial->subtitle = $data['subtitle'];
+            $testimonial->save();
 
             DB::commit();
 
@@ -41,8 +47,13 @@ class TestimonialRepository implements TestimonialRepositoryInterface
 
         try {
             $testimonial = Testimonial::findOrFail($id);
-
-            $testimonial->update($data);
+            if ($data['image']) {
+                $testimonial->image = $this->updateImage($testimonial->image, $data['image']);
+            }
+            $testimonial->name = $data['name'];
+            $testimonial->title = $data['title'];
+            $testimonial->subtitle = $data['subtitle'];
+            $testimonial->save();
 
             DB::commit();
 
@@ -69,5 +80,14 @@ class TestimonialRepository implements TestimonialRepositoryInterface
 
             return $e->getMessage();
         }
+    }
+
+    private function updateImage($oldImage, $newImage)
+    {
+        if ($oldImage) {
+            Storage::disk('public')->delete($oldImage);
+        }
+
+        return $newImage->store('assets/testimonials', 'public');
     }
 }

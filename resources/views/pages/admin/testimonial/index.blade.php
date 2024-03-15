@@ -16,6 +16,7 @@
                     <x-slot name="thead">
                         <tr>
                             <th>No</th>
+                            <th>Thumbnail</th>
                             <th>Nama</th>
                             <th>Judul</th>
                             <th>Sub Judul</th>
@@ -26,6 +27,9 @@
                         @foreach ($testimonials as $testimonial)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
+                            <td>
+                                <img src="{{ asset($testimonial->thumbnail_url) }}" alt="{{ $testimonial->name }}" style="height: 100px; width: 100px;">
+                            </td>
                             <td>{{ $testimonial->name }}</td>
                             <td>{{ $testimonial->title }}</td>
                             <td>{{ $testimonial->subtitle }}</td>

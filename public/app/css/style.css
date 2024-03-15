@@ -910,8 +910,7 @@ body.active-preloader-ovh {
   display: inline-block;
   vertical-align: middle;
   text-align: center;
-  width: 135px;
-  height: 45px;
+  padding: .3em 1em;  
   border-radius: 4px;
   margin-top: 50px;
   line-height: 45px;

@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Project;
-use Illuminate\Support\Str;
+use App\Models\ProjectCategory;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Str;
 
 class ProjectCategorySeeder extends Seeder
 {
@@ -18,14 +17,14 @@ class ProjectCategorySeeder extends Seeder
             'Konstruksi',
             'Mekanikal',
             'Pengelasan',
-            'Tambang Minyak'
+            'Tambang Minyak',
         ];
 
         foreach ($category as $item) {
-            Project::create([
-                'name' => $item,
-                'slug' => Str::slug($item)
-            ]);
+            $project = new ProjectCategory();
+            $project->name = $item;
+            $project->slug = Str::slug($item);
+            $project->save();
         }
     }
 }
