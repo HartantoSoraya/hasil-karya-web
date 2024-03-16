@@ -38,8 +38,9 @@ class BlogController extends Controller
         return view('pages.admin.blog.create', compact('categories', 'tags'));
     }
 
-    public function store(StoreBlogRequest $request)
+    public function store(Request $request)
     {
+        dd($request->all());
         $data = $request->validated();
         $this->blogRepository->createBlog($data);
         Swal::toast('Blog created successfully!', 'success')->timerProgressBar();

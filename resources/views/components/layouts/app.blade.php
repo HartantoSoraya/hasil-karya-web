@@ -23,7 +23,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    
+
     <link rel="stylesheet" href="{{ asset('app/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('app/css/responsive.css') }}">
 </head>
@@ -33,7 +33,7 @@
 
 
     {{ $slot }}
-   
+
     <script src="{{ asset('app/js/jquery.js') }}"></script>
 
     <script src="{{ asset('app/js/bootstrap.min.js') }}"></script>
@@ -50,7 +50,6 @@
 
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGVCIwbinX0ILIm8KundVXgzkX_yPLsgU"></script>
-    <!-- google map helper -->
     <script src="{{ asset('app/js/gmaps.js') }}"></script>
     <script src="{{ asset('app/js/map-helper.js') }}"></script>
 </body>

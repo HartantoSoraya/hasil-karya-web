@@ -2,12 +2,12 @@
     <div class="header-top">
         <div class="container">
             <div class="pull-left left-contact-info">
-                <p><i class="fas fa-envelope-open"></i>info-desk@zxp.com</p>
-                <p><i class="zxp-icon-old-telephone-ringing"></i>+012 (3546) 547</p>
-            </div>
+                <p><i class="fas fa-envelope-open"></i>info-desk@zxp.com</p><!--
+                --><p><i class="zxp-icon-old-telephone-ringing"></i>+012 (3546) 547</p>
+            </div><!-- /.pull-left -->
             <div class="pull-right right-contact-info">
-                <p><i class="fas fa-clock"></i>Mon - Fri : 8:00 AM to 7:00 PM</p>
-                <p>
+                <p><i class="fas fa-clock"></i>Mon - Fri : 8:00 AM to 7:00 PM</p><!--
+                --><p>
                     <i class="fas fa-globe"></i>
                     <span class="select-box">
                         <select class="selectpicker" name="languages">
@@ -15,18 +15,18 @@
                             <option value="1">BN</option>
                             <option value="2">DU</option>
                         </select>
-                    </span>
+                    </span><!-- /.select-box -->
                 </p>
-            </div>
-        </div>
-    </div>
+            </div><!-- /.pull-right -->
+        </div><!-- /.container -->
+    </div><!-- /.header-top -->
     <nav class="navbar navbar-default header-navigation stricky">
         <div class="container clearfix">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed zxp-icon-menu" data-toggle="collapse" data-target=".main-navigation" aria-expanded="false"> </button>
                 <a class="navbar-brand" href="index.html">
-                    <img src="{{ asset('app/img/header-logo-1-2.jpg') }}" alt="Awesome Image" />
+                    <img src="{{ asset('app/img/header-logo-1-2.jpg') }}" alt="Awesome Image"/>
                 </a>
             </div>
 
