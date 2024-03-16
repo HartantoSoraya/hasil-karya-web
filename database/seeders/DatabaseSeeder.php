@@ -17,14 +17,14 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             AccountSeeder::class,
 
-            BannerSeeder::class,
-            ProjectCategorySeeder::class,
-            ProjectSeeder::class,
-            FAQSeeder::class,
-            TestimonialSeeder::class,
-            BlogTagSeeder::class,
-            BlogCategorySeeder::class,
-            BlogSeeder::class,
+            // BannerSeeder::class,
+            // ProjectCategorySeeder::class,
+            // ProjectSeeder::class,
+            // FAQSeeder::class,
+            // TestimonialSeeder::class,
+            // BlogTagSeeder::class,
+            // BlogCategorySeeder::class,
+            // BlogSeeder::class,
         ]);
     }
 }
