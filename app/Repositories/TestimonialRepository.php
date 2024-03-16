@@ -25,7 +25,6 @@ class TestimonialRepository implements TestimonialRepositoryInterface
 
         try {
             $testimonial = new Testimonial;
-            $testimonial->image = $data['image']->store('assets/testimonials', 'public');
             $testimonial->name = $data['name'];
             $testimonial->title = $data['title'];
             $testimonial->subtitle = $data['subtitle'];
@@ -47,9 +46,6 @@ class TestimonialRepository implements TestimonialRepositoryInterface
 
         try {
             $testimonial = Testimonial::findOrFail($id);
-            if ($data['image']) {
-                $testimonial->image = $this->updateImage($testimonial->image, $data['image']);
-            }
             $testimonial->name = $data['name'];
             $testimonial->title = $data['title'];
             $testimonial->subtitle = $data['subtitle'];
@@ -80,14 +76,5 @@ class TestimonialRepository implements TestimonialRepositoryInterface
 
             return $e->getMessage();
         }
-    }
-
-    private function updateImage($oldImage, $newImage)
-    {
-        if ($oldImage) {
-            Storage::disk('public')->delete($oldImage);
-        }
-
-        return $newImage->store('assets/testimonials', 'public');
     }
 }

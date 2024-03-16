@@ -4,4 +4,8 @@
     <x-ui.landing-about />
 
     <x-ui.landing-services :services="$services" />
+
+    <x-ui.landing-project :projects="$projects" :projectCategories="$projectCategories" />
+
+    <x-ui.landing-faq :faqs="$faqs" />
 </x-layouts.app>

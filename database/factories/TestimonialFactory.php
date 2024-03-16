@@ -15,7 +15,6 @@ class TestimonialFactory extends Factory
     public function definition(): array
     {
         return [
-            'thumbnail' => UploadedFile::fake()->image('avatar.jpg'),
             'name' => $this->faker->name,
             'title' => $this->faker->sentence,
             'subtitle' => $this->faker->sentence,

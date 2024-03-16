@@ -14,7 +14,6 @@ class StoreTestimonialRequest extends FormRequest
     public function rules()
     {
         return [
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'name' => 'required|string|max:255',
             'title' => 'required|string|max:255',
             'subtitle' => 'required|string|max:255',
@@ -24,7 +23,6 @@ class StoreTestimonialRequest extends FormRequest
     public function attributes()
     {
         return [
-            'thumbnail' => 'Gambar',
             'name' => 'Nama',
             'title' => 'Judul',
             'subtitle' => 'Sub Judul',
@@ -37,9 +35,6 @@ class StoreTestimonialRequest extends FormRequest
             'required' => ':attribute tidak boleh kosong',
             'string' => ':attribute harus berupa string',
             'max' => ':attribute maksimal :max karakter',
-            'image' => ':attribute harus berupa gambar',
-            'mimes' => ':attribute harus berupa gambar dengan format: :values',
-            'max' => ':attribute maksimal :max KB',
         ];
     }
 }
