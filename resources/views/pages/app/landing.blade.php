@@ -7,5 +7,5 @@
 
     <x-ui.landing-project :projects="$projects" :projectCategories="$projectCategories" />
 
-    <x-ui.landing-faq :faqs="$faqs" />
+    <x-ui.landing-faq :faqs="$faqs" :testimonials="$testimonials" />
 </x-layouts.app>

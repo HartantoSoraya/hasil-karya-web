@@ -25,55 +25,33 @@
             <div class="col-md-6">
                 <div class="sec-title">
                     <h3>Clients’ Review</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, aperiam consequuntur dolore
-                        mollitia laborum officia</p>
+                    <p>
+                        Beberapa review dari klien yang puas dengan layanan kami.
+                    </p>
                 </div>
                 <div class="testimonials-carousel-style-two owl-theme owl-carousel">
-                    <div class="item">
-                        <div class="single-testimonial-style-one">
-                            <div class="top-box">
-                                <i class="qoute-icon zxp-icon-right-quote"></i>
-
-                                <h3>Outstanding Quality</h3>
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div><!-- /.stars -->
-                            </div><!-- /.top-box -->
-                            <div class="content-box">
-                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, <br /> con sectetur,
-                                    adipisci velit, sed quia non num quam eius modi tem <br /> pora incid unt ut labore
-                                    et dolore magnam.</p>
-                                <h4>- Ida Leopard, Google</h4>
-                            </div><!-- /.content-box -->
+                    @foreach ($testimonials as $testimonial)
+                        <div class="item">
+                            <div class="single-testimonial-style-one">
+                                <div class="top-box">
+                                    <i class="qoute-icon zxp-icon-right-quote"></i>
+                                    <h3>{{ $testimonial->title }}</h3>
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="content-box">
+                                    <p>{{ $testimonial->subtitle }}</p>
+                                    <h4>- {{ $testimonial->name }}</h4>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="single-testimonial-style-one">
-                            <div class="top-box">
-                                <i class="qoute-icon zxp-icon-right-quote"></i>
-                                <h3>Outstanding Quality</h3>
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div><!-- /.stars -->
-                            </div><!-- /.top-box -->
-                            <div class="content-box">
-                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, <br /> con sectetur,
-                                    adipisci velit, sed quia non num quam eius modi tem <br /> pora incid unt ut labore
-                                    et dolore magnam.</p>
-                                <h4>- Ida Leopard, Google</h4>
-                            </div><!-- /.content-box -->
-                        </div>
-                    </div>
-                </div><!-- /.testimonials-carousel-style-one -->
+                    @endforeach
+                </div>
             </div>
-        </div><!-- /.row -->
-    </div><!-- /.container -->
-</section>>
+        </div>
+</section>
