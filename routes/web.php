@@ -15,3 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LandingController::class, 'index'])->name('app.landing');
+
+Route::get('/layanan', [LandingController::class, 'services'])->name('app.services');
+Route::get('/layanan/{slug}', [LandingController::class, 'serviceDetail'])->name('app.service');

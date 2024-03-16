@@ -23,6 +23,11 @@ class Service extends Model
         return asset('storage/'.$this->thumbnail);
     }
 
+    public function getExcerptAttribute()
+    {
+        return substr($this->description, 0, 100);
+    }
+
     public function images()
     {
         return $this->hasMany(ServiceImage::class);
