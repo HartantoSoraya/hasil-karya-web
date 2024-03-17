@@ -8,13 +8,13 @@
         </div>
     </div>
     <div class="sidebar-body">
-        <ul class="nav">   
+        <ul class="nav">
             <li class="nav-item {{ request()->is('admin/dashboard') ? ' active' : '' }}">
                 <a href="{{ route('admin.dashboard') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="link-title">Dashboard</span>
                 </a>
-            </li>        
+            </li>
             <li class="nav-item nav-category">Kategori</li>
             <li class="nav-item {{ request()->is('admin/blog-category') ? ' active' : '' }}">
                 <a href="{{ route('admin.blog-category.index') }}" class="nav-link">
@@ -40,7 +40,7 @@
                     <i class="link-icon" data-feather="list"></i>
                     <span class="link-title">Contact</span>
                 </a>
-            </li>       
+            </li>
             <li class="nav-item {{ request()->is('admin/banner') ? ' active' : '' }}">
                 <a href="{{ route('admin.banner.index') }}" class="nav-link">
                     <i class="link-icon" data-feather="list"></i>
@@ -77,8 +77,18 @@
                     <span class="link-title">Project</span>
                 </a>
             </li>
+            <li class="nav-item {{ request()->is('admin/client') ? ' active' : '' }}">
+                <a href="{{ route('admin.client.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="list"></i>
+                    <span class="link-title">Client</span>
+                </a>
+            </li>
+            <li class="nav-item {{ request()->is('admin/web-configuration') ? ' active' : '' }}">
+                <a href="{{ route('admin.web-configuration.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="list"></i>
+                    <span class="link-title">Web Configuration</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
-
-
