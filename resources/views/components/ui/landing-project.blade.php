@@ -35,7 +35,7 @@
         </div>
 
         <div class="more-btn-box text-center">
-            <a href="projects.html" class="thm-btn">
+            <a href="projects.html" class="thm-btn text-white">
                 View All Projects
             </a>
         </div>

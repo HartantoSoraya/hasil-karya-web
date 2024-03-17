@@ -54,7 +54,7 @@ class LandingController extends Controller
         $projects = $this->projectRepository->getAllProjects();
         $faqs = $this->frequentlyAskedQuestionRepository->getAllFrequentlyAskedQuestion();
         $testimonials = $this->testimonialRepository->getAllTestimonial();
-        $blogs = $this->blogRepository->getAllBlog();
+        $blogs = $this->blogRepository->getAllBlog()->take(3);
 
         return view('pages.app.landing', compact(
             'banners',

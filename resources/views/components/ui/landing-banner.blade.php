@@ -8,7 +8,7 @@
                             <div class="content text-left">
                                 <h2 data-animation="animated fadeInUp">{{ $banner->title }}</h2>
                                 <p data-animation="animated fadeInDown">{{ $banner->subtitle }}</p>
-                                <a href="{{ $banner->url }}" class="banner-btn" data-animation="animated fadeInDown">{{ $banner->text_url }}</a>
+                                <a href="{{ $banner->url }}" class="banner-btn text-white" data-animation="animated fadeInDown">{{ $banner->text_url }}</a>
                             </div>
                         </div>
                     </div>
