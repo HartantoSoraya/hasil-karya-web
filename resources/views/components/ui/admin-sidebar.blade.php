@@ -66,31 +66,25 @@
             </li>
 
             <li class="nav-item {{ request()->is('admin/blog-category*', 'admin/blog', 'admin/blog-tag*') ? ' active' : '' }}">
-                <a class="nav-link" data-bs-toggle="collapse" href="#news-management" role="button"
-                    aria-expanded="{{ request()->is('admin/blog-category*', 'admin/blog', 'admin/blog-tag*') ? 'true' : 'false' }}"
-                    aria-controls="news-management">
+                <a class="nav-link" data-bs-toggle="collapse" href="#news-management" role="button" aria-expanded="{{ request()->is('admin/blog-category*', 'admin/blog', 'admin/blog-tag*') ? 'true' : 'false' }}" aria-controls="news-management">
                     <i class="link-icon" data-feather="book-open"></i>
                     <span class="link-title">Manajemen Berita</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse {{ request()->is('admin/blog-category*', 'admin/blog', 'admin/blog-tag*') ? ' show' : '' }}"
-                    id="news-management">
+                <div class="collapse {{ request()->is('admin/blog-category*', 'admin/blog', 'admin/blog-tag*') ? ' show' : '' }}" id="news-management">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('admin.blog-category.index') }}"
-                                class="nav-link {{ request()->is('admin/blog-category*') ? ' active' : '' }}">
+                            <a href="{{ route('admin.blog-category.index') }}" class="nav-link {{ request()->is('admin/blog-category*') ? ' active' : '' }}">
                                 Kategori Blog
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.blog-tag.index') }}"
-                                class="nav-link {{ request()->is('admin/blog-tag') ? ' active' : '' }}">
+                            <a href="{{ route('admin.blog-tag.index') }}" class="nav-link {{ request()->is('admin/blog-tag') ? ' active' : '' }}">
                                 Tag Blog
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.blog.index') }}"
-                                class="nav-link {{ request()->is('admin/blog') ? ' active' : '' }}">
+                            <a href="{{ route('admin.blog.index') }}" class="nav-link {{ request()->is('admin/blog') ? ' active' : '' }}">
                                 Blog
                             </a>
                         </li>

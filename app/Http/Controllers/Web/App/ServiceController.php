@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Web\App;
 
 use App\Http\Controllers\Controller;
 use App\Interfaces\ServiceRepositoryInterface;
-use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {

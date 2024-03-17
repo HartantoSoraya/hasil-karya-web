@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Testimonial;
 use Illuminate\Database\Seeder;
-use Illuminate\Http\UploadedFile;
 
 class TestimonialSeeder extends Seeder
 {

@@ -5,7 +5,6 @@ namespace App\Repositories;
 use App\Interfaces\TestimonialRepositoryInterface;
 use App\Models\Testimonial;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 class TestimonialRepository implements TestimonialRepositoryInterface
 {
