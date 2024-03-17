@@ -1,0 +1,27 @@
+.d-flex{
+    display: flex;
+}
+
+.justify-content-between{
+    justify-content: space-between;
+}
+
+.align-items-center{
+    align-items: center;
+}
+
+.img-box{
+    width: 100%;
+    object-fit: cover;
+}
+
+.service-style-one .single-service-style-one .content-box{
+    padding: 20px;
+    border: 1px solid #e5e5e5;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.text-white{
+    color: #fff !important;
+}

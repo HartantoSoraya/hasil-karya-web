@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/dashboard', [App\Http\Controllers\Web\Admin\DashboardController::class, 'index'])->name('dashboard');
+
 Route::resource('example', App\Http\Controllers\Web\Admin\ExampleController::class);
 
 Route::resource('blog-tag', App\Http\Controllers\Web\Admin\BlogTagController::class);

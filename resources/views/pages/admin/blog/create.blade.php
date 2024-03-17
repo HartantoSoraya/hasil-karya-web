@@ -7,15 +7,15 @@
 
     <div class="row">
         @if ($errors->any())
-        <div class="col-md-12 grid-margin">
-            <div class="alert alert-danger" role="alert">
-                <ul class="mb-0">
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+            <div class="col-md-12 grid-margin">
+                <div class="alert alert-danger" role="alert">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
-        </div>
         @endif
 
         <div class="col-md-12 grid-margin stretch-card">
@@ -27,14 +27,16 @@
                     @csrf
                     <x-forms.input label="Title" name="title" id="title" />
                     <x-forms.input label="Thumbnail" name="thumbnail" id="thumbnail" type="file" />
-                    <x-forms.textarea label="Content" name="content" id="content" />
+
+                    <x-forms.mde label="Content" />
+
                     <x-forms.input label="Slug" name="slug" id="slug" />
 
                     <div class="mb-3">
                         <label for="categories" class="form-label">Kategori</label>
                         <select class="js-example-basic-multiple form-control" name="categories[]" multiple="multiple">
                             @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -43,7 +45,7 @@
                         <label for="tags" class="form-label">Tagar</label>
                         <select class="js-example-basic-multiple form-control" name="tags[]" multiple="multiple">
                             @foreach ($tags as $tag)
-                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -58,20 +60,20 @@
     </div>
 
     @push('custom-scripts')
-    <script>
-        const title = document.querySelector('#title');
-        const slug = document.querySelector('#slug');
+        <script>
+            const title = document.querySelector('#title');
+            const slug = document.querySelector('#slug');
 
-        title.addEventListener('keyup', function() {
-            const titleValue = title.value;
-            slug.value = titleValue.toLowerCase().split(' ').join('-');
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('.js-example-basic-multiple').select2();
-        });
-    </script>
+            title.addEventListener('keyup', function() {
+                const titleValue = title.value;
+                slug.value = titleValue.toLowerCase().split(' ').join('-');
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('.js-example-basic-multiple').select2();
+            });
+        </script>
     @endpush
 
 </x-layouts.admin>
