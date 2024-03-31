@@ -370,7 +370,7 @@ class CrudGeneratorCommand extends Command
 
     protected function generateInterfaceContent($name)
     {
-        $repositoryContent =
+        $interfaceContent =
             <<<'EOT'
             <?php
 
@@ -390,15 +390,15 @@ class CrudGeneratorCommand extends Command
             }            
             EOT;
 
-        $repositoryContent = str_replace('__namePascalCase__', $name, $repositoryContent);
-        $repositoryContent = str_replace('__namePascalCasePlurals__', Str::studly(Str::plural($name)), $repositoryContent);
-        $repositoryContent = str_replace('__nameCamelCase__', Str::camel($name), $repositoryContent);
-        $repositoryContent = str_replace('__nameSnakeCase__', Str::snake($name), $repositoryContent);
-        $repositoryContent = str_replace('__nameProperCase__', ucfirst(strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/', ' ', $name))), $repositoryContent);
-        $repositoryContent = str_replace('__nameKebabCase__', Str::kebab($name), $repositoryContent);
-        $repositoryContent = str_replace('__nameCamelCasePlurals__', Str::camel(Str::plural($name)), $repositoryContent);
+        $interfaceContent = str_replace('__namePascalCase__', $name, $interfaceContent);
+        $interfaceContent = str_replace('__namePascalCasePlurals__', Str::studly(Str::plural($name)), $interfaceContent);
+        $interfaceContent = str_replace('__nameCamelCase__', Str::camel($name), $interfaceContent);
+        $interfaceContent = str_replace('__nameSnakeCase__', Str::snake($name), $interfaceContent);
+        $interfaceContent = str_replace('__nameProperCase__', ucfirst(strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/', ' ', $name))), $interfaceContent);
+        $interfaceContent = str_replace('__nameKebabCase__', Str::kebab($name), $interfaceContent);
+        $interfaceContent = str_replace('__nameCamelCasePlurals__', Str::camel(Str::plural($name)), $interfaceContent);
 
-        return $repositoryContent;
+        return $interfaceContent;
     }
 
     protected function generateRepositoryContent($name)
