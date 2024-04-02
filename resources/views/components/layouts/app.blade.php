@@ -35,6 +35,8 @@
 
     {{ $slot }}
 
+    <x-ui.app-footer />
+
     <script src="{{ asset('app/js/jquery.js') }}"></script>
 
     <script src="{{ asset('app/js/bootstrap.min.js') }}"></script>

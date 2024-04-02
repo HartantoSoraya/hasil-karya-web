@@ -25,3 +25,14 @@
 .text-white{
     color: #fff !important;
 }
+.faq-style-one .accrodion-grp .accrodion.active .accrodion-title h4{
+    color: white !important;
+}
+
+.header-home-two{
+    background-color: #fff !important;
+}
+
+.header-navigation ul.navigation-box > li > a{
+    color: #000 !important;
+}

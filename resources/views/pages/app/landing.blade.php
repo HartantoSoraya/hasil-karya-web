@@ -9,7 +9,5 @@
 
     <x-ui.landing-faq :faqs="$faqs" :testimonials="$testimonials" />
 
-    <x-ui.landing-brand />
-
     <x-ui.landing-blog :blogs="$blogs" />
 </x-layouts.app>
