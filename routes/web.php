@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Web\App\LandingController;
+use App\Http\Controllers\Web\App\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class, 'index'])->name('app.landing');
 
-Route::get('/layanan', [LandingController::class, 'services'])->name('app.services');
-Route::get('/layanan/{slug}', [LandingController::class, 'serviceDetail'])->name('app.service');
+Route::get('/layanan', [ServiceController::class, 'index'])->name('app.services');
+Route::get('/layanan/{slug}', [LandingController::class, 'show'])->name('app.service');

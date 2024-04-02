@@ -13,11 +13,6 @@
                 </x-slot>
                 <table class="table table-bordered">
                     <tr>
-                        <th>Gambar</th>
-                        <td>
-                            <img src="{{ asset($testimonial->thumbnail_url) }}" alt="{{ $testimonial->title }}" style="height: 100px;width: 100px;">
-                        </td>
-                    <tr>
                         <th>Nama</th>
                         <td>{{ $testimonial->name }}</td>
                     </tr>
@@ -29,7 +24,7 @@
                         <th>Sub Judul</th>
                         <td>{{ $testimonial->subtitle }}</td>
                     </tr>
-                    
+
                     <x-slot name="footer">
                         <x-ui.base-button color="danger" href="{{ route('admin.testimonial.index') }}">Kembali</x-ui.base-button>
                     </x-slot>

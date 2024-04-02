@@ -38,3 +38,5 @@ Route::resource('testimonial', App\Http\Controllers\Web\Admin\TestimonialControl
 Route::resource('project', App\Http\Controllers\Web\Admin\ProjectController::class);
 
 Route::resource('client', App\Http\Controllers\Web\Admin\ClientController::class);
+
+Route::resource('customer-service', App\Http\Controllers\Web\Admin\CustomerServiceController::class);

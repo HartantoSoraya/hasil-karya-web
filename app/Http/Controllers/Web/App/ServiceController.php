@@ -16,7 +16,9 @@ class ServiceController extends Controller
 
     public function index()
     {
-        return view('app.services.index');
+        $services = $this->serviceRepository->getAllService();
+
+        return view('pages.app.services.index', compact('services'));
     }
 
     public function show($slug)

@@ -17,5 +17,11 @@ class Contact extends Model
         'phone_number',
         'company_name',
         'message',
+        'customer_service_id',
     ];
+
+    public function customerService()
+    {
+        return $this->belongsTo(CustomerService::class);
+    }
 }

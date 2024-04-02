@@ -16,10 +16,8 @@
                     <x-slot name="thead">
                         <tr>
                             <th>No</th>
-                            <th>Thumbnail</th>
                             <th>Nama</th>
-                            <th>Judul</th>
-                            <th>Sub Judul</th>
+                            <th>Title</th>
                             <th>Aksi</th>
                         </tr>
                     </x-slot>
@@ -27,12 +25,8 @@
                         @foreach ($testimonials as $testimonial)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>
-                                <img src="{{ asset($testimonial->thumbnail_url) }}" alt="{{ $testimonial->name }}" style="height: 100px; width: 100px;">
-                            </td>
                             <td>{{ $testimonial->name }}</td>
                             <td>{{ $testimonial->title }}</td>
-                            <td>{{ $testimonial->subtitle }}</td>
 
                             <td>
                                 <x-ui.base-button color="primary" type="button" href="{{ route('admin.testimonial.show', $testimonial->id) }}">
@@ -58,4 +52,4 @@
             </x-ui.base-card>
         </div>
     </div>
-</x-layouts.admin>                
+</x-layouts.admin>

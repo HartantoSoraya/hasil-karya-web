@@ -14,7 +14,6 @@
                 <form action="{{ route('admin.testimonial.update', $testimonial->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <x-forms.input label="Thumbnail" name="thumbnail" id="thumbnail" type="file" />
                     <x-forms.input label="Nama" name="name" id="name" :value="$testimonial->name" />
                     <x-forms.input label="Judul" name="title" id="title" :value="$testimonial->title" />
                     <x-forms.input label="Sub Judul" name="subtitle" id="subtitle" :value="$testimonial->subtitle" />
