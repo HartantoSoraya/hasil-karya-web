@@ -52,6 +52,19 @@
                 color: $thm_base_color;
             }
         }
+        select {
+            width: 100%;
+            height: 38px;
+            margin-bottom: 45px;
+            background: #EBEEF0;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            padding-left: 20px;
+            &.error {
+                background: rgba(red, .3);
+            }
+        }
     }
     .contact-info {
         h3 {
@@ -72,7 +85,7 @@
             position: relative;
             padding-left: 25px;
             + .single-contact-info {margin-top: 10px;}
-            p {                
+            p {
                 font-size: 16px;
                 letter-spacing: .025em;
                 margin: 0;
@@ -110,7 +123,7 @@
             position: relative;
             padding-left: 25px;
             + .single-contact-info {margin-top: 10px;}
-            p {                
+            p {
                 font-size: 16px;
                 letter-spacing: .025em;
                 margin: 0;
@@ -144,7 +157,7 @@
             position: relative;
             padding-left: 25px;
             + .single-contact-info {margin-top: 10px;}
-            p {                
+            p {
                 font-size: 16px;
                 letter-spacing: .025em;
                 margin: 0;

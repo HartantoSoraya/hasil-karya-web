@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\App\ContactController;
 use App\Http\Controllers\Web\App\LandingController;
 use App\Http\Controllers\Web\App\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -19,3 +20,5 @@ Route::get('/', [LandingController::class, 'index'])->name('app.landing');
 
 Route::get('/layanan', [ServiceController::class, 'index'])->name('app.services');
 Route::get('/layanan/{slug}', [LandingController::class, 'show'])->name('app.service');
+
+Route::get('/kontak-kami', [ContactController::class, 'index'])->name('app.contact');

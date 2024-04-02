@@ -28,7 +28,7 @@
                 </ul>
             </div>
             <div class="right-side-box">
-                <a href="#" class="rqa-btn">
+                <a href="{{ route('app.contact') }}" class="rqa-btn">
                     Hubungi Kami
                 </a>
             </div>

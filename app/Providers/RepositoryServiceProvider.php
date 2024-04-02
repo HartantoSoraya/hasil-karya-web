@@ -13,7 +13,8 @@ class RepositoryServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register() {
+    public function register()
+    {
 
 
         $this->app->bind(AuthRepositoryInterface::class, AuthRepository::class);
@@ -22,8 +23,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Interfaces\BlogCategoryRepositoryInterface::class, \App\Repositories\BlogCategoryRepository::class);
         $this->app->bind(\App\Interfaces\ProjectCategoryRepositoryInterface::class, \App\Repositories\ProjectCategoryRepository::class);
         $this->app->bind(\App\Interfaces\ContactRepositoryInterface::class, \App\Repositories\ContactRepository::class);
-        $this->app->bind(\App\Interfaces\ProjectImageRepositoryInterface::class, \App\Repositories\ProjectImageRepository::class);
-        $this->app->bind(\App\Interfaces\ServiceImageRepositoryInterface::class, \App\Repositories\ServiceImageRepository::class);
         $this->app->bind(\App\Interfaces\BannerRepositoryInterface::class, \App\Repositories\BannerRepository::class);
         $this->app->bind(\App\Interfaces\FrequentlyAskedQuestionRepositoryInterface::class, \App\Repositories\FrequentlyAskedQuestionRepository::class);
         $this->app->bind(\App\Interfaces\BlogRepositoryInterface::class, \App\Repositories\BlogRepository::class);
@@ -32,7 +31,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Interfaces\ProjectRepositoryInterface::class, \App\Repositories\ProjectRepository::class);
         $this->app->bind(\App\Interfaces\ClientRepositoryInterface::class, \App\Repositories\ClientRepository::class);
         $this->app->bind(\App\Interfaces\WebConfigurationRepositoryInterface::class, \App\Repositories\WebConfigurationRepository::class);
-    $this->app->bind(\App\Interfaces\CustomerServiceRepositoryInterface::class, \App\Repositories\CustomerServiceRepository::class);
+        $this->app->bind(\App\Interfaces\CustomerServiceRepositoryInterface::class, \App\Repositories\CustomerServiceRepository::class);
     }
 
 
