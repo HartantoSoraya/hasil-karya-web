@@ -20,4 +20,9 @@ class BlogCategory extends Model
     {
         return $this->belongsToMany(Blog::class, 'blog_category_pivot');
     }
+
+    public function getBlogsCountAttribute()
+    {
+        return $this->blogs->count();
+    }
 }

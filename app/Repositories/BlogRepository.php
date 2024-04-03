@@ -9,14 +9,50 @@ use Illuminate\Support\Facades\Storage;
 
 class BlogRepository implements BlogRepositoryInterface
 {
-    public function getAllBlog()
+    public function getAllBlog($perPage = null)
     {
-        return Blog::with('categories', 'tags')->latest()->get();
+        if ($perPage) {
+            return Blog::with('categories', 'tags')->paginate($perPage);
+        }
+
+        return Blog::with('categories', 'tags')->get();
     }
+
 
     public function getBlogById(string $id)
     {
         return Blog::with('categories', 'tags')->findOrFail($id);
+    }
+
+    public function getBlogBySlug(string $slug)
+    {
+        return Blog::with('categories', 'tags')->where('slug', $slug)->first();
+    }
+
+    public function getBlogByCategorySlug(string $slug, $perPage = null)
+    {
+        if ($perPage) {
+            return Blog::with('categories', 'tags')->whereHas('categories', function ($query) use ($slug) {
+                $query->where('slug', $slug);
+            })->paginate($perPage);
+        }
+
+        return Blog::with('categories', 'tags')->whereHas('categories', function ($query) use ($slug) {
+            $query->where('slug', $slug);
+        })->get();
+    }
+
+    public function getBlogByTagSlug(string $slug, $perPage = null)
+    {
+        if ($perPage) {
+            return Blog::with('categories', 'tags')->whereHas('tags', function ($query) use ($slug) {
+                $query->where('slug', $slug);
+            })->paginate($perPage);
+        }
+
+        return Blog::with('categories', 'tags')->whereHas('tags', function ($query) use ($slug) {
+            $query->where('slug', $slug);
+        })->get();
     }
 
     public function createBlog(array $data)
