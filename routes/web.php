@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\App\AboutController;
 use App\Http\Controllers\Web\App\ContactController;
 use App\Http\Controllers\Web\App\LandingController;
 use App\Http\Controllers\Web\App\ProjectController;
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LandingController::class, 'index'])->name('app.landing');
+Route::get('/tentang-kami', [AboutController::class, 'index'])->name('app.about');
 
 Route::get('/proyek-kami', [ProjectController::class, 'index'])->name('app.projects');
 Route::get('/proyek-kami/{slug}', [ProjectController::class, 'show'])->name('app.project');

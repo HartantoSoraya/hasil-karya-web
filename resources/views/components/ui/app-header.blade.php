@@ -13,7 +13,7 @@
                     <li class="{{ request()->routeIs('app.landing') ? 'current' : '' }}">
                         <a href="{{ route('app.landing') }}">Home</a>
                     </li>
-                    <li> <a href="about.html">Tentang Kami</a> </li>
+                    <li> <a href="{{ route('app.about') }}">Tentang Kami</a> </li>
                     <li class="{{ request()->routeIs('app.services') ? 'current' : '' }}">
                         <a href="{{ route('app.services') }}">Layanan</a>
                         <ul class="sub-menu">
