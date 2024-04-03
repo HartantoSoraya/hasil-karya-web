@@ -26,6 +26,11 @@ class ProjectRepository implements ProjectRepositoryInterface
         return Project::with('categories', 'images')->findOrFail($id);
     }
 
+    public function getProjectBySlug(string $slug)
+    {
+        return Project::with('categories', 'images')->where('slug', $slug)->first();
+    }
+
     public function createProject(array $data)
     {
         DB::beginTransaction();

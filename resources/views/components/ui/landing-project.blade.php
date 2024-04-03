@@ -23,7 +23,7 @@
                             <div class="overlay">
                                 <div class="box">
                                     <div class="content">
-                                        <a href="" class="more-btn fas fa-link"></a>
+                                        <a href="{{ route('app.project', $project->slug) }}" class="more-btn fas fa-link"></a>
                                         <h3>{{ $project->name }}</h3>
                                     </div>
                                 </div>
@@ -35,7 +35,7 @@
         </div>
 
         <div class="more-btn-box text-center">
-            <a href="projects.html" class="thm-btn text-white">
+            <a href="{{ route('app.projects') }}" class="thm-btn text-white">
                 View All Projects
             </a>
         </div>

@@ -9,7 +9,6 @@
             </div>
 
             <div class="collapse navbar-collapse main-navigation mainmenu " id="main-nav-bar">
-
                 <ul class="nav navbar-nav navigation-box">
                     <li class="{{ request()->routeIs('app.landing') ? 'current' : '' }}">
                         <a href="{{ route('app.landing') }}">Home</a>
@@ -24,6 +23,9 @@
                                 </li>
                             @endforeach
                         </ul>
+                    </li>
+                    <li class="{{ request()->routeIs('app.projects') ? 'current' : '' }}">
+                        <a href="{{ route('app.projects') }}">Proyek Kami</a>
                     </li>
                 </ul>
             </div>

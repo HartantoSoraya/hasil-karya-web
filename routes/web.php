@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Web\App\ContactController;
 use App\Http\Controllers\Web\App\LandingController;
+use App\Http\Controllers\Web\App\ProjectController;
 use App\Http\Controllers\Web\App\ServiceController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LandingController::class, 'index'])->name('app.landing');
+
+Route::get('/proyek-kami', [ProjectController::class, 'index'])->name('app.projects');
+Route::get('/proyek-kami/{slug}', [ProjectController::class, 'show'])->name('app.project');
 
 Route::get('/layanan', [ServiceController::class, 'index'])->name('app.services');
 Route::get('/layanan/{slug}', [ServiceController::class, 'show'])->name('app.service');
