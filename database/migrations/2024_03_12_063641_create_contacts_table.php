@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('phone_number')->nullable();
             $table->string('company_name')->nullable();
             $table->string('message')->nullable();
+            $table->uuid('customer_service_id');
 
             $table->softDeletes();
             $table->timestamps();

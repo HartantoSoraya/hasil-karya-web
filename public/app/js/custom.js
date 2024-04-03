@@ -14,18 +14,18 @@ function accrodion () {
             Self.find('.accrodion.active').find('.accrodion-content').show();
             accordion.each(function() {
                 $(this).find('.accrodion-title').on('click', function () {
-                    if ($(this).parent().hasClass('active') === false ) {                   
+                    if ($(this).parent().hasClass('active') === false ) {
                         $('.accrodion-grp.'+accrodionName).find('.accrodion').removeClass('active');
                         $('.accrodion-grp.'+accrodionName).find('.accrodion').find('.accrodion-content').slideUp();
-                        $(this).parent().addClass('active');                    
-                        $(this).parent().find('.accrodion-content').slideDown();        
+                        $(this).parent().addClass('active');
+                        $(this).parent().find('.accrodion-content').slideDown();
                     };
-                    
+
 
                 });
             });
         });
-        
+
     };
 }
 
@@ -65,7 +65,7 @@ function thmOwlCarousel() {
             navText: [
                 '<i class="fa fa-angle-left"></i>',
                 '<i class="fa fa-angle-right"></i>'
-            ],            
+            ],
             dots: false,
             autoWidth: false,
             autoplay: true,
@@ -90,7 +90,7 @@ function thmOwlCarousel() {
                 }
             }
         });
-    }; 
+    };
     if ($('.testimonials-carousel-style-two').length) {
         $('.testimonials-carousel-style-two').owlCarousel({
             loop: true,
@@ -99,7 +99,7 @@ function thmOwlCarousel() {
             navText: [
                 '<i class="fa fa-angle-left"></i>',
                 '<i class="fa fa-angle-right"></i>'
-            ],            
+            ],
             dots: false,
             autoWidth: false,
             autoplay: true,
@@ -124,7 +124,7 @@ function thmOwlCarousel() {
                 }
             }
         });
-    }; 
+    };
     if ($('.project-carousel-style-three').length) {
         $('.project-carousel-style-three').owlCarousel({
             loop: true,
@@ -133,7 +133,7 @@ function thmOwlCarousel() {
             navText: [
                 '<i class="fa fa-angle-left"></i>',
                 '<i class="fa fa-angle-right"></i>'
-            ],            
+            ],
             dots: false,
             autoWidth: false,
             autoplay: true,
@@ -162,7 +162,7 @@ function thmOwlCarousel() {
                 }
             }
         });
-    }; 
+    };
     if ($('.team-carousel-style-one').length) {
         $('.team-carousel-style-one').owlCarousel({
             loop: true,
@@ -171,7 +171,7 @@ function thmOwlCarousel() {
             navText: [
                 '<i class="fa fa-angle-left"></i>',
                 '<i class="fa fa-angle-right"></i>'
-            ],            
+            ],
             dots: true,
             autoWidth: false,
             autoplay: true,
@@ -214,7 +214,7 @@ function thmOwlCarousel() {
                 }
             }
         });
-    }; 
+    };
     if ($('.service-carousel-one').length) {
         $('.service-carousel-one').owlCarousel({
             loop: true,
@@ -223,7 +223,7 @@ function thmOwlCarousel() {
             navText: [
                 '<i class="fa fa-angle-left"></i>',
                 '<i class="fa fa-angle-right"></i>'
-            ],            
+            ],
             dots: true,
             autoWidth: false,
             autoplay: true,
@@ -248,7 +248,7 @@ function thmOwlCarousel() {
                 }
             }
         });
-    }; 
+    };
     if ($('.single-service-carousel').length) {
         $('.single-service-carousel').owlCarousel({
             loop: true,
@@ -257,7 +257,7 @@ function thmOwlCarousel() {
             navText: [
                 '<i class="fa fa-angle-left"></i>',
                 '<i class="fa fa-angle-right"></i>'
-            ],            
+            ],
             dots: true,
             autoWidth: false,
             autoplay: true,
@@ -282,7 +282,7 @@ function thmOwlCarousel() {
                 }
             }
         });
-    };  
+    };
     if ($('.brand-carousel').length) {
         $('.brand-carousel').owlCarousel({
             loop: true,
@@ -291,7 +291,7 @@ function thmOwlCarousel() {
             navText: [
                 '<i class="fa fa-angle-left"></i>',
                 '<i class="fa fa-angle-right"></i>'
-            ],            
+            ],
             dots: false,
             autoWidth: false,
             autoplay: true,
@@ -312,7 +312,7 @@ function thmOwlCarousel() {
                 }
             }
         });
-    };  
+    };
 }
 
 
@@ -381,7 +381,7 @@ function stickyHeader() {
     if ($('.stricky').length) {
         var strickyScrollPos = 100;
         var stricky = $('.stricky');
-        if ($(window).scrollTop() > strickyScrollPos) {        	
+        if ($(window).scrollTop() > strickyScrollPos) {
             stricky.removeClass('slideIn animated');
             stricky.addClass('stricky-fixed slideInDown animated');
             $('.scroll-to-top').fadeIn(500);
@@ -441,38 +441,6 @@ function thmScrollAnim() {
     };
 }
 
-function contactFormValidation() {
-    if ($('.contact-form').length) {
-        $('.contact-form').validate({ // initialize the plugin
-            rules: {
-                name: {
-                    required: true
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-                message: {
-                    required: true
-                },
-                subject: {
-                    required: true
-                }
-            },
-            submitHandler: function(form) {
-                // sending value with ajax request
-                $.post($(form).attr('action'), $(form).serialize(), function(response) {
-                    $(form).parent().find('.result').append(response);
-                    $(form).find('input[type="text"]').val('');
-                    $(form).find('input[type="email"]').val('');
-                    $(form).find('textarea').val('');
-                    console.log(response);
-                });
-                return false;
-            }
-        });
-    }
-}
 
 function thmVideoPopup() {
     if ($('.video-popup').length) {
@@ -533,7 +501,7 @@ function bootstrapAnimatedLayer() {
      * on SitePoint by Maria Antonietta Perna
      */
 
-    //Function to animate slider captions 
+    //Function to animate slider captions
     function doAnimations(elems) {
         //Cache the animationend event in a variable
         var animEndEv = 'webkitAnimationEnd animationend';
@@ -547,23 +515,23 @@ function bootstrapAnimatedLayer() {
         });
     }
 
-    //Variables on page load 
+    //Variables on page load
     var $myCarousel = $('#minimal-bootstrap-carousel'),
         $firstAnimatingElems = $myCarousel.find('.item:first').find("[data-animation ^= 'animated']");
 
-    //Initialize carousel 
+    //Initialize carousel
     $myCarousel.carousel({
         interval: 7000
     });
 
-    //Animate captions in first slide on page load 
+    //Animate captions in first slide on page load
     doAnimations($firstAnimatingElems);
 
-    //Pause carousel  
+    //Pause carousel
     $myCarousel.carousel('pause');
 
 
-    //Other slides to be animated on carousel slide event 
+    //Other slides to be animated on carousel slide event
     $myCarousel.on('slide.bs.carousel', function(e) {
         var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
         doAnimations($animatingElems);
@@ -623,22 +591,22 @@ function countDownTimer () {
             var Self = $(this);
             var countDate = Self.data('countdown-time'); // getting date
 
-            Self.countdown(countDate, function(event) {                    
+            Self.countdown(countDate, function(event) {
                 $(this).html('<li> <div class="box"> <h4>'+ event.strftime('%D') +'</h4> <span>Days</span> </div> </li> <li> <div class="box"> <h4>'+ event.strftime('%H') +'</h4> <span>Hours</span> </div> </li> <li> <div class="box"> <h4>'+ event.strftime('%M') +'</h4> <span>Minutes</span> </div> </li> <li> <div class="box"> <h4>'+ event.strftime('%S') +'</h4> <span>Seconds</span> </div> </li> ');
             });
         });
 
-        
+
 
     };
 }
 
-// instance of fuction while Document ready event   
+// instance of fuction while Document ready event
 jQuery(document).on('ready', function() {
     (function($) {
         thmMailchimp();
         thmLightBox();
-        thmCounter();        
+        thmCounter();
         contactFormValidation();
         scrollToTarget();
         thmVideoPopup();
@@ -666,6 +634,6 @@ jQuery(window).on('load', function() {
 // instance of fuction while Window Scroll event
 jQuery(window).on('scroll', function() {
     (function($) {
-        stickyHeader();   
+        stickyHeader();
     })(jQuery);
 });

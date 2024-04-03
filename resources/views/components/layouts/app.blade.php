@@ -32,6 +32,8 @@
 <body>
     <x-ui.app-header />
 
+    @include('sweetalert::alert')
+
 
     {{ $slot }}
 
@@ -55,6 +57,8 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGVCIwbinX0ILIm8KundVXgzkX_yPLsgU"></script>
     <script src="{{ asset('app/js/gmaps.js') }}"></script>
     <script src="{{ asset('app/js/map-helper.js') }}"></script>
+
+    @stack('scripts')
 </body>
 
 </html>

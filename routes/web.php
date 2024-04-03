@@ -22,3 +22,4 @@ Route::get('/layanan', [ServiceController::class, 'index'])->name('app.services'
 Route::get('/layanan/{slug}', [LandingController::class, 'show'])->name('app.service');
 
 Route::get('/kontak-kami', [ContactController::class, 'index'])->name('app.contact');
+Route::post('/kontak-kami', [ContactController::class, 'store'])->name('app.contact.store');
