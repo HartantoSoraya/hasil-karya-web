@@ -607,7 +607,6 @@ jQuery(document).on('ready', function() {
         thmMailchimp();
         thmLightBox();
         thmCounter();
-        contactFormValidation();
         scrollToTarget();
         thmVideoPopup();
         accrodion();

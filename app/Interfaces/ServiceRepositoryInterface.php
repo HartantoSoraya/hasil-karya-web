@@ -8,6 +8,8 @@ interface ServiceRepositoryInterface
 
     public function getServiceById(string $id);
 
+    public function getServiceBySlug(string $slug);
+
     public function createService(array $data);
 
     public function updateService(array $data, string $id);

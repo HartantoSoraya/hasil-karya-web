@@ -23,6 +23,8 @@ class ServiceController extends Controller
 
     public function show($slug)
     {
-        dd($slug);
+        $service = $this->serviceRepository->getServiceBySlug($slug);
+
+        return view('pages.app.services.show', compact('service'));
     }
 }

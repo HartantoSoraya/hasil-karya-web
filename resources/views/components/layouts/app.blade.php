@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>ZXP Construction - Responsive HTML 5 template</title>
+    <title>
+        {{ $title }}
+    </title>
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('app/img/favicon/apple-icon-57x57.png') }}">
