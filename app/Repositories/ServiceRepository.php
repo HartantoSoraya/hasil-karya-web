@@ -25,6 +25,17 @@ class ServiceRepository implements ServiceRepositoryInterface
         return Service::where('slug', $slug)->first();
     }
 
+    public function getServiceImages(string $serviceId = null)
+    {
+        $serviceImages = ServiceImage::query();
+
+        if ($serviceId) {
+            $serviceImages = $serviceImages->where('service_id', $serviceId);
+        }
+
+        return $serviceImages->orderBy('created_at', 'desc')->get();
+    }
+
     public function createService(array $data)
     {
         DB::beginTransaction();

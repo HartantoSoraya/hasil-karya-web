@@ -10,6 +10,8 @@ interface projectRepositoryInterface
 
     public function getprojectBySlug(string $slug);
 
+    public function getProjectImages(string $projectId = null);
+
     public function createproject(array $data);
 
     public function updateproject(array $data, string $id);

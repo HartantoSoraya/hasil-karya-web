@@ -15,7 +15,7 @@ class AccountSeeder extends Seeder
         $appname = config('app.name');
 
         User::create([
-            'email' => 'admin@'.str_replace(' ', '', strtolower($appname)).'.com',
+            'email' => 'admin@'.str_replace(' ', '', strtolower($appname)).'.co.id',
             'password' => bcrypt('password'),
         ])->assignRole('admin');
     }
