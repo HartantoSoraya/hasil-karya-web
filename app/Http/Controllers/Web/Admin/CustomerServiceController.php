@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCustomerServiceRequest;
 use App\Http\Requests\UpdateCustomerServiceRequest;
 use App\Interfaces\CustomerServiceRepositoryInterface;
-use RealRashid\SweetAlert\Facades\Alert as Swal;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert as Swal;
 
 class CustomerServiceController extends Controller
 {

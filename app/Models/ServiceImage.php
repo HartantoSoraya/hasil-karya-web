@@ -23,7 +23,6 @@ class ServiceImage extends Model
 
     public function getImageUrlAttribute()
     {
-        return asset('storage/' . $this->image);
+        return asset('storage/'.$this->image);
     }
-
 }

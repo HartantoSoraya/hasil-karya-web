@@ -7,6 +7,8 @@
 
     <x-ui.landing-project :projects="$projects" :projectCategories="$projectCategories" />
 
+    <x-ui.landing-gallery :galleries="$galleries" />
+
     <x-ui.landing-faq :faqs="$faqs" :testimonials="$testimonials" />
 
     <x-ui.landing-blog :blogs="$blogs" />

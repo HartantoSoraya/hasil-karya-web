@@ -18,7 +18,6 @@ class BlogRepository implements BlogRepositoryInterface
         return Blog::with('categories', 'tags')->get();
     }
 
-
     public function getBlogById(string $id)
     {
         return Blog::with('categories', 'tags')->findOrFail($id);

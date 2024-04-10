@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
+use App\Traits\UUID;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Traits\UUID;
 use Illuminate\Notifications\Notifiable;
 
 class CustomerService extends Model
 {
-    use HasFactory, UUID, SoftDeletes, Notifiable;
+    use HasFactory, Notifiable, SoftDeletes, UUID;
 
     protected $fillable = [
         'title',

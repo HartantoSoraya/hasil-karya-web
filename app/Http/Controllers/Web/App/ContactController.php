@@ -8,7 +8,6 @@ use App\Models\Contact;
 use App\Models\CustomerService;
 use App\Notifications\ContactNotification;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert as Swal;
 
 class ContactController extends Controller
 {
@@ -60,5 +59,4 @@ class ContactController extends Controller
 
         return redirect()->route('app.contact')->with('success', 'Pesan berhasil dikirim');
     }
-
 }

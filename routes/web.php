@@ -3,6 +3,7 @@
 use App\Http\Controllers\Web\App\AboutController;
 use App\Http\Controllers\Web\App\BlogController;
 use App\Http\Controllers\Web\App\ContactController;
+use App\Http\Controllers\Web\App\GalleryController;
 use App\Http\Controllers\Web\App\LandingController;
 use App\Http\Controllers\Web\App\ProjectController;
 use App\Http\Controllers\Web\App\ServiceController;
@@ -32,6 +33,8 @@ Route::get('/proyek-kami/{slug}', [ProjectController::class, 'show'])->name('app
 
 Route::get('/layanan', [ServiceController::class, 'index'])->name('app.services');
 Route::get('/layanan/{slug}', [ServiceController::class, 'show'])->name('app.service');
+
+Route::get('/galeri-kami', [GalleryController::class, 'index'])->name('app.galleries');
 
 Route::get('/kontak-kami', [ContactController::class, 'index'])->name('app.contact');
 Route::post('/kontak-kami', [ContactController::class, 'store'])->name('app.contact.store');

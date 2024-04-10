@@ -2,9 +2,9 @@
     <div class="container">
         <div class="sec-title">
             <div class="d-flex justify-content-between align-items-center">
-                <h3>Recent News</h3>
+                <h3>Berita Terbaru</h3>
 
-                <a href="#" class="thm-btn text-white">More News</a>
+                <a href="{{ route('app.blogs') }}" class="thm-btn text-white">Lihat Semua</a>
             </div>
         </div>
         <div class="row">
@@ -13,13 +13,13 @@
                     <div class="single-blog-style-two">
                         <div class="img-box">
                             <img src="{{ asset($blog->thumbnail_url) }}" alt="Awesome Image" />
-                            <a href="" class="read-more">Read Post</a>
+                            <a href="{{ route('app.blog', $blog->slug) }}" class="read-more">Baca Berita</a>
                         </div>
                         <div class="text-box">
                             <div class="meta-info">
-                                <a href="#"><i class="fas fa-clock"></i> {{ $blog->created_at->format('M d') }}</a>
+                                <a href="{{ route('app.blog', $blog->slug) }}"><i class="fas fa-clock"></i> {{ $blog->created_at->format('M d') }}</a>
                             </div>
-                            <a href="">
+                            <a href="{{ route('app.blog', $blog->slug) }}">
                                 <h3>{{ $blog->title }}</h3>
                             </a>
                         </div>

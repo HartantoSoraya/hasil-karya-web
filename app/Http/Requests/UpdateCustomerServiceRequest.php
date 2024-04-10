@@ -17,13 +17,15 @@ class UpdateCustomerServiceRequest extends FormRequest
             // Add your validation rules here
         ];
     }
-  public function attributes()
+
+    public function attributes()
     {
         return [
             // Add your attributes here
         ];
     }
-  public function messages()
+
+    public function messages()
     {
         return [
             // Add your messages here

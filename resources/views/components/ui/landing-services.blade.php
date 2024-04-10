@@ -1,9 +1,9 @@
-<section class="service-style-one sec-pad">
+<section class="service-style-one sec-pad" style="background-color: #dddd">
     <div class="container">
         <div class="sec-title">
             <div class="d-flex justify-content-between align-items-center">
                 <h3>Apa yang kami tawarkan</h3>
-                <a href="#" class="thm-btn bordered">
+                <a href="{{ route('app.services') }}" class="thm-btn bordered">
                     Lihat Semua
                 </a>
             </div>

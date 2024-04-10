@@ -2,30 +2,22 @@
 
 namespace App\Http\Controllers\Web\App;
 
-use App\Models\Project;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Interfaces\ProjectRepositoryInterface;
-use App\Interfaces\ServiceRepositoryInterface;
+use App\Interfaces\GalleryRepositoryInterface;
 
 class GalleryController extends Controller
 {
-    protected $projectRepository;
-    protected $serviceRepository;
+    protected $galleryRepository;
 
-    public function __construct(ProjectRepositoryInterface $projectRepository, ServiceRepositoryInterface $serviceRepository) 
+    public function __construct(GalleryRepositoryInterface $galleryRepository)
     {
-        $this->projectRepository = $projectRepository;
-        $this->serviceRepository = $serviceRepository;
+        $this->galleryRepository = $galleryRepository;
     }
 
     public function index()
     {
-        $projectImages = $this->projectRepository->getProjectImages();
-        $serviceImages = $this->serviceRepository->getServiceImages();
+        $galleries = $this->galleryRepository->getAllGallery();
 
-        $images = $projectImages->merge($serviceImages);
-        
-        return view('pages.app.gallery');
+        return view('pages.app.gallery', compact('galleries'));
     }
 }

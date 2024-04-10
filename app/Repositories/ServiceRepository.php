@@ -25,7 +25,7 @@ class ServiceRepository implements ServiceRepositoryInterface
         return Service::where('slug', $slug)->first();
     }
 
-    public function getServiceImages(string $serviceId = null)
+    public function getServiceImages(?string $serviceId = null)
     {
         $serviceImages = ServiceImage::query();
 

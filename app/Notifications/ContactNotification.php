@@ -3,14 +3,12 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
 class ContactNotification extends Notification
 {
     use Queueable;
-
 
     public array $contact;
 
@@ -21,6 +19,7 @@ class ContactNotification extends Notification
     {
         $this->contact = $contact;
     }
+
     /**
      * Get the notification's delivery channels.
      *
@@ -38,12 +37,12 @@ class ContactNotification extends Notification
     {
         return (new MailMessage)
             ->subject('New Contact Message')
-            ->greeting('Hallo ' . $this->contact['customer_service_title'])
-            ->line('Kamu menerima pesan dari ' . $this->contact['full_name'])
-            ->line('Email: ' . $this->contact['email'])
-            ->line('Nomor Telepon: ' . $this->contact['phone_number'])
-            ->line('Nama Perusahaan: ' . $this->contact['company_name'])
-            ->line('Pesan: ' . $this->contact['message'])
+            ->greeting('Hallo '.$this->contact['customer_service_title'])
+            ->line('Kamu menerima pesan dari '.$this->contact['full_name'])
+            ->line('Email: '.$this->contact['email'])
+            ->line('Nomor Telepon: '.$this->contact['phone_number'])
+            ->line('Nama Perusahaan: '.$this->contact['company_name'])
+            ->line('Pesan: '.$this->contact['message'])
             ->line('Terima kasih');
     }
 

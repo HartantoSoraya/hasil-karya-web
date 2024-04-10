@@ -14,10 +14,11 @@ class StoreCustomerServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => "required|string|max:255",
-            'email' => "required|email",
+            'title' => 'required|string|max:255',
+            'email' => 'required|email',
         ];
     }
+
     public function attributes()
     {
         return [
@@ -25,6 +26,7 @@ class StoreCustomerServiceRequest extends FormRequest
             'email' => 'Email',
         ];
     }
+
     public function messages()
     {
         return [

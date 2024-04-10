@@ -31,7 +31,8 @@ class ProjectRepository implements ProjectRepositoryInterface
         return Project::with('categories', 'images')->where('slug', $slug)->first();
     }
 
-    public function getProjectImages(string $projectId = null) {
+    public function getProjectImages(?string $projectId = null)
+    {
         $projectImages = ProjectImage::query();
 
         if ($projectId) {

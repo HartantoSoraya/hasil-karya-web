@@ -1,9 +1,9 @@
-<section class="faq-feature-wrapper testimonials-style-one faq-style-one sec-pad">
+<section class="faq-feature-wrapper testimonials-style-one faq-style-one sec-pad" style="background-color: #dddd">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="sec-title">
-                    <h3>Frequemtly Asked Question</h3>
+                    <h3>Frequently Asked Question</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, aperiam consequuntur dolore
                         mollitia laborum officia</p>
                 </div>

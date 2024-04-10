@@ -21,7 +21,7 @@ class CustomerServiceRepository implements CustomerServiceRepositoryInterface
     public function createCustomerService(array $data)
     {
         DB::beginTransaction();
-        
+
         try {
             $customerService = CustomerService::create($data);
 
@@ -70,4 +70,4 @@ class CustomerServiceRepository implements CustomerServiceRepositoryInterface
             return $e->getMessage();
         }
     }
-}        
+}

@@ -8,7 +8,7 @@
                     <h3>Best Construction Company in the World</h3>
                     <h4>Our Mission</h4>
                     <p>Our mission is to provide the best construction services to our clients. We are committed to providing the highest level of professionalism, service response, and quality workmanship.</p>
-                    <a href="#" class="about-btn">Our Services</a>
+                    <a href="#" class="about-btn">Layanan Kami</a>
                 </div>
             </div>
             <div class="col-md-6 text-right">

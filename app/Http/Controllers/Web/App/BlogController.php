@@ -11,7 +11,9 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     protected $blogRepository;
+
     protected $blogCategoryRepository;
+
     protected $blogTagRepository;
 
     public function __construct(BlogRepositoryInterface $blogRepository, BlogCategoryRepositoryInterface $blogCategoryRepository, BlogTagRepositoryInterface $blogTagRepository)
@@ -20,8 +22,6 @@ class BlogController extends Controller
         $this->blogCategoryRepository = $blogCategoryRepository;
         $this->blogTagRepository = $blogTagRepository;
     }
-
-
 
     public function index(Request $request)
     {

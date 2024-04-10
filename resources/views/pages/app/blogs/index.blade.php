@@ -18,13 +18,13 @@
                         <div class="single-blog-style-one">
                             <div class="img-box">
                                 <img src="{{ asset($blog->thumbnail_url) }}" alt="Awesome Image"/>
-                                <a href="{{ route('app.blog', $blog->slug) }}" class="read-more">Read Post</a>
+                                <a href="{{ route('app.blog', $blog->slug) }}" class="read-more">Baca Berita</a>
                             </div><!-- /.img-box -->
                             <div class="text-box">
                                 <a href="{{ route('app.blog', $blog->slug) }}"><h3>{{ $blog->title }}</h3></a>
                                 <p>{{ $blog->excerpt }}</p>
                                 <div class="meta-info">
-                                    <a href="#"><i class="far fa-calendar"></i> {{ $blog->created_at->format('M d') }}</a>
+                                    <a href="{{ route('app.blog', $blog->slug) }}"><i class="far fa-calendar"></i> {{ $blog->created_at->format('M d') }}</a>
                                     <a href="#"><i class="far fa-user"></i> Admin</a>
                                 </div><!-- /.meta-info -->
                             </div><!-- /.text-box -->

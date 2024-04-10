@@ -20,4 +20,9 @@ class ProjectImage extends Model
     {
         return $this->belongsTo(Project::class);
     }
+
+    public function getImageUrlAttribute()
+    {
+        return asset('storage/'.$this->image);
+    }
 }

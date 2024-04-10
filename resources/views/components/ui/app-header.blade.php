@@ -13,9 +13,6 @@
                     <li class="{{ request()->routeIs('app.landing') ? 'current' : '' }}">
                         <a href="{{ route('app.landing') }}">Home</a>
                     </li>
-                    <li class="{{ request()->routeIs('app.about') ? 'current' : '' }}">
-                        <a href="{{ route('app.about') }}">Tentang Kami</a>
-                    </li>
                     <li class="{{ request()->routeIs('app.services') ? 'current' : '' }}">
                         <a href="{{ route('app.services') }}">Layanan</a>
                         <ul class="sub-menu">
@@ -29,8 +26,14 @@
                     <li class="{{ request()->routeIs('app.projects') ? 'current' : '' }}">
                         <a href="{{ route('app.projects') }}">Proyek Kami</a>
                     </li>
+                    <li class="{{ request()->routeIs('app.galleries') ? 'current' : '' }}">
+                        <a href="{{ route('app.galleries') }}">Galeri Kami</a>
+                    </li>
                     <li class="{{ request()->routeIs('app.blogs') ? 'current' : '' }}">
                         <a href="{{ route('app.blogs') }}">Blog</a>
+                    </li>
+                    <li class="{{ request()->routeIs('app.about') ? 'current' : '' }}">
+                        <a href="{{ route('app.about') }}">Tentang Kami</a>
                     </li>
                 </ul>
             </div>

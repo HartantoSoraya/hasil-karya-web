@@ -13,4 +13,4 @@ interface customerServiceRepositoryInterface
     public function updatecustomerService(array $data, string $id);
 
     public function deletecustomerService(string $id);
-}            
+}

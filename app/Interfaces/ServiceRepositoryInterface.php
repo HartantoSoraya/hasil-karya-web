@@ -10,7 +10,7 @@ interface ServiceRepositoryInterface
 
     public function getServiceBySlug(string $slug);
 
-    public function getServiceImages(string $serviceId = null);
+    public function getServiceImages(?string $serviceId = null);
 
     public function createService(array $data);
 

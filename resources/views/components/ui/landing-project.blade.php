@@ -36,7 +36,7 @@
 
         <div class="more-btn-box text-center">
             <a href="{{ route('app.projects') }}" class="thm-btn text-white">
-                View All Projects
+                Lihat Seluruh Proyek
             </a>
         </div>
     </div>
