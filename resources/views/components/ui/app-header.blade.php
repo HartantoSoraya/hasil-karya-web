@@ -2,7 +2,8 @@
     <nav class="navbar navbar-default header-navigation stricky">
         <div class="container clearfix">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed zxp-icon-menu" data-toggle="collapse" data-target=".main-navigation" aria-expanded="false"> </button>
+                <button type="button" class="navbar-toggle collapsed zxp-icon-menu" data-toggle="collapse"
+                    data-target=".main-navigation" aria-expanded="false"> </button>
                 <a class="navbar-brand" href="{{ route('app.landing') }}">
                     <img src="{{ asset('app/fonts/logo-hk.png') }}" alt="Awesome Image" width="150">
                 </a>
@@ -34,6 +35,20 @@
                     </li>
                     <li class="{{ request()->routeIs('app.about') ? 'current' : '' }}">
                         <a href="{{ route('app.about') }}">Tentang Kami</a>
+                    </li>
+                    <li>
+                        <a href="#">Masuk</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="https://hasilkarya.co.id/login">Web</a>
+                            </li>
+                            <li>
+                                <a href="https://system.hasilkarya.co.id/auth/login">Sistem</a>
+                            </li>
+                            <li>
+                                <a href="https://ews.hasilkarya.co.id/auth/login">Early Warning System</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
