@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Helpers\ImageHelper\ImageHelper;
 use App\Models\Banner;
 use Illuminate\Database\Seeder;
-use Illuminate\Http\UploadedFile;
 
 class BannerSeeder extends Seeder
 {
@@ -13,23 +13,25 @@ class BannerSeeder extends Seeder
      */
     public function run(): void
     {
+        $imageHelper = new ImageHelper();
+
         $banners = [
             [
-                'image' => UploadedFile::fake()->image('banner1.jpg'),
+                'image' => $imageHelper->createDummyImageWithTextSizeAndPosition(1920, 821, 'top-center'),
                 'title' => 'Kami Hanya Melakukan Apa yang Kami Kuasai',
                 'subtitle' => 'Seorang percetakan tidak dikenal mengambil gali dari jenis dan mengacaknya untuk membuat sebuah buku spesimen jenis.',
                 'url' => Banner::factory()->make()->url,
                 'text_url' => 'Lihat Proyek',
             ],
             [
-                'image' => UploadedFile::fake()->image('banner2.jpg'),
+                'image' => $imageHelper->createDummyImageWithTextSizeAndPosition(1920, 821, 'top-center'),
                 'title' => 'Solusi Konstruksi untuk Masa Depan',
                 'subtitle' => 'Dengan inovasi terbaru, kami memberikan solusi terbaik untuk kebutuhan konstruksi Anda.',
                 'url' => Banner::factory()->make()->url,
                 'text_url' => 'Lihat Layanan Kami',
             ],
             [
-                'image' => UploadedFile::fake()->image('banner3.jpg'),
+                'image' => $imageHelper->createDummyImageWithTextSizeAndPosition(1920, 821, 'top-center'),
                 'title' => 'Keandalan dan Kualitas Terbaik',
                 'subtitle' => 'Dipercayakan oleh klien-klien kami, kami berkomitmen untuk memberikan yang terbaik dalam setiap proyek.',
                 'url' => Banner::factory()->make()->url,

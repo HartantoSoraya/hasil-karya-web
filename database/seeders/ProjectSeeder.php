@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Helpers\ImageHelper\ImageHelper;
 use App\Models\Project;
 use App\Models\ProjectCategory;
 use App\Models\ProjectImage;
 use Illuminate\Database\Seeder;
-use Illuminate\Http\UploadedFile;
 
 class ProjectSeeder extends Seeder
 {
@@ -15,9 +15,11 @@ class ProjectSeeder extends Seeder
      */
     public function run(): void
     {
+        $imageHelper = new ImageHelper();
+
         $projects = [
             [
-                'thumbnail' => UploadedFile::fake()->image('project1.jpg'),
+                'thumbnail' => $imageHelper->createDummyImageWithTextSizeAndPosition(480, 397, 'center'),
                 'name' => 'Pembangunan Jembatan Raya Jaya',
                 'slug' => 'pembangunan-jembatan-raya-jaya',
                 'description' => 'Proyek pembangunan jembatan yang menghubungkan dua wilayah penting dalam kota.',
@@ -26,7 +28,7 @@ class ProjectSeeder extends Seeder
                 'end_date' => '2024-03-31',
             ],
             [
-                'thumbnail' => UploadedFile::fake()->image('project2.jpg'),
+                'thumbnail' => $imageHelper->createDummyImageWithTextSizeAndPosition(480, 397, 'center'),
                 'name' => 'Pembangunan Pusat Perbelanjaan Baru',
                 'slug' => 'pembangunan-pusat-perbelanjaan-baru',
                 'description' => 'Pembangunan pusat perbelanjaan modern dengan berbagai macam tenant terkenal.',
@@ -35,7 +37,7 @@ class ProjectSeeder extends Seeder
                 'end_date' => '2023-12-31',
             ],
             [
-                'thumbnail' => UploadedFile::fake()->image('project3.jpg'),
+                'thumbnail' => $imageHelper->createDummyImageWithTextSizeAndPosition(480, 397, 'center'),
                 'name' => 'Pembangunan Lapangan Olahraga Utama',
                 'slug' => 'pembangunan-lapangan-olahraga-utama',
                 'description' => 'Proyek pembangunan lapangan olahraga utama yang akan menjadi pusat kegiatan olahraga di kota.',
@@ -44,7 +46,7 @@ class ProjectSeeder extends Seeder
                 'end_date' => '2023-10-31',
             ],
             [
-                'thumbnail' => UploadedFile::fake()->image('project4.jpg'),
+                'thumbnail' => $imageHelper->createDummyImageWithTextSizeAndPosition(480, 397, 'center'),
                 'name' => 'Pembangunan Apartemen Taman Harmoni',
                 'slug' => 'pembangunan-apartemen-taman-harmoni',
                 'description' => 'Pembangunan apartemen dengan konsep taman yang nyaman dan harmonis.',
@@ -53,7 +55,7 @@ class ProjectSeeder extends Seeder
                 'end_date' => '2024-08-31',
             ],
             [
-                'thumbnail' => UploadedFile::fake()->image('project5.jpg'),
+                'thumbnail' => $imageHelper->createDummyImageWithTextSizeAndPosition(480, 397, 'center'),
                 'name' => 'Renovasi Hotel Bintang Lima',
                 'slug' => 'renovasi-hotel-bintang-lima',
                 'description' => 'Renovasi total hotel berbintang lima untuk meningkatkan kualitas pelayanan dan fasilitas.',
@@ -77,7 +79,7 @@ class ProjectSeeder extends Seeder
             for ($i = 0; $i < rand(1, 5); $i++) {
                 $projectImage = new ProjectImage();
                 $projectImage->project_id = $newProject->id;
-                $projectImage->image = UploadedFile::fake()->image('image.jpg')->store('assets/projects/images', 'public');
+                $projectImage->image = $imageHelper->createDummyImageWithTextSizeAndPosition(370, 240, 'center')->store('assets/projects/images', 'public');
                 $projectImage->save();
             }
 
