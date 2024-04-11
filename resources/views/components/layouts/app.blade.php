@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="{{ asset('app/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('app/css/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('app/css/custom.css') }}">
+
+    @stack('styles')
 </head>
 
 <body>

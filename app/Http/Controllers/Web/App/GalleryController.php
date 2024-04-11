@@ -16,7 +16,7 @@ class GalleryController extends Controller
 
     public function index()
     {
-        $galleries = $this->galleryRepository->getAllGallery();
+        $galleries = $this->galleryRepository->getAllGallery(null, 8);
 
         return view('pages.app.gallery', compact('galleries'));
     }
