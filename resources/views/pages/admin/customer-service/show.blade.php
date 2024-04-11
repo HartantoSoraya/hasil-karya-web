@@ -13,7 +13,7 @@
                 </x-slot>
                 <table class="table table-bordered">
                     <tr>
-                        <th>Title</th>
+                        <th>Nama Divisi</th>
                         <td>{{ $customerService->title }}</td>
                     </tr>
                     <tr>

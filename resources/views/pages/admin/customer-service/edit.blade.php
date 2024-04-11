@@ -14,7 +14,7 @@
                 <form action="{{ route('admin.customer-service.update', $customerService->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <x-forms.input label="Title" name="title" id="title" :value="$customerService->title" />
+                    <x-forms.input label="Nama Divisi" name="title" id="title" :value="$customerService->title" />
                     <x-forms.input label="Email" name="email" id="email" :value="$customerService->email" />
 
                     <x-ui.base-button color="danger" href="{{ route('admin.customer-service.index') }}">

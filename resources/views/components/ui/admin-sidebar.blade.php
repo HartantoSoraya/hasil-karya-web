@@ -14,6 +14,14 @@
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
+
+            <li class="nav-item {{ request()->is('admin/customer-service') ? ' active' : '' }}">
+                <a href="{{ route('admin.customer-service.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="headphones"></i>
+                    <span class="link-title">Customer Service</span>
+                </a>
+            </li>
+
             <li class="nav-item {{ request()->is('admin/contact') ? ' active' : '' }}">
                 <a href="{{ route('admin.contact.index') }}" class="nav-link">
                     <i class="link-icon" data-feather="phone"></i>
@@ -96,13 +104,6 @@
                 <a href="{{ route('admin.client.index') }}" class="nav-link">
                     <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Client</span>
-                </a>
-            </li>
-
-            <li class="nav-item {{ request()->is('admin/customer-service') ? ' active' : '' }}">
-                <a href="{{ route('admin.customer-service.index') }}" class="nav-link">
-                    <i class="link-icon" data-feather="headphones"></i>
-                    <span class="link-title">Customer Service</span>
                 </a>
             </li>
 
