@@ -21,10 +21,11 @@
                             <th>Nomor Telepon</th>
                             <th>Nama Perusahaan</th>
                             <th>Pesan</th>
+                            <th>Customer Service</th>
                             <th>Aksi</th>
                         </tr>
                     </x-slot>
-                    <x-slot name="tbody">                  
+                    <x-slot name="tbody">
                         @foreach ($contacts as $contact)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
@@ -33,6 +34,7 @@
                                 <td>{{ $contact->phone_number }}</td>
                                 <td>{{ $contact->company_name }}</td>
                                 <td>{{ $contact->message }}</td>
+                                <td>{{ $contact->customerService->title }}</td>
 
                                 <td>
                                     <x-ui.base-button color="primary" type="button"

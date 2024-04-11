@@ -32,6 +32,10 @@
                         <th>Message</th>
                         <td>{{ $contact->message }}</td>
                     </tr>
+                    <tr>
+                        <th>Customer Service</th>
+                        <td>{{ $contact->customerService->title }}</td>
+                    </tr>
                     <x-slot name="footer">
                         <x-ui.base-button color="danger" href="{{ route('admin.contact.index') }}">Kembali</x-ui.base-button>
                     </x-slot>

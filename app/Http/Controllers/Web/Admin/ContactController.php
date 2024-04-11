@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use App\Interfaces\ContactRepositoryInterface;
+use App\Interfaces\CustomerServiceRepositoryInterface;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert as Swal;
 
@@ -13,9 +14,12 @@ class ContactController extends Controller
 {
     protected $contactRepository;
 
-    public function __construct(ContactRepositoryInterface $contactRepository)
+    protected $customerServiceRepository;
+
+    public function __construct(ContactRepositoryInterface $contactRepository, CustomerServiceRepositoryInterface $customerServiceRepository)
     {
         $this->contactRepository = $contactRepository;
+        $this->customerServiceRepository = $customerServiceRepository;
     }
 
     public function index(Request $request)
@@ -27,7 +31,9 @@ class ContactController extends Controller
 
     public function create()
     {
-        return view('pages.admin.contact.create');
+        $customerServices = $this->customerServiceRepository->getAllCustomerServices();
+
+        return view('pages.admin.contact.create', compact('customerServices'));
     }
 
     public function store(StoreContactRequest $request)
@@ -48,9 +54,11 @@ class ContactController extends Controller
 
     public function edit($id)
     {
+        $customerServices = $this->customerServiceRepository->getAllCustomerServices();
+
         $contact = $this->contactRepository->getContactById($id);
 
-        return view('pages.admin.contact.edit', compact('contact'));
+        return view('pages.admin.contact.edit', compact('customerServices', 'contact'));
     }
 
     public function update(UpdateContactRequest $request, $id)

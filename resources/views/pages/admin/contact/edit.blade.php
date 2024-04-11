@@ -19,6 +19,7 @@
                     <x-forms.input label="Phone Number" name="phone_number" id="phone_number" :value="$contact->phone_number" />
                     <x-forms.input label="Company Name" name="company_name" id="company_name" :value="$contact->company_name" />
                     <x-forms.input label="Message" name="message" id="message" :value="$contact->message" />
+                    <x-forms.select label="Customer Service" name="customer_service_id" id="customer_service_id" :options="$customerServices" key="id" value="title" :selected="$contact->customer_service_id" />
 
                     <x-ui.base-button color="danger" href="{{ route('admin.contact.index') }}">
                         Kembali
@@ -30,16 +31,4 @@
             </x-ui.base-card>
         </div>
     </div>
-
-@push('custom-scripts')
-    <script>
-        const name = document.querySelector('#name');
-        const slug = document.querySelector('#slug');
-
-        name.addEventListener('keyup', function() {
-            const nameValue = name.value;
-            slug.value = nameValue.toLowerCase().split(' ').join('-');
-        });
-    </script>
-@endpush  
 </x-layouts.admin>

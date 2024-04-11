@@ -19,6 +19,7 @@ class StoreContactRequest extends FormRequest
             'phone_number' => 'required|string',
             'company_name' => 'required|string',
             'message' => 'required|string',
+            'customer_service_id' => 'required|exists:customer_services,id',
         ];
     }
 
@@ -30,7 +31,7 @@ class StoreContactRequest extends FormRequest
             'phone_number' => 'Nomor Telepon',
             'company_name' => 'Nama Perusahaan',
             'message' => 'Pesan',
-
+            'customer_service_id' => 'Customer Service',
         ];
     }
 
@@ -41,6 +42,8 @@ class StoreContactRequest extends FormRequest
             'string' => ':attribute harus berupa string',
             'max' => ':attribute maksimal :max karakter',
             'email' => ':attribute harus berupa email',
+            'unique' => ':attribute sudah terdaftar',
+            'exists' => ':attribute tidak ditemukan',
         ];
     }
 }

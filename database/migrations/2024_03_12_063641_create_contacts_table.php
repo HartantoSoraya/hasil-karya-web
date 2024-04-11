@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('company_name')->nullable();
             $table->string('message')->nullable();
             $table->uuid('customer_service_id');
-
+            $table->foreign('customer_service_id')->references('id')->on('customer_services')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

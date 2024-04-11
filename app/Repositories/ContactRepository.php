@@ -10,12 +10,14 @@ class ContactRepository implements ContactRepositoryInterface
 {
     public function getAllContact()
     {
-        return Contact::all();
+        $contacts = Contact::with('customerService')->latest()->get();
+
+        return $contacts;
     }
 
     public function getContactById(string $id)
     {
-        return Contact::findOrFail($id);
+        return Contact::with('customerService')->findOrFail($id);
     }
 
     public function createContact(array $data)

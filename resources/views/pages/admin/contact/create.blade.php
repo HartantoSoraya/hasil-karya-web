@@ -27,9 +27,10 @@
                     @csrf
                     <x-forms.input label="Full Nama" name="full_name" id="full_name" />
                     <x-forms.input label="Email" name="email" id="email" />
-                    <x-forms.input label="Phone Number" name="phone_number" id="phone_number" />    
-                    <x-forms.input label="Company Name" name="company_name" id="company_name" />    
-                    <x-forms.input label="Message" name="message" id="message" />    
+                    <x-forms.input label="Phone Number" name="phone_number" id="phone_number" />
+                    <x-forms.input label="Company Name" name="company_name" id="company_name" />
+                    <x-forms.input label="Message" name="message" id="message" />
+                    <x-forms.select label="Customer Service" name="customer_service_id" id="customer_service_id" :options="$customerServices" key="id" value="title" />
                     <x-ui.base-button color="primary" type="submit">Simpan</x-ui.base-button>
                     <x-ui.base-button color="danger" href="{{ route('admin.contact.index') }}">
                         Kembali
@@ -38,19 +39,4 @@
             </x-ui.base-card>
         </div>
     </div>
-
-    @push('custom-scripts')
-    <script>
-        const full_name = document.querySelector('#full_name');
-        const email = document.querySelector('#email');
-        const phone_number = document.querySelector('#phone_number');
-        const company_name = document.querySelector('#company_name');
-        const message = document.querySelector('#message');
-
-        name.addEventListener('keyup', function() {
-            const nameValue = name.value;
-            slug.value = nameValue.toLowerCase().split(' ').join('-');
-        });
-    </script>
-    @endpush
 </x-layouts.admin>
