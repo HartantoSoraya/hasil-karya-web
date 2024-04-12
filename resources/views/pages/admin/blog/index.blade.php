@@ -20,7 +20,7 @@
                             <th>Kategori</th>
                             <th>Tagar</th>
                             <th>Thumbnail</th>
-                            <th>Content</th>
+                            <th>Deksripsi</th>
                             <th>Aksi</th>
                         </tr>
                     </x-slot>
@@ -29,7 +29,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $blog->title }}</td>
-                            <td>                                
+                            <td>
                                 @foreach ($blog->categories as $category)
                                 <span class="badge bg-primary">{{ $category->name }}</span><br>
                                 @endforeach
@@ -42,7 +42,7 @@
                             <td>
                                 <img src="{{ asset('storage/' . $blog->thumbnail) }}" alt="{{ $blog->title }}" width="100">
                             </td>
-                            <td>{{ $blog->content }}</td>                                
+                            <td>{{ $blog->excerpt }}</td>
 
                             <td>
                                 <x-ui.base-button color="primary" type="button" href="{{ route('admin.blog.show', $blog->id) }}">
@@ -68,4 +68,4 @@
             </x-ui.base-card>
         </div>
     </div>
-</x-layouts.admin>                
+</x-layouts.admin>

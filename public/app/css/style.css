@@ -3237,6 +3237,8 @@ body.active-preloader-ovh {
 }
 .blog-style-one .single-blog-style-one .img-box > img {
   width: 100%;
+    height: 250px;
+    object-fit: cover;
   -webkit-transition: all .4s ease;
   transition: all .4s ease;
 }
@@ -3300,6 +3302,11 @@ body.active-preloader-ovh {
   transition: all .4s ease;
   margin-top: 0px;
   margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
 }
 .blog-style-one .single-blog-style-one .text-box h3:hover {
   color: #006EBD;
@@ -3311,6 +3318,10 @@ body.active-preloader-ovh {
   color: #727272;
   margin: 0;
   margin-bottom: 30px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .blog-style-one .single-blog-style-one:hover .img-box img {
   -webkit-transform: scale(1.05);
@@ -3344,6 +3355,8 @@ body.active-preloader-ovh {
 }
 .blog-style-two .single-blog-style-two .img-box > img {
   width: 100%;
+  height: 250px;
+  object-fit: cover;
   -webkit-transition: all .4s ease;
   transition: all .4s ease;
 }
@@ -3935,3 +3948,7 @@ body.active-preloader-ovh {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.mb-4{
+    margin-bottom: 1.5rem !important;
+}

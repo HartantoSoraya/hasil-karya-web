@@ -6,9 +6,9 @@
     <title>
         {{ $title }}
     </title>
-    <!-- mobile responsive meta -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ asset('app/fonts/logo-hk.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('app/fonts/logo-hk.pnge') }}" type="image/x-icon">
     <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="{{ asset('app/css/style.css') }}">

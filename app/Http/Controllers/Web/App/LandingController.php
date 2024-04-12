@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\App;
 use App\Http\Controllers\Controller;
 use App\Interfaces\BannerRepositoryInterface;
 use App\Interfaces\BlogRepositoryInterface;
+use App\Interfaces\ClientRepositoryInterface;
 use App\Interfaces\FrequentlyAskedQuestionRepositoryInterface;
 use App\Interfaces\GalleryRepositoryInterface;
 use App\Interfaces\ProjectCategoryRepositoryInterface;
@@ -30,6 +31,8 @@ class LandingController extends Controller
 
     protected $blogRepository;
 
+    protected $clientRepository;
+
     public function __construct(
         BannerRepositoryInterface $bannerRepository,
         ServiceRepositoryInterface $serviceRepository,
@@ -38,7 +41,8 @@ class LandingController extends Controller
         GalleryRepositoryInterface $galleryRepository,
         FrequentlyAskedQuestionRepositoryInterface $frequentlyAskedQuestionRepository,
         TestimonialRepositoryInterface $testimonialRepository,
-        BlogRepositoryInterface $blogRepository
+        BlogRepositoryInterface $blogRepository,
+        ClientRepositoryInterface $clientRepository
     ) {
         $this->bannerRepository = $bannerRepository;
         $this->serviceRepository = $serviceRepository;
@@ -48,6 +52,7 @@ class LandingController extends Controller
         $this->frequentlyAskedQuestionRepository = $frequentlyAskedQuestionRepository;
         $this->testimonialRepository = $testimonialRepository;
         $this->blogRepository = $blogRepository;
+        $this->clientRepository = $clientRepository;
     }
 
     public function index()
@@ -60,6 +65,7 @@ class LandingController extends Controller
         $faqs = $this->frequentlyAskedQuestionRepository->getAllFrequentlyAskedQuestion();
         $testimonials = $this->testimonialRepository->getAllTestimonial();
         $blogs = $this->blogRepository->getAllBlog()->take(3);
+        $clients = $this->clientRepository->getAllClients();
 
         return view('pages.app.landing', compact(
             'banners',
@@ -69,7 +75,8 @@ class LandingController extends Controller
             'galleries',
             'faqs',
             'testimonials',
-            'blogs'
+            'blogs',
+            'clients'
         ));
     }
 }

@@ -5,15 +5,12 @@
                 {{ $blog->title }}
             </h3>
             <div class="breadcumb">
-                <a href="#">Home</a><!--
-                --><span class="sep">-</span><!--
-                --><span class="page-name">
+                <a href="#">Home</a><span class="sep">-</span><span class="page-name">
                     {{ $blog->title }}
                 </span>
-            </div><!-- /.breadcumb -->
-        </div><!-- /.container -->
-    </section><!-- /.inner-banner -->
-
+            </div><
+        </div>
+    </section>
     <section class="blog-page sec-pad">
         <div class="container">
             <div class="row">
@@ -27,9 +24,9 @@
                             <a href="#"><i class="far fa-calendar"></i>
                                 {{ $blog->created_at->format('M d') }}
                             </a>
-                        </div><!-- /.meta-info -->
+                        </div>
                         <p>
-                            {{ $blog->content }}
+                            {!! $blog->content !!}
                         </p>
                         <br />
 
@@ -43,14 +40,14 @@
                                             {{ $tag->name }}
                                         </a>
                                     @endforeach
-                                </div><!-- /.tags-box -->
+                                </div>
                             @endif
-                        </div><!-- /.share-tag-box -->
+                        </div>
 
-                    </div><!-- /.single-blog-page-content -->
-                </div><!-- /.col-md-8 -->
+                    </div>
+                </div>
 
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </section><!-- /.blog-page sec-pad -->
+            </div>
+        </div>
+    </section>
 </x-layouts.app>

@@ -12,4 +12,7 @@
     <x-ui.landing-faq :faqs="$faqs" :testimonials="$testimonials" />
 
     <x-ui.landing-blog :blogs="$blogs" />
+
+    <x-ui.landing-client :clients="$clients" />
+
 </x-layouts.app>

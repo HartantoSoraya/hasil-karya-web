@@ -12,10 +12,10 @@ class BlogRepository implements BlogRepositoryInterface
     public function getAllBlog($perPage = null)
     {
         if ($perPage) {
-            return Blog::with('categories', 'tags')->paginate($perPage);
+            return Blog::with('categories', 'tags')->latest()->paginate($perPage);
         }
 
-        return Blog::with('categories', 'tags')->get();
+        return Blog::with('categories', 'tags')->latest()->get();
     }
 
     public function getBlogById(string $id)

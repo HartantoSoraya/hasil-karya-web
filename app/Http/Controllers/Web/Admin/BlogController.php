@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
 use App\Interfaces\BlogRepositoryInterface;
 use App\Repositories\BlogCategoryRepository;
@@ -37,7 +38,7 @@ class BlogController extends Controller
         return view('pages.admin.blog.create', compact('categories', 'tags'));
     }
 
-    public function store(Request $request)
+    public function store(StoreBlogRequest $request)
     {
         $data = $request->validated();
         $this->blogRepository->createBlog($data);

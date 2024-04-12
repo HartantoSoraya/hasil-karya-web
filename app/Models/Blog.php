@@ -32,4 +32,9 @@ class Blog extends Model
     {
         return $this->belongsToMany(BlogTag::class, 'blog_tag_pivot');
     }
+
+    public function getExcerptAttribute()
+    {
+        return substr(strip_tags($this->content), 0, 100) . '...';
+    }
 }

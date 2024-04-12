@@ -17,7 +17,7 @@
                     <x-forms.input label="Title" name="title" id="title" :value="$blog->title" />
                     <img src="{{ asset('storage/' . $blog->thumbnail) }}" alt="{{ $blog->title }}" style="height: 100px;width: 100px;">
                     <x-forms.input label="Thumbnail" name="thumbnail" id="thumbnail" type="file" />
-                    <x-forms.textarea label="Content" name="content" id="content" :value="$blog->content" />
+                    <x-forms.mde label="Content" name="content" id="content" :value="$blog->content" />
                     <x-forms.input label="Slug" name="slug" id="slug" :value="$blog->slug" />
 
                     <div class="mb-3">

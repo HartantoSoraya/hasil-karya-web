@@ -19,12 +19,15 @@
                     <tr>
                         <th>Thumbnail</th>
                         <td>
-                            <img src="{{ asset('storage/' . $blog->thumbnail) }}" alt="{{ $blog->title }}" style="height: 100px;width: 100px;">
+                            <img src="{{ asset('storage/' . $blog->thumbnail) }}" alt="{{ $blog->title }}"
+                                style="height: 100px;width: 100px;">
                         </td>
                     </tr>
                     <tr>
                         <th>Content</th>
-                        <td>{{ $blog->content }}</td>
+                        <td style="white-space: pre-line;">
+                            {!! $blog->content !!}
+                        </td>
                     </tr>
                     <tr>
                         <th>Slug</th>
@@ -34,7 +37,7 @@
                         <th>Kategori</th>
                         <td>
                             @foreach ($blog->categories as $category)
-                            <span class="badge bg-primary">{{ $category->name }}</span><br>
+                                <span class="badge bg-primary">{{ $category->name }}</span><br>
                             @endforeach
                         </td>
                     </tr>
@@ -42,13 +45,14 @@
                         <th>Tagar</th>
                         <td>
                             @foreach ($blog->tags as $tag)
-                            <span class="badge bg-primary">{{ $tag->name }}</span><br>
+                                <span class="badge bg-primary">{{ $tag->name }}</span><br>
                             @endforeach
                         </td>
                     </tr>
-                    
+
                     <x-slot name="footer">
-                        <x-ui.base-button color="danger" href="{{ route('admin.blog.index') }}">Kembali</x-ui.base-button>
+                        <x-ui.base-button color="danger"
+                            href="{{ route('admin.blog.index') }}">Kembali</x-ui.base-button>
                     </x-slot>
                 </table>
             </x-ui.base-card>

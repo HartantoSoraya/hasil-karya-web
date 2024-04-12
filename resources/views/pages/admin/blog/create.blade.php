@@ -28,7 +28,7 @@
                     <x-forms.input label="Title" name="title" id="title" />
                     <x-forms.input label="Thumbnail" name="thumbnail" id="thumbnail" type="file" />
 
-                    <x-forms.mde label="Content" />
+                    <x-forms.mde label="Content" name="content" id="content" />
 
                     <x-forms.input label="Slug" name="slug" id="slug" />
 
@@ -36,7 +36,9 @@
                         <label for="categories" class="form-label">Kategori</label>
                         <select class="js-example-basic-multiple form-control" name="categories[]" multiple="multiple">
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option value="{{ $category->id }}" {{ (in_array($category->id, old('categories', []))) ? 'selected' : '' }}>
+                                    {{ $category->name }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -45,10 +47,13 @@
                         <label for="tags" class="form-label">Tagar</label>
                         <select class="js-example-basic-multiple form-control" name="tags[]" multiple="multiple">
                             @foreach ($tags as $tag)
-                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                <option value="{{ $tag->id }}" {{ (in_array($tag->id, old('tags', []))) ? 'selected' : '' }}>
+                                    {{ $tag->name }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
+
 
                     <x-ui.base-button color="primary" type="submit">Simpan</x-ui.base-button>
                     <x-ui.base-button color="danger" href="{{ route('admin.blog.index') }}">
@@ -74,6 +79,7 @@
                 $('.js-example-basic-multiple').select2();
             });
         </script>
+
     @endpush
 
 </x-layouts.admin>
