@@ -32,8 +32,6 @@ class ClientRepository implements ClientRepositoryInterface
             $client->url = $data['url'];
             $client->save();
 
-            return $client;
-
             DB::commit();
 
             return $client;
@@ -52,7 +50,9 @@ class ClientRepository implements ClientRepositoryInterface
             $client = Client::find($id);
 
             $client->name = $data['name'];
-            $client->logo = $this->updateLogo($client->logo, $data['logo']);
+            if ($data['logo']) {
+                $client->logo = $this->updateLogo($client->logo, $data['logo']);
+            }
             $client->url = $data['url'];
             $client->save();
 

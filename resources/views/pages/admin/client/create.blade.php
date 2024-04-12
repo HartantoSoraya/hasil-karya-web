@@ -25,8 +25,10 @@
                 </x-slot>
                 <form action="{{ route('admin.client.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <x-forms.input label="Nama" name="name" id="name" /> 
-                    <x-forms.input label="Slug" name="slug" id="slug" />    
+                    <x-forms.input label="Nama" name="name" id="name" />
+                    <x-forms.input label="Logo" name="logo" type="file" />
+                    <x-forms.input label="Url" name="url" id="url"/>
+
                     <x-ui.base-button color="primary" type="submit">Simpan</x-ui.base-button>
                     <x-ui.base-button color="danger" href="{{ route('admin.client.index') }}">
                         Kembali
@@ -35,16 +37,4 @@
             </x-ui.base-card>
         </div>
     </div>
-
-    @push('custom-scripts')
-    <script>
-        const name = document.querySelector('#name');
-        const slug = document.querySelector('#slug');
-
-        name.addEventListener('keyup', function() {
-            const nameValue = name.value;
-            slug.value = nameValue.toLowerCase().split(' ').join('-');
-        });
-    </script>
-    @endpush
 </x-layouts.admin>

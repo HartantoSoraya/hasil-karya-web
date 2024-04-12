@@ -14,19 +14,17 @@ class UpdateClientRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'title' => 'required|string|max:255|unique:banners,title,'.$this->route('banner').',id',
-            'subtitle' => 'required|string|max:255',
-            'url' => 'required|string|max:255',
-            'text_url' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:clients,name,'.$this->route('client').',id',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'url' => 'nullable|url',
         ];
     }
 
     public function prepareForValidation()
     {
-        if (! isset($this->image)) {
+        if (! isset($this->logo)) {
             $this->merge([
-                'image' => null,
+                'logo' => null,
             ]);
         }
     }
@@ -34,11 +32,9 @@ class UpdateClientRequest extends FormRequest
     public function attributes()
     {
         return [
-            'image' => 'Gambar',
-            'title' => 'Judul',
-            'subtitle' => 'Sub Judul',
-            'url' => 'Link URL',
-            'text_url' => 'Teks URL',
+            'name' => 'Nama',
+            'logo' => 'Logo',
+            'url' => 'URL',
         ];
     }
 
@@ -48,6 +44,10 @@ class UpdateClientRequest extends FormRequest
             'required' => ':attribute tidak boleh kosong',
             'string' => ':attribute harus berupa string',
             'max' => ':attribute maksimal :max karakter',
+            'unique' => ':attribute sudah ada',
+            'image' => ':attribute harus berupa gambar',
+            'mimes' => ':attribute harus berupa gambar dengan format jpeg, png, jpg, gif, atau svg',
+            'url' => ':attribute harus berupa URL',
         ];
     }
 }

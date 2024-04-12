@@ -17,8 +17,14 @@
                         <td>{{ $client->name }}</td>
                     </tr>
                     <tr>
-                        <th>Slug</th>
-                        <td>{{ $client->slug }}</td>
+                        <th>Logo</th>
+                        <td>
+                            <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->name }}" style="max-width: 100px; max-height: 100px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Url</th>
+                        <td>{{ $client->url }}</td>
                     </tr>
                     <x-slot name="footer">
                         <x-ui.base-button color="danger" href="{{ route('admin.client.index') }}">Kembali</x-ui.base-button>

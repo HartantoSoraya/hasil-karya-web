@@ -20,14 +20,21 @@ class StoreClientRequest extends FormRequest
         ];
     }
 
+    public function prepareForValidation()
+    {
+        if (! isset($this->logo)) {
+            $this->merge([
+                'logo' => null,
+            ]);
+        }
+    }
+
     public function attributes()
     {
         return [
-            'image' => 'Gambar',
-            'title' => 'Judul',
-            'subtitle' => 'Sub Judul',
-            'url' => 'Link URL',
-            'text_url' => 'Teks URL',
+            'name' => 'Nama',
+            'logo' => 'Logo',
+            'url' => 'URL',
         ];
     }
 
@@ -37,6 +44,10 @@ class StoreClientRequest extends FormRequest
             'required' => ':attribute tidak boleh kosong',
             'string' => ':attribute harus berupa string',
             'max' => ':attribute maksimal :max karakter',
+            'unique' => ':attribute sudah ada',
+            'image' => ':attribute harus berupa gambar',
+            'mimes' => ':attribute harus berupa gambar dengan format jpeg, png, jpg, gif, atau svg',
+            'url' => ':attribute harus berupa URL',
         ];
     }
 }

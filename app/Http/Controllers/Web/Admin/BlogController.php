@@ -39,7 +39,6 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
         $data = $request->validated();
         $this->blogRepository->createBlog($data);
         Swal::toast('Blog created successfully!', 'success')->timerProgressBar();

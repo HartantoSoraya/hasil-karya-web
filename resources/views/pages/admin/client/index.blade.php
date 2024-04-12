@@ -17,6 +17,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
+                            <th>Logo</th>
                             <th>Aksi</th>
                         </tr>
                     </x-slot>
@@ -25,6 +26,9 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $client->name }}</td>
+                            <td>
+                                <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->name }}" style="max-width: 100px; max-height: 100px;">
+                            </td>
 
                             <td>
                                 <x-ui.base-button color="primary" type="button" href="{{ route('admin.client.show', $client->id) }}">
@@ -50,4 +54,4 @@
             </x-ui.base-card>
         </div>
     </div>
-</x-layouts.admin>                
+</x-layouts.admin>

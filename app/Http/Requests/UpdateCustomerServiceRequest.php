@@ -14,21 +14,26 @@ class UpdateCustomerServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            // Add your validation rules here
+            'title' => 'required|string|max:255',
+            'email' => 'required|email',
         ];
     }
 
     public function attributes()
     {
         return [
-            // Add your attributes here
+            'title' => 'Judul',
+            'email' => 'Email',
         ];
     }
 
     public function messages()
     {
         return [
-            // Add your messages here
+            'required' => ':attribute tidak boleh kosong',
+            'string' => ':attribute harus berupa string',
+            'max' => ':attribute maksimal :max karakter',
+            'email' => ':attribute harus berupa email',
         ];
     }
 }

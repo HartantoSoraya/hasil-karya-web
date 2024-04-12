@@ -15,7 +15,8 @@
                     <tr>
                         <th>Thumbnail</th>
                         <td>
-                            <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->name }}" class="img-fluid" style="width: 100px; height: 100px;">
+                            <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->name }}"
+                                class="img-fluid" style="width: 100px; height: 100px;">
                         </td>
                     </tr>
                     <tr>
@@ -34,12 +35,14 @@
                         <th>Gambar Layanan</th>
                         <td class="d-flex flex-wrap">
                             @foreach ($service->images as $image)
-                            <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $image->name }}" class="img-fluid m-2" style="width: 100px; height: 100px;">
+                                <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $image->name }}"
+                                    class="img-fluid m-2" style="width: 100px; height: 100px;">
                             @endforeach
                         </td>
                     </tr>
                     <x-slot name="footer">
-                        <x-ui.base-button color="danger" href="{{ route('admin.service.index') }}">Kembali</x-ui.base-button>
+                        <x-ui.base-button color="danger"
+                            href="{{ route('admin.service.index') }}">Kembali</x-ui.base-button>
                     </x-slot>
                 </table>
             </x-ui.base-card>

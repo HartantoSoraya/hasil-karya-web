@@ -40,13 +40,13 @@
                         <a href="#">Masuk</a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="https://hasilkarya.co.id/login">Web</a>
+                                <a href="{{ route('login')}}">Web</a>
                             </li>
                             <li>
-                                <a href="https://system.hasilkarya.co.id/auth/login">Sistem</a>
+                                <a href="https://system.hasilkarya.co.id/auth/login">Sistem Manajemen Proyek (SiMonro)</a>
                             </li>
                             <li>
-                                <a href="https://ews.hasilkarya.co.id/auth/login">Early Warning System</a>
+                                <a href="https://ews.hasilkarya.co.id/auth/login">Early Warning Sistem (EWS)</a>
                             </li>
                         </ul>
                     </li>

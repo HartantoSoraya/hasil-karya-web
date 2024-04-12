@@ -14,11 +14,12 @@
                 <form action="{{ route('admin.service.update', $service->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+                    <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->thumbnail }}" class="img-fluid m-2" style="width: 100px; height: 100px;">
                     <x-forms.input type="file" label="Thumbnail" name="thumbnail" id="thumbnail" />
                     <x-forms.input label="Nama" name="name" id="name" :value="$service->name" />
                     <x-forms.textarea label="Description" name="description" id="description" :value="$service->description"/>
                     <x-forms.input label="Slug" name="slug" id="slug" :value="$service->slug" />
-                    
+
                     <div class="mb-3">
                         <label for="selectedImages" class="form-label">Selected Images</label>
                         <div class="row">
@@ -52,5 +53,5 @@
             slug.value = nameValue.toLowerCase().split(' ').join('-');
         });
     </script>
-@endpush  
+@endpush
 </x-layouts.admin>

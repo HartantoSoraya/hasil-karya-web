@@ -15,7 +15,11 @@
                     @csrf
                     @method('PUT')
                     <x-forms.input label="Nama" name="name" id="name" :value="$client->name" />
-                    <x-forms.input label="Slug" name="slug" id="slug" :value="$client->slug" />
+                    @if ($client->logo)
+                    <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->name }}" class="img-fluid m-2" style="max-width: 100px; max-height: 100px;">
+                    @endif
+                    <x-forms.input label="Logo" name="logo" type="file" />
+                    <x-forms.input label="Url" name="url" id="url" :value="$client->url" />
 
                     <x-ui.base-button color="danger" href="{{ route('admin.client.index') }}">
                         Kembali
@@ -27,16 +31,4 @@
             </x-ui.base-card>
         </div>
     </div>
-
-@push('custom-scripts')
-    <script>
-        const name = document.querySelector('#name');
-        const slug = document.querySelector('#slug');
-
-        name.addEventListener('keyup', function() {
-            const nameValue = name.value;
-            slug.value = nameValue.toLowerCase().split(' ').join('-');
-        });
-    </script>
-@endpush  
 </x-layouts.admin>
