@@ -1,5 +1,6 @@
 <x-layouts.app title="{{ $blog->title }}" thumbnail="{{ asset($blog->thumbnail_url) }}" description="{{ $blog->excerpt }}">
-    <section class="inner-banner">
+    <section class="inner-banner" style="background: url({{ $blog->thumbnail_url }}); background-size: cover; background-position: center center;">
+        <div class="overlay"></div>
         <div class="container text-center">
             <h3>
                 {{ $blog->title }}
@@ -16,7 +17,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="single-blog-page-content">
-                        <img src="{{ asset($blog->thumbnail_url) }}" alt="Awesome Image" class="img-blog" />
                         <h3>
                             {{ $blog->title }}
                         </h3>
@@ -50,4 +50,29 @@
             </div>
         </div>
     </section>
+
+    @push('styles')
+        <style>
+            .inner-banner {
+                background: url({{ $blog->thumbnail_url }});
+                background-size: cover;
+                background-position: center center;
+                position: relative;
+            }
+
+            .overlay {
+                background: rgba(0, 0, 0, 0.5);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .inner-banner .container {
+                position: relative;
+                z-index: 1;
+            }
+        </style>
+    @endpush
 </x-layouts.app>

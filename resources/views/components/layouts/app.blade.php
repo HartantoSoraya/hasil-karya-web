@@ -11,9 +11,9 @@
     <link rel="shortcut icon" href="{{ asset('app/fonts/logo-hk.png') }}" type="image/x-icon">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="{{ asset('app/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('app/css/responsive.css') }}">
-    <link rel="stylesheet" href="{{ asset('app/css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('app/css/style.css?v=' . time()) }}">
+    <link rel="stylesheet" href="{{ asset('app/css/responsive.css?v=' . time()) }}">
+    <link rel="stylesheet" href="{{ asset('app/css/custom.css?v=' . time()) }}">
 
     <!-- Primary Meta Tags -->
     <meta name="title" content="{{ $title ?? 'CV. Hasil Karya' }}">
