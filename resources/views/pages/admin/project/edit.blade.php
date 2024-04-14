@@ -44,7 +44,7 @@
                             @endforeach
                         </div>
                     </div>
-                    <x-forms.input label="Product Images" name="images[]" id="images" type="file" multiple />      
+                    <x-forms.input label="Project Images" name="images[]" id="images" type="file" multiple />
 
                     <div class="mb-3">
                         <label for="categories" class="form-label">Kategori</label>

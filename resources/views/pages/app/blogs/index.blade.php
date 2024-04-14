@@ -1,4 +1,4 @@
-<x-layouts.app title="Blog">
+<x-layouts.app title="{{ $title ?? 'Blog' }}" description="{{ $description ?? 'Blog' }}" keywords="{{ $keywords ?? 'Blog' }}" >
     <section class="inner-banner">
         <div class="container text-center">
             <h3>Blog </h3>

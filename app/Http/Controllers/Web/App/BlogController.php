@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Interfaces\BlogCategoryRepositoryInterface;
 use App\Interfaces\BlogRepositoryInterface;
 use App\Interfaces\BlogTagRepositoryInterface;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -49,7 +50,9 @@ class BlogController extends Controller
 
         $tags = $this->blogTagRepository->getAllBlogTag();
 
-        return view('pages.app.blogs.index', compact('blogs', 'categories', 'tags'));
+        $title = Str::title(str_replace('-', ' ', $slug));
+
+        return view('pages.app.blogs.index', compact('blogs', 'categories', 'tags', 'title'));
     }
 
     public function tag(Request $request, $slug)
@@ -60,6 +63,8 @@ class BlogController extends Controller
 
         $tags = $this->blogTagRepository->getAllBlogTag();
 
-        return view('pages.app.blogs.index', compact('blogs', 'categories', 'tags'));
+        $title = Str::title(str_replace('-', ' ', $slug));
+
+        return view('pages.app.blogs.index', compact('blogs', 'categories', 'tags', 'title'));
     }
 }
