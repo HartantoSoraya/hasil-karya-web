@@ -1,4 +1,4 @@
-<x-layouts.app title="{{ $blog->title }}">
+<x-layouts.app title="{{ $blog->title }}" thumbnail="{{ asset($blog->thumbnail_url) }}" description="{{ $blog->excerpt }}">
     <section class="inner-banner">
         <div class="container text-center">
             <h3>

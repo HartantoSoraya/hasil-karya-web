@@ -1,4 +1,4 @@
-<x-layouts.app title="Home">
+<x-layouts.app title="CV. Hasil Karya">
     <x-ui.landing-banner :banners="$banners" />
 
     <x-ui.landing-about />
