@@ -17,7 +17,7 @@
 
     <!-- Primary Meta Tags -->
     <meta name="title" content="{{ $title ?? 'CV. Hasil Karya' }}">
-    <meta name="description" content="{{ $description ?? 'CV. Hasil Karya adalah perusahaan yang bergerak di bidang kontraktor bangunan, interior, dan furniture. Kami melayani jasa pembangunan rumah, kantor, ruko, dan lainnya.' }}">
+    <meta name="description" content="{{ $description ?? 'CV. Hasil Karya adalah perusahaan yang bergerak di bidang kontraktor bangunan di Purwokerto' }}">
     <meta name="keywords" content="{{ $keywords ?? 'CV. Hasil Karya, kontraktor bangunan, kontraktor interior, kontraktor furniture, jasa bangun rumah, jasa bangun kantor, jasa bangun ruko, kontraktor purwokerto, kontraktor banyumas, kontraktor cilacap' }}">
     <meta name="author" content="CV. Hasil Karya">
     <meta name="robots" content="index, follow">
@@ -31,14 +31,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="{{ $title ?? 'CV. Hasil Karya' }}">
-    <meta property="og:description" content="{{ $description ?? 'CV. Hasil Karya adalah perusahaan yang bergerak di bidang kontraktor bangunan, interior, dan furniture. Kami melayani jasa pembangunan rumah, kantor, ruko, dan lainnya.' }}">
+    <meta property="og:description" content="{{ $description ?? 'CV. Hasil Karya adalah perusahaan yang bergerak di bidang kontraktor bangunan di Purwokerto' }}">
     <meta property="og:image" content="{{ $thumbnail ?? asset('app/fonts/logo-hk.png') }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
     <meta property="twitter:title" content="{{ $title ?? 'CV. Hasil Karya' }}">
-    <meta property="twitter:description" content="{{ $description ?? 'CV. Hasil Karya adalah perusahaan yang bergerak di bidang kontraktor bangunan, interior, dan furniture. Kami melayani jasa pembangunan rumah, kantor, ruko, dan lainnya.' }}">
+    <meta property="twitter:description" content="{{ $description ?? 'CV. Hasil Karya adalah perusahaan yang bergerak di bidang kontraktor bangunan di Purwokerto' }}">
     <meta property="twitter:image" content="{{ $thumbnail ?? asset('app/fonts/logo-hk.png') }}">
 
 
