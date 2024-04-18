@@ -21,7 +21,7 @@
                             <th>Deskripsi</th>
                             <th>Client</th>
                             <th>Tanggal Mulai</th>
-                            <th>Tanggal Selesai</th>    
+                            <th>Tanggal Selesai</th>
                             <th>Kategori</th>
                             <th>Aksi</th>
                         </tr>
@@ -31,13 +31,13 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
-                                <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->name }}" class="img-fluid" style="width: 100px; height: 100px;">
+                                <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->name }}" class="img-fluid" style="max-width: 100px;">
                             </td>
                             <td>{{ $project->name }}</td>
                             <td>{{ $project->description }}</td>
                             <td>{{ $project->client }}</td>
                             <td>{{ $project->start_date->format('d-M-Y') }}</td>
-                            <td>{{ $project->end_date ? $project->end_date->format('d-M-Y') : '' }}</td>                                                       
+                            <td>{{ $project->end_date ? $project->end_date->format('d-M-Y') : '' }}</td>
                             <td>
                                 @foreach ($project->categories as $category)
                                 <span class="badge bg-primary">{{ $category->name }}</span><br>
@@ -68,4 +68,4 @@
             </x-ui.base-card>
         </div>
     </div>
-</x-layouts.admin>                
+</x-layouts.admin>

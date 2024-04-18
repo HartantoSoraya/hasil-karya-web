@@ -14,7 +14,7 @@
                 <form action="{{ route('admin.service.update', $service->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->thumbnail }}" class="img-fluid m-2" style="width: 100px; height: 100px;">
+                    <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->thumbnail }}" class="img-fluid m-2" style="max-width: 200px;">
                     <x-forms.input type="file" label="Thumbnail" name="thumbnail" id="thumbnail" />
                     <x-forms.input label="Nama" name="name" id="name" :value="$service->name" />
                     <x-forms.textarea label="Description" name="description" id="description" :value="$service->description"/>
@@ -25,7 +25,7 @@
                         <div class="row">
                             @foreach($service->images as $image)
                             <div class="col-md-3">
-                                <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $image->name }}" class="img-fluid mb-2">
+                                <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $image->name }}" class="img-fluid mb-2" style="max-width: 200px;">
                             </div>
                             @endforeach
                         </div>

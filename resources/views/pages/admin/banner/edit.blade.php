@@ -14,14 +14,14 @@
                 <form action="{{ route('admin.banner.update', $banner->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-       
-                    <img src="{{ asset($banner->image_url) }}" alt="{{ $banner->title }}" style="height: 100px;width: 100px;">                    
+
+                    <img src="{{ asset($banner->image_url) }}" alt="{{ $banner->title }}" style="width: 400px; max-height: 400px;">
                     <x-forms.input label="Gambar" name="image" id="image" type="file" />
                     <x-forms.input label="Judul" name="title" id="title" :value="$banner->title" />
                     <x-forms.input label="Sub Judul" name="subtitle" id="subtitle" :value="$banner->subtitle" />
                     <x-forms.input label="Link Url" name="url" id="url" :value="$banner->url" />
                     <x-forms.input label="Text Url" name="text_url" id="text_url" :value="$banner->text_url" />
-                    
+
                     <x-ui.base-button color="danger" href="{{ route('admin.banner.index') }}">
                         Kembali
                     </x-ui.base-button>

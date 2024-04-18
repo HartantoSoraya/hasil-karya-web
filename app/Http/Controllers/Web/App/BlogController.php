@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Interfaces\BlogCategoryRepositoryInterface;
 use App\Interfaces\BlogRepositoryInterface;
 use App\Interfaces\BlogTagRepositoryInterface;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {

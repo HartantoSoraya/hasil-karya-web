@@ -15,7 +15,7 @@
                     <tr>
                         <th>Gambar</th>
                         <td>
-                            <img src="{{ asset($banner->image_url) }}" alt="{{ $banner->title }}" style="height: 100px;width: 100px;">
+                            <img src="{{ asset($banner->image_url) }}" alt="{{ $banner->title }}" style="width: 400px; max-height: 400px;">
                         </td>
                     <tr>
                         <th>Judul</th>

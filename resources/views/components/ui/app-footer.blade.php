@@ -36,7 +36,7 @@
                         @foreach (\App\Models\Blog::latest()->take(3)->get() as $blog)
                             <div class="single-recent-post">
                                 <div class="img-box">
-                                    <img src="{{ asset($blog->thumbnail_url) }}" alt="Awesome Image" width="100" height="100"/>
+                                    <img src="{{ asset($blog->thumbnail_url) }}" alt="Awesome Image" width="100" max-height="100"/>
                                 </div>
                                 <div class="text-box">
                                     <a href="{{ route('app.blog', $blog->slug) }}"><h4>{{ $blog->title }}</h4></a>

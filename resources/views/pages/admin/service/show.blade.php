@@ -16,7 +16,7 @@
                         <th>Thumbnail</th>
                         <td>
                             <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->name }}"
-                                class="img-fluid" style="width: 100px; height: 100px;">
+                                style="max-width: 200px;">
                         </td>
                     </tr>
                     <tr>
@@ -36,7 +36,7 @@
                         <td class="d-flex flex-wrap">
                             @foreach ($service->images as $image)
                                 <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $image->name }}"
-                                    class="img-fluid m-2" style="width: 100px; height: 100px;">
+                                    class="img-fluid m-2" style="max-width: 200px;">
                             @endforeach
                         </td>
                     </tr>

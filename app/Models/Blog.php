@@ -35,6 +35,6 @@ class Blog extends Model
 
     public function getExcerptAttribute()
     {
-        return substr(strip_tags($this->content), 0, 100) . '...';
+        return substr(strip_tags($this->content), 0, 100).'...';
     }
 }

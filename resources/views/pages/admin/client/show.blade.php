@@ -19,7 +19,7 @@
                     <tr>
                         <th>Logo</th>
                         <td>
-                            <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->name }}" style="max-width: 100px; max-height: 100px;">
+                            <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->name }}" style="max-width: 200px;">
                         </td>
                     </tr>
                     <tr>

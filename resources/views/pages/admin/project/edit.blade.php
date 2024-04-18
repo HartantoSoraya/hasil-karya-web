@@ -26,6 +26,7 @@
                 <form action="{{ route('admin.project.update', $project->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+                    <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->thumbnail }}" class="img-fluid m-2" style="max-width: 200px;">
                     <x-forms.input label="Thumbnail" name="thumbnail" id="thumbnail" type="file" />
                     <x-forms.input label="Nama" name="name" id="name" value="{{ $project->name }}" />
                     <x-forms.input label="Slug" name="slug" id="slug" value="{{ $project->slug }}" />

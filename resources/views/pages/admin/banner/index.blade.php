@@ -29,7 +29,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
-                                <img src="{{ asset($banner->image_url) }}" alt="{{ $banner->title }}" style="height: 100px; width: 100px;">
+                                <img src="{{ asset($banner->image_url) }}" alt="{{ $banner->title }}" style="width: 200px; max-height: 200px;">
                             </td>
                             <td>{{ $banner->title }}</td>
                             <td>{{ $banner->subtitle }}</td>
@@ -60,4 +60,4 @@
             </x-ui.base-card>
         </div>
     </div>
-</x-layouts.admin>                
+</x-layouts.admin>

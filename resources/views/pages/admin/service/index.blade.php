@@ -27,10 +27,10 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
-                                <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->name }}" class="img-fluid" style="width: 100px; height: 100px;">
+                                <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->name }}" class="img-fluid" style="max-width: 100px">
                             </td>
                             <td>{{ $service->name }}</td>
-                            <td>{{ $service->description }}</td>                            
+                            <td>{{ $service->description }}</td>
 
                             <td>
                                 <x-ui.base-button color="primary" type="button" href="{{ route('admin.service.show', $service->id) }}">
@@ -56,4 +56,4 @@
             </x-ui.base-card>
         </div>
     </div>
-</x-layouts.admin>                
+</x-layouts.admin>

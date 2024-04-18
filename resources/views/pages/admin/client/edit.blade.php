@@ -16,7 +16,7 @@
                     @method('PUT')
                     <x-forms.input label="Nama" name="name" id="name" :value="$client->name" />
                     @if ($client->logo)
-                    <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->name }}" class="img-fluid m-2" style="max-width: 100px; max-height: 100px;">
+                    <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->name }}" class="img-fluid m-2" style="max-width: 200px;">
                     @endif
                     <x-forms.input label="Logo" name="logo" type="file" />
                     <x-forms.input label="Url" name="url" id="url" :value="$client->url" />
