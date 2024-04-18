@@ -1,10 +1,10 @@
 <x-layouts.auth title="Masuk">
-    <div class="page-content d-flex align-items-center justify-content-center">
+    <div class="page-content d-flex align-items-center justify-content-center" style="background-image: url('https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-036.jpg'); background-size: cover; background-position: center;">
         <div class="row w-100 mx-0 auth-page">
             <div class="col-md-12 col-xl-4 mx-auto">
-                <div class="card">
+                <div class="card" style="border-radius: 15px;">
                     <div class="row flex-column-reverse flex-md-row">
-                        <div class="col-md-12 ps-md-0">
+                        <div class="col-md-12">
                             <div class="auth-form-wrapper px-4 py-5">
                                 <a href="#"
                                     class="noble-ui-logo d-block mb-2">
