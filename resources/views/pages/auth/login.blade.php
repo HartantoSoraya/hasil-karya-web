@@ -11,7 +11,7 @@
                                     {{ config('app.name') }}
                                 </a>
                                 <h5 class="text-muted fw-normal mb-4">Silahkan Login Dengan Akun Anda</h5>
-                                <form action="{{ route('login') }}" method="POST">
+                                <form action="{{ route('login.store') }}" method="POST">
                                     @csrf
                                     <x-forms.input type="email" name="email" label="Email" placeholder="Masukkan email"
                                         required autofocus />
